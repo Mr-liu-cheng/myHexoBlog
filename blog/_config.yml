@@ -22,6 +22,9 @@ skip_render: null
 new_post_name: ':title.md'
 default_layout: post
 titlecase: false
+favicon:
+  small: /images/favicon.ico # 32x32 的图标
+  medium: /images/favicon.png # 可选的 48x48 或更大的图标
 external_link:
   enable: true
   field: site
