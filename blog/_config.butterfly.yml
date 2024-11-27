@@ -11,16 +11,22 @@
 
 nav:
   # Navigation bar logo image
-  logo:
+  logo: /img/favicon.png
   display_title: true
   # Whether to fix navigation bar
-  fixed: false
+  fixed: true
 
 menu:
-  # Home: / || fas fa-home
-  # List||fas fa-list:
-  #   Music: /music/ || fas fa-music
-  #   Movie: /movies/ || fas fa-video
+  Home: / || fas fa-home
+  Archives: /archives/ || fas fa-archive
+  Tags: /tags/ || fas fa-tags
+  Categories: /categories/ || fas fa-folder-open
+  # List||fas fa-list||hide:
+  Music: /music/ || fas fa-music
+  Movie: /movies/ || fas fa-video
+  照片: /Gallery/ || fas fa-images
+  Link: /link/ || fas fa-link
+  About: /about/ || fas fa-heart
 
 # --------------------------------------
 # Code Blocks Settings
@@ -28,25 +34,31 @@ menu:
 
 code_blocks:
   # Code block theme: darker / pale night / light / ocean / false
-  theme: ocean
+  theme: light
   macStyle: false
   # Code block height limit (unit: px)
+  #控制代码块的最大高度，单位是像素。如果设置为具体数值（如 height_limit: 300），代码块超出高度时会出现滚动条。
+  #false，代码块的高度不受限制。
   height_limit: false
+  #如果设置为 true，代码块会开启自动换行（即长行的代码会自动折行显示）。
+  #如果设置为 false，长行代码会超出容器边界，需要横向滚动查看。
   word_wrap: false
 
   # Toolbar
   copy: true
   language: true
   # true: shrink the code blocks | false: expand the code blocks | none: expand code blocks and hide the button
+  #代码快自动展开
   shrink: false
+  #fullpage: true：代码块会扩展为全屏宽度显示，覆盖页面的内容区域,false:文章正文的宽度范围内
   fullpage: false
 
 # Social media links
 # Formal:
 #   icon: link || the description || color
 social:
-  # fab fa-github: https://github.com/xxxxx || Github || '#24292e'
-  # fas fa-envelope: mailto:xxxxxx@gmail.com || Email || '#4a7dbe'
+  fab fa-github: https://github.com/Mr-liu-cheng || Github || '#24292e'
+  fas fa-envelope: mailto:liuchengyg@gmail.com || Email || '#4a7dbe'
 
 # --------------------------------------
 # Image Settings
@@ -65,7 +77,7 @@ disable_top_img: true
 default_top_img:
 
 # The banner image of index page
-index_img:
+index_img: /img/butterfly-icon.png
 
 # The banner image of archive page
 archive_img:
@@ -95,12 +107,14 @@ background:
 
 cover:
   # Disable the cover or not
-  index_enable: true
+  index_enable: fasle
   aside_enable: true
   archives_enable: true
   # When cover is not set, the default cover is displayed
   default_cover:
     # - xxx.jpg
+    - /img/butterfly-icon.png
+    - /img/favicon.png
 
 # Replace Broken Images
 error_img:
@@ -113,15 +127,16 @@ error_404:
   subtitle: 'Page Not Found'
   background: /img/error-page.png
 
+#用于显示文章的相关信息的。
 post_meta:
   # Home Page
   page:
     # Choose: created / updated / both
-    date_type: created
+    date_type: both
     # Choose: date / relative
     date_format: date
     categories: true
-    tags: false
+    tags: true
     label: true
   post:
     # Choose: left / center
@@ -174,13 +189,13 @@ subtitle:
 # 7: Masonry layout - Info displayed on the cover
 index_layout: 3
 
-# Display the article introduction on homepage
+# Display the article introduction on homepage 主页文章节选(自动节选和文章页description)
 # 1: description
 # 2: both (if the description exists, it will show description, or show the auto_excerpt)
 # 3: auto_excerpt (default)
 # false: do not show the article introduction
 index_post_content:
-  method: 3
+  method: 2
   # If you set method to 2 or 3, the length need to config
   length: 500
 
@@ -203,18 +218,19 @@ post_copyright:
   author_href:
   license: CC BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+  copyright: true
 
-# Sponsor/reward
+# Sponsor/reward 打赏
 reward:
-  enable: false
+  enable: true
   text:
   QR_code:
-    # - img: /img/wechat.jpg
-    #   link:
-    #   text: wechat
-    # - img: /img/alipay.jpg
-    #   link:
-    #   text: alipay
+    - img: /img/wxpay.jpg
+      link:
+      text: wechat
+    - img: /img/alipay.jpg
+      link:
+      text: alipay
 
 # Post edit
 # Easily browse and edit blog source code online.
@@ -236,7 +252,7 @@ related_post:
 # 1: The 'next post' will link to old post
 # 2: The 'next post' will link to new post
 # false: disable pagination
-post_pagination: 1
+post_pagination: 2
 
 # Displays outdated notice for a post
 noticeOutdate:
@@ -284,7 +300,7 @@ aside:
       enable: true
       icon: fab fa-github
       text: Follow Me
-      link: https://github.com/xxxxxx
+      link: https://github.com/Mr-liu-cheng
   card_announcement:
     enable: true
     content: This is my Blog
@@ -409,7 +425,7 @@ anchor:
   # Click the headline to scroll and update the anchor
   click_to_scroll: false
 
-photofigcaption: false
+photofigcaption: true
 
 copy:
   enable: true
@@ -784,7 +800,7 @@ preloader:
 enter_transitions: true
 
 # Default display mode - light (default) / dark
-display_mode: light
+display_mode: dark
 
 # Configuration for beautifying the content of the article
 beautify:

@@ -3,7 +3,7 @@ subtitle: ''
 description: ''
 keywords: null
 author: LiuCheng
-language: en
+language: zh-CN 
 timezone: ''
 url: https://mr-liu-cheng.github.io/myHexoBlog/
 permalink: ':year/:month/:day/:title/'
@@ -31,9 +31,15 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
 relative_link: false
+tag_plugins:
+  enable: true
 future: true
+#代码高亮插件选择
 syntax_highlighter: highlight.js
 highlight:
   line_number: true

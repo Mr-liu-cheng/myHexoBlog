@@ -1,0 +1,25 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.minimap.enabled": false,
+    "workbench.editor.enablePreview": false,
+    "git.openRepositoryInParentFolders": "always",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "explorer.confirmPasteNative": false,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "hexo.assetFolderType": "global",
+    "markdown-preview-enhanced.codeBlockTheme": "github-dark.css",
+    "markdown-preview-enhanced.previewTheme": "github-dark.css",
+    "markdown-preview-enhanced.revealjsTheme": "night.css",
+    "markdown.copyFiles.destination": {
+        //"**/*.md": "${documentDirName}/${documentBaseName}/${fileName}"
+        "**/*.md": "${documentBaseName}/${fileName}"
+    },
+    "workbench.settings.applyToAllProfiles": [
+        "markdown.copyFiles.destination"
+    ],
+    "MarkdownPaste.namePrefix": "${fileBasenameNoExtension}_",
+    "MarkdownPaste.path": "${documentBaseName}/${fileName}"//"${workspaceFolder}/source/img"
+}
