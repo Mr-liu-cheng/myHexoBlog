@@ -6,6 +6,8 @@ author: LiuCheng
 language: zh-CN 
 timezone: ''
 url: https://mr-liu-cheng.github.io/myHexoBlog/
+#静态网站 本地运行检测图片效果
+# url: http://example.com 
 permalink: ':year/:month/:day/:title/'
 permalink_defaults: null
 pretty_urls:
@@ -32,9 +34,9 @@ external_link:
 filename_case: 0
 render_drafts: false
 post_asset_folder: true
-marked:
-  prependRoot: true
-  postAsset: true
+# marked:
+#   prependRoot: true
+#   postAsset: true
 relative_link: false
 tag_plugins:
   enable: true
