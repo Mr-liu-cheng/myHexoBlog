@@ -60,6 +60,9 @@ index_generator:
 default_category: uncategorized
 category_map: null
 tag_map: null
+aplayer:
+  asset_inject: false
+  meting: true
 meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss

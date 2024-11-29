@@ -24,38 +24,16 @@ cover: /img/favicon.png
          getCustomPlayList: function () {
             const musicPage = document.getElementById("music-page");
             musicPage.innerHTML = `<meting-js 
-                    id="379025025"
+                    id="509302810"
                     server="netease"
                     type="playlist"
                     autoplay=true
                     mutex="true"
                     preload="auto"
-                    order="random"mini=true></meting-js>`;
+                    order="random"mini=false></meting-js>`;
         }
     };
 
    _param.getCustomPlayList();
 
 </script>
-
-<div id="player"></div>
-<script>
-  const ap = new APlayer({
-    container: document.getElementById('player'),
-    audio: [
-      {
-        name: '萤火飞光',
-        artist: '圈9',
-        url: '/musicSource/萤火飞光.mp3', // 音频文件路径
-        cover: '/img/yinghuofeiguang.png', // 封面图片路径
-        lrc: '/musicSource/萤火飞光.lrc' // 歌词文件路径
-      }
-    ],
-    lrcType: 3 // 歌词模式，3 表示使用外部 LRC 文件
-  });
-</script>
-
-<!-- <audio id="jp_audio_0" preload="metadata" src="http://lv.sycdn.kuwo.cn/11b98472cf221e766dac04ab606fb3e5/674839b9/resource/30106/trackmedia/M8000023rE2z2peO4v.mp3"></audio> -->
-
-<!-- {% aplayer 萤火飞光 圈9 musicSource/萤火飞光.mp3 img/yinghuofeiguang.png lrc:musicSource/萤火飞光.lrc %} -->
-<!-- {% aplayer title:萤火飞光 author:圈9 url:/musicSource/萤火飞光.mp3 cover:/img/yinghuofeiguang.png lrc:/musicSource/萤火飞光.lrc %} -->

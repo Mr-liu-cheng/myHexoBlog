@@ -6,7 +6,7 @@ tags:
 <div id="music-page">
 </div>
 <script>
-    var userId = "60198";
+    var userId = "509302810";
     var userServer = "netease";
     var userType = "playlist";
 </script>
