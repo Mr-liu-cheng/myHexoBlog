@@ -32,7 +32,7 @@ fs.readdir(musicFolderPath, (err, files) => {
         artist: artistName, // 歌手
         url: fixPath(path.join(pubilcMusicPath, file)), // 音乐文件的路径
         cover:  fixPath(path.join(pubilcMusicPath, `${songName}.png`)), // 封面使用歌名
-        lrc:  fixPath(path.join(pubilcMusicPath, `${songName}.lrc`)), // 歌词使用歌名
+        lrc:  fixPath(path.join(pubilcMusicPath, `${songName} - ${artistName}.lrc`)), // 歌词使用歌名
       };
     }
     // 如果文件名格式不符合预期，返回一个默认值
