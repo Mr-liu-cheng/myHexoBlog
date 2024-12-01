@@ -2,17 +2,18 @@
 title: musicPage
 date: 2024-12-01 21:47:19
 ---
+
+
 <div id="music-page">
 </div>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
 <script>
     var userId = "509302810";
     var userServer = "netease";
     var userType = "playlist";
 </script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
-
 <script>
     const params = new URLSearchParams(window.location.search);
     var _param = {
@@ -28,7 +29,6 @@ date: 2024-12-01 21:47:19
             }
         }
     };
-
     _param.getCustomPlayList();
     const vh = window.innerHeight * 1;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -36,7 +36,6 @@ date: 2024-12-01 21:47:19
         let vh = window.innerHeight * 1;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
-
 </script>
 
 
@@ -45,7 +44,6 @@ date: 2024-12-01 21:47:19
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
-
 <script>
     var _param = {
          getCustomPlayList: function () {
@@ -54,15 +52,13 @@ date: 2024-12-01 21:47:19
                     id="509302810"
                     server="netease"
                     type="playlist"
-                    autoplay=true
+                    autoplay=false
                     mutex="true"
                     preload="auto"
                     order="random"mini=false></meting-js>`;
         }
     };
-
    _param.getCustomPlayList();
-
 </script>
 
 
