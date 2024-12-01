@@ -19,7 +19,7 @@ fs.readdir(musicFolderPath, (err, files) => {
 
   // 创建歌单数组
   const playlist = audioFiles.map(file => {
-    const pubilcMusicPath = './music'; // pubilc
+    const pubilcMusicPath = '/myHexoBlog/music'; // pubilc
     // 使用正则表达式提取歌名和歌手
     const match = file.match(/^(.+?) - (.+?)\.(mp3)$/);
     if (match) {
