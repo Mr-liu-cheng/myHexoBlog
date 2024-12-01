@@ -77,9 +77,9 @@ date: 2024-12-01 21:47:19
         {
           name: '萤火飞光',
           artist: '圈9',
-          url: '../music/萤火飞光 - 圈9.mp3', // 音频文件路径
-          cover: '../music/萤火飞光.png', // 封面图片路径
-          lrc: '../music/萤火飞光 - 圈9.lrc' // 歌词文件路径
+          url: '/myHexoBlog/music/萤火飞光 - 圈9.mp3', // 音频文件路径
+          cover: '/myHexoBlog/music/萤火飞光.png', // 封面图片路径
+          lrc: '/myHexoBlog/music/萤火飞光 - 圈9.lrc' // 歌词文件路径
         }
       ],
       lrcType: 3 // 歌词模式，3 表示使用外部 LRC 文件
