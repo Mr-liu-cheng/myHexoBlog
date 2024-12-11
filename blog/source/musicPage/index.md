@@ -171,7 +171,7 @@ inject:
 本地歌单生成方式：
 
 资源存放路径：
-![alt text](/musicPage/index/image.png)
+![alt text](index/image.png)
 ``` js
 const fs = require('fs');
 const path = require('path');

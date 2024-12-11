@@ -1,0 +1,56 @@
+---
+title: hexo 图片加载方案
+date: 2024-12-11 17:27:33
+tags:
+---
+
+
+安装 hexo-asset-image 插件
+```
+npm install hexo-asset-image --save
+```
+打开node_modules\hexo-asset-image\index.js文件59行附近：
+修改代码为如下
+``` js
+//src = srcArray.join('/');这个是源码,从这下面开始修改替换
+var baseUrl = data.permalink;
+// 判断当前页面是否为文章
+if (data.layout === 'post') {
+    // 匹配最后两个斜杠间的内容和最后的斜杠，并替换为单个斜杠，目的是去掉文档存放的文件夹名
+    baseUrl = data.permalink.replace(/\/[^\/]+\/$/, '/'); 
+}
+$(this).attr('src', baseUrl +src);
+console.info&&console.info("update link as:-->"+baseUrl+src);
+```
+
+
+
+## 页签页md文档中插入图片
+
+上面的方法可以在普通文章使用，但是页签页内容插入图片会多出: .html后缀
+
+https://mr-liu-cheng.github.io/myHexoBlog/musicPage/index.html
+
+打开_config.yml ，修改如下：
+``` yml
+pretty_urls:
+  trailing_index: false
+  trailing_html: false
+```
+
+### 1. trailing_index
+这个选项控制是否在 URL 末尾自动添加 index。例如：
+
+如果 trailing_index: true，那么像 https://example.com/posts/ 这样的 URL 会变成 https://example.com/posts/index.html。
+如果 trailing_index: false，URL 末尾就不会自动添加 index，它会保持 https://example.com/posts/ 的形式。
+
+### 2. trailing_html
+这个选项控制是否在 URL 末尾添加 .html 后缀。例如：
+
+如果 trailing_html: true，像 https://example.com/posts/ 会变成 https://example.com/posts/index.html。
+如果 trailing_html: false，URL 会去掉 .html 后缀，直接使用像 https://example.com/posts/ 这样的格式。
+
+``` bash
+hexo clean
+hexo generate
+```
