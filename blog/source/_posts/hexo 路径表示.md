@@ -9,9 +9,6 @@ description: hexo 路径表示(绝对路径和相对路径)
 #用于设置全局默认的封面图片（Cover Image），通常显示在首页、分类页面、标签页面等的顶部区域。
 cover: /img/favicon.png
 ---
-
-![alt text](img/alipay.jpg)
-
 # hexo 路径表示
 
 ChatGPT:
