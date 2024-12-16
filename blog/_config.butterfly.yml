@@ -24,6 +24,7 @@ menu:
   # List||fas fa-list||hide:
   Music: /musicPage/ || fas fa-music
   Movie: /movies/ || fas fa-video
+  影视分享: /影视分享/ || fa-solid fa-film
   照片: /Photos/ || fas fa-images
   Link: /Link/ || fas fa-link
   关于: /About/ || fas fa-heart
@@ -187,7 +188,7 @@ subtitle:
 # 5: Info displayed on the cover
 # 6: Masonry layout - Cover on top, info on the bottom
 # 7: Masonry layout - Info displayed on the cover
-index_layout: 3
+index_layout: 2
 
 # Display the article introduction on homepage 主页文章节选(自动节选和文章页description)
 # 1: description
@@ -329,7 +330,7 @@ aside:
     enable: true
     # If set 0 will show all
     limit: 40
-    color: false
+    color: true
     # Order of tags, random/name/length
     orderby: random
     # Sort of order. 1, asc for ascending; -1, desc for descending
@@ -362,7 +363,7 @@ aside:
     # Time difference between publish date and now
     # Formal: Month/Day/Year Time or Year/Month/Day Time
     # Leave it empty if you don't enable this feature
-    runtime_date:
+    runtime_date: "2024-11-20"
 
 # --------------------------------------
 # Bottom right button

@@ -55,7 +55,7 @@ Get Kerning Pairs：启用此选项可从字体复制字距调整数据。
 Generate Font Atlas：我们把包含中文字体的文件拖入Characters from File中，然后点击此按钮开始生成
 
 3.生成后，如上面效果图
-注意：字体越多，生成的时间越长，我自己的电脑生成7000千字，需要三四个小时…还是选Fast吧，Optimum太慢了
+注意：字体越多，生成的时间越长…Packing Method还是选Fast吧，Optimum太慢了
 
 4.点击Save按钮保存
 
