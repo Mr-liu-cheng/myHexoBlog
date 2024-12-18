@@ -85,7 +85,7 @@ li {
 <section>
     <h2>教育背景</h2>
     <ul>
-      <li>重启工程学院 | 数字媒体技术 | 2016-2020</li>
+      <li>重庆工程学院 | 数字媒体技术 | 2016-2020</li>
     </ul>
   </section>
 
@@ -96,7 +96,7 @@ li {
     <!-- 项目信息 -->
   <div class="project-card" style="background-color: #505050;">
   <!-- 宣传图 -->
-  <img src="image.png" alt="捡贝" class="project-image w-full h-64 object-cover" />
+  <img src="index/image-1.png" alt="捡贝" class="project-image w-full h-64 object-cover" />
     <!-- 项目名 -->
     <h3 class="text-2xl font-bold text-white">捡贝</h3>
     <!-- 时间段 -->
@@ -142,7 +142,7 @@ li {
   </div>
 </div>
 <div class="project-card" style="background-color: #505050;">
-      <img src="image.png" alt="Camlife" class="project-image" />
+      <img src="index/image.png" alt="Camlife" class="project-image" />
       <h3>Camlife</h3>
       <h3>Camlife</h3>
       <h3>Camlife</h3>

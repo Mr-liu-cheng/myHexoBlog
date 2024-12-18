@@ -18,15 +18,18 @@ nav:
 
 menu:
   Home: / || fas fa-home
-  归档: /archives/ || fas fa-archive
+  归档: /archives/ || fa-solid fa-timeline
   标签: /tags/ || fas fa-tags
-  分类: /categories/ || fas fa-folder-open
+  分类: /categories/ || fa-solid fa-folder-tree
   # List||fas fa-list||hide:
   Music: /musicPage/ || fas fa-music
   Movie: /movies/ || fas fa-video
   影视分享: /影视分享/ || fa-solid fa-film
+  美食: /美食/ || fa-solid fa-mug-hot
+  游记: /游记/ || fa-solid fa-person-hiking
   照片: /Photos/ || fas fa-images
-  Link: /Link/ || fas fa-link
+  游戏: /Game/ || fa-solid fa-gamepad
+  Link: /links/ || fas fa-link
   关于: /About/ || fas fa-heart
 
 # --------------------------------------
@@ -58,8 +61,10 @@ code_blocks:
 # Formal:
 #   icon: link || the description || color
 social:
-  fab fa-github: https://github.com/Mr-liu-cheng || Github || '#24292e'
+  fa-brands fa-weixin: https://mr-liu-cheng.github.io/myHexoBlog/img/wexin.jpg || WeChat || '#00ff00'
   fas fa-envelope: mailto:liuchengyg@gmail.com || Email || '#4a7dbe'
+  fa-brands fa-qq: https://mr-liu-cheng.github.io/myHexoBlog/img/qq.jpg || QQ || '#ffffff'
+
 
 # --------------------------------------
 # Image Settings

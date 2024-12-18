@@ -4,7 +4,7 @@ date: 2024-12-11 17:27:33
 tags:
 ---
 
-安装 hexo-asset-image 插件
+# 安装 hexo-asset-image 插件
 
 ```
 npm install hexo-asset-image --save
@@ -66,3 +66,27 @@ hexo s
 * 无需修改Ctrl+V粘贴的路径
 * 本地构建的网站和正式部署的网站都能正常显示
 
+
+
+# html 脚本中添加图片
+我们直接复制粘贴的路径：
+将路径
+``` md
+ ![alt text](index/image.png)
+```
+粘贴到scr中
+``` html
+  <img src="index/image.png" alt="捡贝" class="project-image w-full h-64 object-cover" />
+```
+
+我们会发现 html 最终生成的路径中少了 index 这一层：
+
+src : index/image.png
+update link as:-->https://mr-liu-cheng.github.io/myHexoBlog/About/   image.png
+
+我们需要在hexo-asset-image\index.js文件中处理：
+``` js
+ if(srcArray.length > 1 && srcArray[0]!="index")//添加判断防止使用html 加载图片时会抹去index层级
+    srcArray.shift();
+```
+这段代码原本是要移出src中第一层目录，应为md格式会自动补充根目录，会出现重复目录，但是html 格式不涉及自动补充根目录，所以不需要这一步，因此要添加判断。

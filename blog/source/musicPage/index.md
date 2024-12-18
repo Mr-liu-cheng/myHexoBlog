@@ -1,5 +1,5 @@
 ---
-title: musicPage
+title: 我的歌单
 date: 2024-12-01 21:47:19
 ---
 
@@ -22,9 +22,9 @@ date: 2024-12-01 21:47:19
             if (params.get("id") && params.get("server")) {
                 var id = params.get("id");
                 var server = params.get("server");
-                musicPage.innerHTML = `<meting-js listMaxHeight="600px"id="${id}"server="${server}"type="${playlistType}"mutex="true"preload="auto"order="random"autoplay="true"></meting-js>`;
+                musicPage.innerHTML = `<meting-js listMaxHeight="600px"id="${id}"server="${server}"type="${playlistType}"mutex="true"preload="auto"order="random"autoplay="false"></meting-js>`;
             } else {
-                musicPage.innerHTML = `<meting-js listMaxHeight="600px"id="${userId}"server="${userServer}"type="${userType}"mutex="true"preload="auto"order="random"autoplay=true></meting-js>`;
+                musicPage.innerHTML = `<meting-js listMaxHeight="600px"id="${userId}"server="${userServer}"type="${userType}"mutex="true"preload="auto"order="random"autoplay=false></meting-js>`;
             }
         }
     };

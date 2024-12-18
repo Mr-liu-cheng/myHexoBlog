@@ -5,13 +5,23 @@ date: 2024-12-16 14:31:03
 
 <div class="link-card-container">
    <div class="link-card">
-    <a href="https://musoucrow.github.io/" target="_blank">
+    <a href="https://movie.douban.com/subject/35344103/" target="_blank">
       <div class="link-card-cover">
-      <img src="index/image.png" style="width: 100%; height: auto; border-radius: 8px;">
+      <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRquuFSc-PfnIpz2Az-Hz89LvZdmtFtsJpToiv-a-_EJG1B8fW1" style="width: 100%; height: auto; border-radius: 8px;">
       </div>
     </a>
-      <div class="link-card-title">鸢</div>
-      <div class="link-card-description">该片改编自重松清的同名小说《鸢》，讲述了主人公市川安男在妻子去世后，在同伴们的帮助下抚养儿子长大的故事</div>
+      <div class="link-card-title" style="color: black;">鸢</div>
+      <div class="link-card-description">该片改编自重松清的同名小说《鸢》，讲述了主人公市川安男在妻子去世后，在同伴们的帮助下抚养儿子长大的故事。</div>
+  </div>
+
+  <div class="link-card">
+    <a href="https://movie.douban.com/subject/34858567/" target="_blank">
+      <div class="link-card-cover">
+      <img src="https://upload.wikimedia.org/wikipedia/zh/1/11/Hi_Bye_Mama.png" style="width: 100%; height: auto; border-radius: 8px;">
+      </div>
+    </a>
+      <div class="link-card-title" style="color: black;">你好妈妈，再见！</div>
+      <div class="link-card-description">该剧讲述了已成鬼魂的女子获得新生机会，可以回到人世49天，再度出现于再婚的丈夫和幼女面前的暖心离别故事。</div>
   </div>
 
     

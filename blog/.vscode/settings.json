@@ -1,7 +1,7 @@
 {
     "security.workspace.trust.untrustedFiles": "open",
     "editor.minimap.enabled": false,
-    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreview": true,
     "git.openRepositoryInParentFolders": "always",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,

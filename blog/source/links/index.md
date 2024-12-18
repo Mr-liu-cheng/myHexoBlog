@@ -156,14 +156,37 @@ layout: "page"
       <div class="link-card-description">Unity 开发</div>
     </a>
   </div>
+     <div class="link-card">
+    <a href="https://fontawesome.com/v6/search?o=r&m=free&c=film-video" target="_blank">
+      <div class="link-card-title">fontawesome</div>
+      <div class="link-card-description">图标</div>
+    </a>
+  </div>
 
-    
-  <!-- <div class="link-card">
+  <div class="link-card">
+    <a href="https://www.juhe.cn/docs/e15" target="_blank">
+      <div class="link-card-title">聚合数据</div>
+      <div class="link-card-description">请求数据</div>
+    </a>
+  </div>
+<div class="link-card">
+    <a href="https://6tail.cn/calendar/api.html#demo.huangli.html" target="_blank">
+      <div class="link-card-title">Lunar</div>
+      <div class="link-card-description">日历 api 老黄历 节假日 宜 忌</div>
+    </a>
+  </div>
+  <div class="link-card">
     <a href="https" target="_blank">
       <div class="link-card-title">模版</div>
       <div class="link-card-description">模版</div>
     </a>
-  </div> -->
+  </div>
+  <div class="link-card">
+    <a href="https" target="_blank">
+      <div class="link-card-title">模版</div>
+      <div class="link-card-description">模版</div>
+    </a>
+  </div>
 
 </div>
 
@@ -201,3 +224,12 @@ layout: "page"
   color: #777;
 }
 </style>
+
+  ``` html
+  <div class="link-card">
+    <a href="https" target="_blank">
+      <div class="link-card-title">模版</div>
+      <div class="link-card-description">模版</div>
+    </a>
+  </div>
+```
