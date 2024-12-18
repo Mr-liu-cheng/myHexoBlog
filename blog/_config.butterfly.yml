@@ -29,6 +29,7 @@ menu:
   游记: /游记/ || fa-solid fa-person-hiking
   照片: /Photos/ || fas fa-images
   游戏: /Game/ || fa-solid fa-gamepad
+  日历: /Calendar/ || fa-regular fa-calendar-check
   Link: /links/ || fas fa-link
   关于: /About/ || fas fa-heart
 
@@ -984,7 +985,7 @@ pjax:
   enable: true
   # Exclude the specified pages from pjax, such as '/music/'
   exclude:
-    # - /xxxxxx/
+    # - /xxxx/
 
 # Inject the css and script (aplayer/meting)
 aplayerInject:
