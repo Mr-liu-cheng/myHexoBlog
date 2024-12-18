@@ -104,7 +104,7 @@ function commonHandler() {
         const ji = lunarDate.getDayJi().join('、'); // 忌
         // 更新底部信息
         document.getElementById('day-info').innerHTML = `宜：<span style="color:green">${yi || '无'}</span> <br> 忌：<span style="color:red">${ji || '无'}</span>`;
-        document.getElementById('zodiac-info').innerHTML = `${today} - ${lunarDate}  生肖年：<strong>${yearZodiac}</strong>`;
+        document.getElementById('zodiac-info').innerHTML = `${date.toLocaleDateString('zh-CN')} - ${lunarDate}  <strong>${yearZodiac}</strong>年`;
     }
     document.getElementById('day-of-year-info').innerHTML = `今年剩余 <strong>${SolarUtil.getDaysOfYear(today.getYear()) - dayOfYear}</strong> 天`;
 }
