@@ -176,9 +176,9 @@ layout: "page"
     </a>
   </div>
   <div class="link-card">
-    <a href="https" target="_blank">
-      <div class="link-card-title">模版</div>
-      <div class="link-card-description">模版</div>
+    <a href="https://floating-ui.com/?utm_source=popper.js.org" target="_blank">
+      <div class="link-card-title">浮动元素 popper.js</div>
+      <div class="link-card-description">一个用于定位浮动元素并为其创建交互的 JavaScript 库</div>
     </a>
   </div>
   <div class="link-card">
