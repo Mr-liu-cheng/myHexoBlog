@@ -2,7 +2,6 @@
 title: Calendar
 date: 2024-12-17 09:14:26
 ---
-
 <!DOCTYPE html>
 
 <html lang="zh-cn">
@@ -26,6 +25,8 @@ date: 2024-12-17 09:14:26
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
     <!-- 引入农历库 -->
     <script src="https://cdn.jsdelivr.net/npm/lunar-javascript@latest/lunar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/rrule@2.6.8/dist/es5/rrule.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@5.11.3/main.global.min.js"></script>
     <!-- 本地脚本加载路径需要添加根目录节点-->
     <script src="/myHexoBlog/js/myCalendar.js"></script>
 </body>
@@ -40,6 +41,7 @@ date: 2024-12-17 09:14:26
 [Fullcalendar css样式](https://fullcalendar.io/docs/css-customization)
 [Fullcalendar v3文档](https://fullcalendar.io/docs/v3)
 [Fullcalendar 事件](https://blog.csdn.net/seawaving/article/details/140527841)
+[Fullcalendar 插件](https://fullcalendar.io/docs/plugin-index)
 实现方法：[Lunar](https://6tail.cn/calendar/api.html#solar.new.html) + Fullcalendar
 
 # 升级 FullCalendar v3 到 v5 的一些改动
