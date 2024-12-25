@@ -5,7 +5,8 @@ keywords: null
 author: LiuCheng
 language: zh-CN 
 timezone: ''
-url: https://mr-liu-cheng.github.io/myHexoBlog/
+url: https://mr-liu-cheng.github.io
+#/myHexoBlog/
 #静态网站 本地运行检测图片效果
 # url: http://example.com 
 permalink: ':year/:month/:day/:title/'
@@ -80,6 +81,5 @@ ignore: null
 theme: butterfly
 deploy:
   type: git
-  repo: git@github.com:Mr-liu-cheng/myHexoBlog.git
+  repo: git@github.com:Mr-liu-cheng/mr-liu-cheng.github.io.git
   branch: gh-pages
-
