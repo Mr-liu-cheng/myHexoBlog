@@ -35,7 +35,7 @@ console.info&&console.info("update link as:-->"+baseUrl+src);
 
 上面的方法可以在普通文章使用，但是页签页内容插入图片会多出: .html后缀
 
-https://mr-liu-cheng.github.io/myHexoBlog/musicPage/index.html
+https://mr-liu-cheng.github.io/mr-liu-cheng.github.io/musicPage/index.html
 
 打开_config.yml ，修改如下：
 
@@ -88,7 +88,7 @@ hexo s
 我们会发现 html 最终生成的路径中少了 index 这一层：
 
 src : index/image.png
-update link as:-->https://mr-liu-cheng.github.io/myHexoBlog/About/   image.png
+update link as:-->https://mr-liu-cheng.github.io/mr-liu-cheng.github.io/About/   image.png
 
 我们需要在hexo-asset-image\index.js文件中处理：
 ``` js

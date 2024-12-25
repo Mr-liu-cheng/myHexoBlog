@@ -6,6 +6,7 @@ top:
     html: |
       <div>
         <ul>
+          <li>完成 Hexo 全部变量来配置github仓库名</li>
           <li>完成 Hexo 广告接入</li>
           <li>完成 Hexo 游戏接入</li>
         </ul>
@@ -31,6 +32,6 @@ top:
     html: |
       <div>
         <ul>
-          <a href="/myHexoBlog/Calendar/">日历</a>
+          <a href="/mr-liu-cheng.github.io/Calendar/">日历</a>
         </ul>
       </div>

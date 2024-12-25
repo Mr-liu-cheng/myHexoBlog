@@ -6,7 +6,7 @@ author: LiuCheng
 language: zh-CN 
 timezone: ''
 url: https://mr-liu-cheng.github.io
-#/myHexoBlog/
+#/mr-liu-cheng.github.io/
 #静态网站 本地运行检测图片效果
 # url: http://example.com 
 permalink: ':year/:month/:day/:title/'

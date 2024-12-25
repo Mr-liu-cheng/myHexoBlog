@@ -10,8 +10,8 @@ date: 2024-12-17 09:14:26
     <meta charset="UTF-8">
     <title>FullCalendar 农历和调休示例</title>
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@latest/main.min.css" rel="stylesheet" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1389699351715193"
-     crossorigin="anonymous"></script>
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1389699351715193"
+     crossorigin="anonymous"></script> -->
 </head>
 <body>
     <!-- 日历容器 -->
@@ -30,7 +30,7 @@ date: 2024-12-17 09:14:26
     <script src="https://cdn.jsdelivr.net/npm/rrule@2.6.8/dist/es5/rrule.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@5.11.3/main.global.min.js"></script>
     <!-- 本地脚本加载路径需要添加根目录节点-->
-    <script src="/myHexoBlog/js/myCalendar.js"></script>
+    <script src="/mr-liu-cheng.github.io/js/myCalendar.js"></script>
 </body>
 
 </html>
