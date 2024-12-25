@@ -32,6 +32,6 @@ top:
     html: |
       <div>
         <ul>
-          <a href="/mr-liu-cheng.github.io/Calendar/">日历</a>
+          <a href="/Calendar/">日历</a>
         </ul>
       </div>

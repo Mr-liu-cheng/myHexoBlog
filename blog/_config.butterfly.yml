@@ -63,9 +63,9 @@ code_blocks:
 # Formal:
 #   icon: link || the description || color
 social:
-  fa-brands fa-weixin: https://mr-liu-cheng.github.io/mr-liu-cheng.github.io/img/weixin.jpg || WeChat || '#00ff00'
+  fa-brands fa-weixin: https://mr-liu-cheng.github.io/img/weixin.jpg || WeChat || '#00ff00'
   fas fa-envelope: mailto:liuchengyg@gmail.com || Email || '#4a7dbe'
-  fa-brands fa-qq: https://mr-liu-cheng.github.io/mr-liu-cheng.github.io/img/qq.jpg || QQ || '#ffffff'
+  fa-brands fa-qq: https://mr-liu-cheng.github.io/img/qq.jpg || QQ || '#ffffff'
 
 
 # --------------------------------------
@@ -726,7 +726,7 @@ umami_analytics:
 
 # Google Adsense
 google_adsense:
-  enable: false
+  enable: true
   auto_ads: true
   js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
   client:
