@@ -1,7 +1,14 @@
 ---
 title: hexo添加标签样式
 date: 2024-12-15 20:16:16
-tags:
+updated: 2024-12-25 14:28:12
+tags: hexo
+categories: hexo
+description: 
+keywords:
+  - hexo
+  - 标签
+  - 样式
 ---
 
 在 **Hexo Butterfly**  主题中，由于 Markdown 文件中的代码会经过 Hexo 的解析后转换为 HTML，而 HTML 的样式需要依赖主题中的 CSS 文件，直接嵌入的 TailwindCSS 或自定义 CSS 可能无法生效。如果你希望在 Hexo 中生效样式，可以尝试以下方法：

@@ -1,7 +1,13 @@
 ---
 title: hexo 图片加载方案
 date: 2024-12-11 17:27:33
-tags:
+updated: 2024-12-25 14:28:12
+tags: hexo
+categories: hexo
+description: 
+keywords:
+  - hexo
+  - 图片
 ---
 
 # 安装 hexo-asset-image 插件

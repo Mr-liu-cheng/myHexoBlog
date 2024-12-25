@@ -46,7 +46,7 @@ function defineMyEvent() {
         { title: '1year Event', rrule: { freq: 'yearly', interval: 1, bymonth: 12, bymonthday: 25, dtstart: '2021-01-01T10:00:00', until: '2026-12-31T23:59:59' } },
         { title: "项目截止日", start: `${currentYear}-12-15`, color: 'red' },
         { title: "团队会议", start: `${currentYear}-12-20T10:00:00`, color: 'blue', description: 'Thisisaverylongwordthatexceedscontainerwidthjjjkajndqjnjncjahsdbhefbhqioiwiqwjdkssjkahdwlaahwajjjjhkdnqjwnqjwdkqjnrwlqkrqknr', },
-        { title: "masndlk出差卡拉胶速度sdfwecv快垃圾考虑到实际阿拉抗打击了哇较大拉卡鲸打卡溜达鸡啊卡罗卡经纬度考拉几万块拉法基阿瓦会计法垃圾福娃卡拉季开发啦", start: `${currentYear}-12-21`, end: `${currentYear}-11-25`, color: 'green' },
+        { title: "给幺爸买火车票", start: `2025-01-06`, allDay: true, color: 'green' },
         { title: "masndlk出差卡拉胶速度sdfwecv快垃圾考虑到实际阿拉抗打击了哇较大拉卡鲸打卡溜达鸡啊卡罗卡经纬度考拉几万块拉法基阿瓦会计法垃圾福娃卡拉季开发啦", start: `${currentYear}-12-26`, end: `${currentYear}-11-25`, color: 'green', url: 'https://google.com/' },
         { title: "google", start: `${currentYear}-12-22`, end: `${currentYear}-11-25`, color: 'green', url: 'https://google.com/' },
         { title: "google", start: `${currentYear}-12-22`, end: `${currentYear}-11-25`, color: 'green', url: 'https://google.com/' },
@@ -303,8 +303,8 @@ function commonHandler() {
     // 获取当前日期信息
     const today = new Date();
     const dayOfYear = SolarUtil.getDaysInYear(today.getYear(), today.getMonth() + 1, today.getDate()); // 当前日期在今年的第几天
-    const springFestivalSolar = Lunar.fromYmd(Lunar.fromDate(today).getYear()+1, 1, 1).getSolar();
-    const dayDiff = springFestivalSolar.subtract(Solar.fromDate(today))-1;//中间间隔日 （不包含当天和除夕）
+    const springFestivalSolar = Lunar.fromYmd(Lunar.fromDate(today).getYear() + 1, 1, 1).getSolar();
+    const dayDiff = springFestivalSolar.subtract(Solar.fromDate(today)) - 1;//中间间隔日 （不包含当天和除夕）
     updateLunarInfo(today); // 初始化显示今天的信息
     function updateLunarInfo(date) {
         const lunarDate = Lunar.fromDate(date);
@@ -316,7 +316,7 @@ function commonHandler() {
         document.getElementById('day-info').innerHTML = `宜：<span style="color:green">${yi || '无'}</span> <br> 忌：<span style="color:red">${ji || '无'}</span>`;
         document.getElementById('zodiac-info').innerHTML = `${date.toLocaleDateString('zh-CN')} - ${lunarDate}  <strong>${yearZodiac}</strong>年`;
     }
-    document.getElementById('day-of-year-info').innerHTML = `今年剩余 <strong>${SolarUtil.getDaysOfYear(today.getYear()) - dayOfYear}</strong> 天，距离过年(除夕)还有<strong> ${dayDiff-1}</strong>   天`;
+    document.getElementById('day-of-year-info').innerHTML = `今年剩余 <strong>${SolarUtil.getDaysOfYear(today.getYear()) - dayOfYear}</strong> 天，距离过年(除夕)还有<strong> ${dayDiff - 1}</strong>   天`;
     setTimeout(function () { calendar.render(); }, 100); // 延迟渲染，确保布局已完成
     console.log('Calendar rendered with Lunar and holidays', SolarUtil.getDaysOfYear(today.getYear()), ' ', dayOfYear, ' springFestivalSolar:', springFestivalSolar.toYmd(), ' ', Solar.fromDate(today).toYmd(), ' ', today.getDate());
 

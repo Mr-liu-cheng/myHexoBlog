@@ -1,7 +1,19 @@
 ---
 title: unity webGL 移动端 输入框无法弹出虚拟键盘
 date: 2024-12-13 14:00:58
+updated: 2024-12-25 14:28:12
 tags:
+    - unity
+    - webGL
+categories: 
+  - unity
+  - webGL
+description: webGL 移动端本身不支持输入框弹出虚拟键盘
+keywords:
+  - unity
+  - webGL
+  - 输入框
+  - 虚拟键盘
 ---
 
 1. 去这个网站下载工程：

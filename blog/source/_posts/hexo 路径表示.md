@@ -1,11 +1,16 @@
 ---
 title: hexo 路径表示
 date: 2024-12-01 22:57:02
+updated: 2024-12-25 14:28:12
 categories: Hexo
 tags:
-    -博客记录
-    -Hexo
+  - Hexo
 description: hexo 路径表示(绝对路径和相对路径)
+keywords:
+  - hexo
+  - 路径表示
+  - 相对路径
+  - 绝对路径
 #用于设置全局默认的封面图片（Cover Image），通常显示在首页、分类页面、标签页面等的顶部区域。
 # cover: /img/favicon.png
 ---
