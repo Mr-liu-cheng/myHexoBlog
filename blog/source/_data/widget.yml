@@ -25,3 +25,13 @@ top:
           <li>广告SDK接入</li>
         </ul>
       </div>
+  - class_name: "calendar-widget" # 自定义 CSS 类名，用于个性化样式
+    id_name: "calendar-list"      # 元素的 ID 名称，便于前端 DOM 定位
+    name: "日历"           # 组件名称，在前端显示的标题
+    icon: "fas fa-tasks"      # 图标，可以是 Font Awesome 图标类名
+    html: |
+      <div>
+        <ul>
+          <a href="/myHexoBlog/Calendar/">日历</a>
+        </ul>
+      </div>

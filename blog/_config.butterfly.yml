@@ -18,20 +18,21 @@ nav:
 
 menu:
   Home: / || fas fa-home
-  归档: /archives/ || fa-solid fa-timeline
-  标签: /tags/ || fas fa-tags
-  分类: /categories/ || fa-solid fa-folder-tree
-  # List||fas fa-list||hide:
-  Music: /musicPage/ || fas fa-music
-  Movie: /movies/ || fas fa-video
-  影视分享: /影视分享/ || fa-solid fa-film
-  美食: /美食/ || fa-solid fa-mug-hot
-  游记: /游记/ || fa-solid fa-person-hiking
-  照片: /Photos/ || fas fa-images
-  游戏: /Game/ || fa-solid fa-gamepad
-  日历: /Calendar/ || fa-regular fa-calendar-check
-  Link: /links/ || fas fa-link
-  关于: /About/ || fas fa-heart
+  Doc||fa-solid fa-book||hide:
+    Archives: /archives/ || fa-solid fa-timeline
+    Tag: /tags/ || fas fa-tags
+    Categories: /categories/ || fa-solid fa-folder-tree
+  Game: /Game/ || fa-solid fa-gamepad
+  Link: /Links/ || fas fa-link
+  About: /About/ || fas fa-heart
+  More||fa-regular fa-pen-to-square||hide:
+    Music: /musicPage/ || fas fa-music
+    Movie: /movies/ || fas fa-video
+    Vidio Sharing: /影视分享/ || fa-solid fa-film
+    Delicious: /美食/ || fa-solid fa-mug-hot
+    Tourist: /游记/ || fa-solid fa-person-hiking
+    Photos: /Photos/ || fas fa-images
+    Calendar: /Calendar/ || fa-regular fa-calendar-check
 
 # --------------------------------------
 # Code Blocks Settings
@@ -62,7 +63,7 @@ code_blocks:
 # Formal:
 #   icon: link || the description || color
 social:
-  fa-brands fa-weixin: https://mr-liu-cheng.github.io/myHexoBlog/img/wexin.jpg || WeChat || '#00ff00'
+  fa-brands fa-weixin: https://mr-liu-cheng.github.io/myHexoBlog/img/weixin.jpg || WeChat || '#00ff00'
   fas fa-envelope: mailto:liuchengyg@gmail.com || Email || '#4a7dbe'
   fa-brands fa-qq: https://mr-liu-cheng.github.io/myHexoBlog/img/qq.jpg || QQ || '#ffffff'
 
@@ -120,8 +121,8 @@ cover:
   # When cover is not set, the default cover is displayed
   default_cover:
     # - xxx.jpg
-    - /img/butterfly-icon.png
-    - /img/favicon.png
+    # - /img/butterfly-icon.png
+    # - /img/favicon.png
 
 # Replace Broken Images
 error_img:
