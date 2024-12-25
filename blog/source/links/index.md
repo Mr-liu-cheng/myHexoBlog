@@ -1,7 +1,7 @@
 ---
 title: 友情链接
 date: 2024-12-11
-type: "links"
+type: "Links"
 layout: "page"
 ---
 
