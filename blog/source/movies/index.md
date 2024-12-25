@@ -5,7 +5,7 @@ toc: true # 开启目录
 ---
 
 <video controls width="100%">
-    <source src="/mr-liu-cheng.github.io/movies/犬夜叉.mp4" type="video/mp4">
+    <source src="/movies/犬夜叉.mp4" type="video/mp4">
     您的浏览器不支持 video 标签。
 </video>
 

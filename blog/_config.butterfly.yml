@@ -1061,7 +1061,7 @@ inject:
     - '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">'
     - '<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>'
     - '<script>'
-    - '  fetch("/mr-liu-cheng.github.io/music/playlist.json")'
+    - '  fetch("/music/playlist.json")'
     - '    .then(response => response.json())'
     - '    .then(data => {'
     - '      const ap = new APlayer({'

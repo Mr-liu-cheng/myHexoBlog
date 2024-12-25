@@ -30,7 +30,7 @@ date: 2024-12-17 09:14:26
     <script src="https://cdn.jsdelivr.net/npm/rrule@2.6.8/dist/es5/rrule.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@5.11.3/main.global.min.js"></script>
     <!-- 本地脚本加载路径需要添加根目录节点-->
-    <script src="/mr-liu-cheng.github.io/js/myCalendar.js"></script>
+    <script src="/js/myCalendar.js"></script>
 </body>
 
 </html>

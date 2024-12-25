@@ -70,9 +70,9 @@ date: 2024-12-01 21:47:19
         {
           name: '萤火飞光',
           artist: '圈9',
-          url: '/mr-liu-cheng.github.io/music/萤火飞光 - 圈9.mp3', // 音频文件路径
-          cover: '/mr-liu-cheng.github.io/music/萤火飞光.png', // 封面图片路径
-          lrc: '/mr-liu-cheng.github.io/music/萤火飞光 - 圈9.lrc' // 歌词文件路径
+          url: '/music/萤火飞光 - 圈9.mp3', // 音频文件路径
+          cover: '/music/萤火飞光.png', // 封面图片路径
+          lrc: '/music/萤火飞光 - 圈9.lrc' // 歌词文件路径
         }
       ],
       lrcType: 3 // 歌词模式，3 表示使用外部 LRC 文件
@@ -125,9 +125,9 @@ date: 2024-12-01 21:47:19
         {
           name: '萤火飞光',
           artist: '圈9',
-          url: '/mr-liu-cheng.github.io/music/萤火飞光 - 圈9.mp3', // 音频文件路径
-          cover: '/mr-liu-cheng.github.io/music/萤火飞光.png', // 封面图片路径
-          lrc: '/mr-liu-cheng.github.io/music/萤火飞光 - 圈9.lrc' // 歌词文件路径
+          url: '/music/萤火飞光 - 圈9.mp3', // 音频文件路径
+          cover: '/music/萤火飞光.png', // 封面图片路径
+          lrc: '/music/萤火飞光 - 圈9.lrc' // 歌词文件路径
         }
       ],
       lrcType: 3 // 歌词模式，3 表示使用外部 LRC 文件
@@ -153,7 +153,7 @@ inject:
     - '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">'
     - '<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>'
     - '<script>'
-    - '  fetch("/mr-liu-cheng.github.io/music/playlist.json")'
+    - '  fetch("/music/playlist.json")'
     - '    .then(response => response.json())'
     - '    .then(data => {'
     - '      const ap = new APlayer({'
@@ -194,7 +194,7 @@ fs.readdir(musicFolderPath, (err, files) => {
 
   // 创建歌单数组
   const playlist = audioFiles.map(file => {
-    const pubilcMusicPath = '/mr-liu-cheng.github.io/music'; // pubilc
+    const pubilcMusicPath = '/music'; // pubilc
     // 使用正则表达式提取歌名和歌手
     const match = file.match(/^(.+?) - (.+?)\.(mp3)$/);
     if (match) {
@@ -237,9 +237,9 @@ node generatePlaylist.js
   {
     "name": "Incarnation",
     "artist": "张靓颖",
-    "url": "/mr-liu-cheng.github.io/music/Incarnation - 张靓颖.mp3",
-    "cover": "/mr-liu-cheng.github.io/music/Incarnation.png",
-    "lrc": "/mr-liu-cheng.github.io/music/Incarnation - 张靓颖.lrc"
+    "url": "/music/Incarnation - 张靓颖.mp3",
+    "cover": "/music/Incarnation.png",
+    "lrc": "/music/Incarnation - 张靓颖.lrc"
   },
 ]
 ```
