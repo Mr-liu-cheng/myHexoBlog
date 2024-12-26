@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的游戏</title>
+</head>
+
+<body>
+  <section>
+    <h2>我的作品</h2>
+    <div class="projects" id="projects-container"> </div>
+    <script>
+      // 配置数据
+      const projects = [
+        {
+          name: "千纸鹤",
+          time: "2024.11 - 2024.12",
+          description: "网页应用：展示摇签，折纸，放飞。",
+          skills: ["URP渲染管线", "ShaderGraph", "WebCam", "WebGL"],
+          link: "https://mr-liu-cheng.github.io/qianzhihe/",
+          image: "index/qianzhihe.png"
+        },
+      ];
+
+      // 动态生成项目卡片
+      const container = document.getElementById("projects-container");
+      projects.forEach(project => {
+        const projectCard = `
+          <div class="project-card">
+            <img src="${project.image}" class="project-image">
+            <h3>${project.name}</h3>
+            ${project.time}
+            <p class="project-p">${project.description}</p>
+            <div class="skill-tags">
+              ${project.skills.map(skill => `<span class="tag">${skill}</span>`).join("")}
+            </div>
+            <div class="project-buttons">
+              <a href="${project.link}" target="_blank">前往运行</a>
+            </div>
+          </div>
+        `;
+        container.innerHTML += projectCard;
+      });
+    </script>
+
+  </section>
+
+  <style>
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #505050;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .project-p {
+      font-size: 12px;
+    }
+
+    .skill-tags .tag {
+      background-color: #e0f7fa;
+      /* 浅蓝色背景 */
+      color: #006064;
+      /* 深蓝色文字 */
+      font-size: 0.65rem;
+      /* 文字大小 */
+      padding: 0px 10px;
+      border: 2px solid #006064;
+      /* 边框宽度、样式、颜色 */
+      /* 内边距 */
+      border-radius: 999px;
+      margin-top: 4px;
+      /* 圆角背景 */
+      display: inline-block;
+      text-align: center;
+    }
+
+    .project-buttons {
+      margin-top: 10px;
+    }
+
+    .project-buttons button,
+    .project-buttons a {
+      display: inline-block;
+      margin: 5px;
+      padding: 5px 12px;
+      text-decoration: none;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 0.65rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      /* 将字符间距设置为2像素 */
+      word-spacing: 5px;
+      /* 将单词间距设置为5像素 */
+    }
+
+    .project-buttons button:hover,
+    .project-buttons a:hover {
+      background-color: #34bbd0;
+    }
+  </style>
+</body>
+
+</html>

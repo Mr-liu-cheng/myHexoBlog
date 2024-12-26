@@ -22,7 +22,7 @@ menu:
     Archives: /archives/ || fa-solid fa-timeline
     Tag: /tags/ || fas fa-tags
     Categories: /categories/ || fa-solid fa-folder-tree
-  Game: /Game/ || fa-solid fa-gamepad
+  Game: /game/ || fa-solid fa-gamepad
   #/link/名字不能改，会出问题
   Link: /link/ || fas fa-link
   About: /About/ || fas fa-heart
