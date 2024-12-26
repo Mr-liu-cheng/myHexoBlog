@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>git学习</title>
+    <url>/2024/12/11/git%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><img src="https://mr-liu-cheng.github.io/2024/12/11/image.png" alt="alt text"></p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>butterfly 禁用头像旋转</title>
     <url>/2024/12/16/butterfly-%E7%A6%81%E7%94%A8%E5%A4%B4%E5%83%8F%E6%97%8B%E8%BD%AC/</url>
     <content><![CDATA[<p>当鼠标移到侧边栏头像上时，头像会播放旋转动效，要想禁用可以找到<br>themes\butterfly\source\css_layout\aside.styl文件并按照如下对transform: unset修改即可完成动效屏蔽。</p>
@@ -473,18 +485,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git学习</title>
-    <url>/2024/12/11/git%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><img src="https://mr-liu-cheng.github.io/2024/12/11/image.png" alt="alt text"></p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo 图片加载方案</title>
     <url>/2024/12/11/hexo-%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h1 id="安装-hexo-asset-image-插件"><a href="#安装-hexo-asset-image-插件" class="headerlink" title="安装 hexo-asset-image 插件"></a>安装 hexo-asset-image 插件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
@@ -853,5 +853,10 @@
         <tag>unity</tag>
         <tag>webGL</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>萨达124</title>
+    <url>/2024/12/26/%E8%90%A8%E8%BE%BE124/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
