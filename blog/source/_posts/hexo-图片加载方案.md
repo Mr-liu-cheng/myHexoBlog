@@ -34,9 +34,9 @@ console.info&&console.info("update link as:-->"+baseUrl+src);
 ## 页签页md文档中插入图片
 
 上面的方法可以在普通文章使用，但是页签页内容插入图片会多出: .html后缀
-
-https://mr-liu-cheng.github.io/mr-liu-cheng.github.io/musicPage/index.html
-
+```
+https://xxx/musicPage/index.html
+```
 打开_config.yml ，修改如下：
 
 ```yml
@@ -88,8 +88,9 @@ hexo s
 我们会发现 html 最终生成的路径中少了 index 这一层：
 
 src : index/image.png
-update link as:-->https://mr-liu-cheng.github.io/mr-liu-cheng.github.io/About/   image.png
-
+```
+update link as:-->https://xxxx/About/   image.png
+```
 我们需要在hexo-asset-image\index.js文件中处理：
 ``` js
  if(srcArray.length > 1 && srcArray[0]!="index")//添加判断防止使用html 加载图片时会抹去index层级
