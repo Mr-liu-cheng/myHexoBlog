@@ -10,8 +10,8 @@ date: 2024-12-17 09:14:26
     <meta charset="UTF-8">
     <title>FullCalendar 农历和调休示例</title>
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@latest/main.min.css" rel="stylesheet" />
-    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1389699351715193"
-     crossorigin="anonymous"></script> -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1389699351715193"
+     crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- 日历容器 -->

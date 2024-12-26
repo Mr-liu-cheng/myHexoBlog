@@ -23,7 +23,8 @@ menu:
     Tag: /tags/ || fas fa-tags
     Categories: /categories/ || fa-solid fa-folder-tree
   Game: /Game/ || fa-solid fa-gamepad
-  Link: /Links/ || fas fa-link
+  #/link/名字不能改，会出问题
+  Link: /link/ || fas fa-link
   About: /About/ || fas fa-heart
   More||fa-regular fa-pen-to-square||hide:
     Music: /musicPage/ || fas fa-music
@@ -729,7 +730,7 @@ google_adsense:
   enable: true
   auto_ads: true
   js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
-  client:
+  client: ca-pub-1389699351715193
   enable_page_level_ads: true
 
 # Insert ads manually
