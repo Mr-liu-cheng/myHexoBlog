@@ -313,18 +313,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git学习</title>
-    <url>/2024/12/11/git%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><img src="https://mr-liu-cheng.github.io/2024/12/11/image.png" alt="alt text"></p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo 路径表示</title>
     <url>/2024/12/01/hexo%20%E8%B7%AF%E5%BE%84%E8%A1%A8%E7%A4%BA/</url>
     <content><![CDATA[<h1 id="hexo-路径表示"><a href="#hexo-路径表示" class="headerlink" title="hexo 路径表示"></a>hexo 路径表示</h1><p>ChatGPT:</p>
@@ -482,6 +470,18 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git学习</title>
+    <url>/2024/12/11/git%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><img src="https://mr-liu-cheng.github.io/2024/12/11/image.png" alt="alt text"></p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
