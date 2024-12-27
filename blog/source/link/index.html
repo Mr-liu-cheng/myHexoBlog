@@ -1,0 +1,156 @@
+---
+title: 友情链接
+date: 2024-12-11
+type: "Links"
+layout: "page"
+---
+
+```
+友链格式： { link: "https://xxxx", title: "xxx", des: "xxx" }
+```
+
+<div class="link-card-container" id="link-card-container"></div>
+<script>
+  const links = {
+    GameMaker: [
+      { link: "https://huosk.github.io/", title: "码了个球", des: "Unity开发" },
+      { link: "https://www.drflower.top/", title: "花桑", des: "Unity GameFramework" },
+      { link: "http://nico233.cn/", title: "nico233", des: "Unity技术博客" },
+      { link: "https://www.lfzxb.top/", title: "烟雨迷离半世殇", des: "Unity 游戏框架 华佗 ET" },
+      { link: "https://linwentao785293209.github.io/", title: "人间自有涛哥在", des: "Unity大佬 友链" },
+      { link: "https://codingcodingk.top/", title: "codingcodingk", des: "Unity开发" },
+      { link: "https://wyr8845.github.io/", title: "超镦逸", des: "大佬发布的游戏" },
+      { link: "https://songofwing.cn/", title: "风之歌", des: "Unity 开发" },
+      { link: "https://musoucrow.github.io/", title: "musoucrow", des: "Unity 开发" },
+      { link: "https://blog.guole.fun/game/", title: "郭乐博客", des: "游戏、友链" },
+      { link: "https://blog.theknightsofunity.com/", title: "THE KNIGHTS OF UNITY", des: "游戏开发技术博客" },
+    ],
+    Blog: [
+      { link: "https://blog.eurkon.com/charts/", title: "eurkon 牛人 博客", des: "学习：统计、分类、about、导航" },
+      { link: "https://fe32.top/articles/hexo1600/", title: "唐志远博客", des: "hexo butterfly 教程、相册参考" },
+      { link: "https://butterfly.js.org/posts/21cfbf15/", title: "butterfly官方教程", des: "应用管理，数据控制" },
+      { link: "https://butterfly.js.org/link/", title: "butterfly 博客示例", des: "观摩他人的优秀博客" },
+      { link: "https://fontawesome.com/v6/search?o=r&m=free&c=film-video", title: "fontawesome", des: "图标" },
+      { link: "https://www.juhe.cn/docs/e15", title: "聚合数据", des: "请求数据" },
+      { link: "https://6tail.cn/calendar/api.html#demo.huangli.html", title: "Lunar", des: "日历 api 老黄历 节假日 宜 忌" },
+      { link: "https://floating-ui.com/?utm_source=popper.js.org", title: "浮动元素 popper.js", des: "一个用于定位浮动元素并为其创建交互的 JavaScript 库" },
+      { link: "https://hin.cool/friends/", title: "大佬博客", des: "友链和关于（简历）" },
+      { link: "https://hexo.io/zh-cn/", title: "Hexo", des: "文档、插件和主题" },
+    ],
+    Other: [
+      { link: "https://www.16personalities.com/ch/%E4%BA%BA%E6%A0%BC%E6%B5%8B%E8%AF%95", title: "人格测试", des: "16personalities" },
+      { link: "https://unlock-music.guole.fun/", title: "音乐解锁", des: "网易云音乐(ncm), QQ音乐(qmc, mflac, mgg), 酷狗音乐(kgm), 虾米音乐(xm), 酷我音乐(.kwm)" },
+      { link: "https://noionion.top/link/", title: "贰猹の小窝", des: "友链和爬虫文章" },
+      { link: "https://azgaar.github.io/Fantasy-Map-Generator/", title: "Fantasy Map Generator", des: "地图制作" },
+      { link: "https://www.mereith.com/", title: "mereith博客", des: "工具、翻墙、主机、ai" },
+      { link: "https://gt-it.net/post/2", title: "ChatGPT", des: "ChatGPT中文调教指南" },
+      { link: "https://rxresu.me/dashboard/resumes", title: "简历", des: "网页简历在线生成（url/pdf）" },
+      { link: "https://imszz.com/navi/", title: "工具盒", des: "网站导航" },
+    ],
+  };
+  // 动态生成项目卡片
+  const linkContainer = document.getElementById("link-card-container");
+
+  Object.keys(links).forEach(category => {
+    // 创建父级 div
+    const categoryWrapper = document.createElement("div");
+    categoryWrapper.classList.add("category-wrapper");
+
+    // 添加类别标题
+    const categoryTitle = document.createElement("h2");
+    categoryTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+    categoryWrapper.appendChild(categoryTitle);
+
+    // 创建类别盒子容器
+    const categoryBox = document.createElement("div");
+    categoryBox.classList.add("category-box");
+
+    // 生成对应类别的链接卡片
+    links[category].forEach(link => {
+      const linkCard = `
+          <div class="link-card">
+            <a href="${link.link}" target="_blank">
+              <div class="link-card-title">${link.title}</div>
+              <div class="link-card-description">${link.des}</div>
+            </a>
+          </div>
+        `;
+      categoryBox.innerHTML += linkCard;
+    });
+
+    // 将类别盒子容器添加到父级 div
+    categoryWrapper.appendChild(categoryBox);
+
+    // 添加父级 div 到主容器
+    linkContainer.appendChild(categoryWrapper);
+  });
+</script>
+<style>
+  /* 主容器样式 */
+  #linkContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    /* 每个类别块之间的间距 */
+  }
+
+  /* 每个类别块 */
+  .category-wrapper {
+    width: 100%;
+    /* 占据整行 */
+    background-color: #f9f9f909;
+    /* 可选背景色 */
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+
+  /* 类别标题 */
+  .category-wrapper h2 {
+    margin: 0 0 16px 0;
+    font-size: 1.5rem;
+    color: #787575;
+  }
+
+  /* 链接盒子容器 */
+  .category-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    /* 卡片之间的间距 */
+  }
+
+  /* 链接卡片 */
+  .link-card {
+    background-color: #201e1e;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .link-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .link-card a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 16px;
+  }
+
+  .link-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .link-card-description {
+    font-size: 0.9rem;
+    color: #666;
+  }
+</style>
