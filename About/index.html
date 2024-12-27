@@ -6,8 +6,8 @@
 <meta property="og:description" content="我的简历           [我的简历]            基本信息            姓名: LiuCheng       邮箱: 1217110612@qq.com        Unity 开发工程师，拥有 4 年以上 3D 游戏和交互式数字应用开发经验。擅长使用 Unity 和 C#         开发高效的编辑器工具，包括资源管理器、关卡编辑器和技能系">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mr-liu-cheng.github.io/img/favicon.png">
-<meta property="article:published_time" content="2024-12-24T10:42:50.543Z">
-<meta property="article:modified_time" content="2024-12-24T10:42:50.543Z">
+<meta property="article:published_time" content="2024-12-27T09:15:55.192Z">
+<meta property="article:modified_time" content="2024-12-27T09:15:55.192Z">
 <meta property="article:author" content="LiuCheng">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://mr-liu-cheng.github.io/img/favicon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://mr-liu-cheng.github.io/About/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
@@ -168,7 +168,8 @@
       <li>姓名: LiuCheng</li>
       <li>邮箱: 1217110612@qq.com</li>
       <li> Unity 开发工程师，拥有 4 年以上 3D 游戏和交互式数字应用开发经验。擅长使用 Unity 和 C#
-        开发高效的编辑器工具，包括资源管理器、关卡编辑器和技能系统配置工具，注重优化与性能提升。支持psd的界面原型导入，并且自动添加相应的组件，大幅提升程序的工作效率，节省 30% 的资源整合时间。除此以外，兼并大世界系统开发。</li>
+        开发高效的编辑器工具，包括资源管理器、关卡编辑器和技能系统配置工具，注重优化与性能提升。支持psd的界面原型导入，并且自动添加相应的组件，大幅提升程序的工作效率，节省 30% 的资源整合时间。除此以外，兼并大世界系统开发。
+      </li>
     </ul>
   </section>
 
@@ -183,86 +184,124 @@
 
   <section>
     <h2>参与项目</h2>
-    <div class="projects">
+    <div class="projects" id="projects-container"> </div>
+    <script>
+      // 配置数据
+      const projects = [
+        {
+          name: "千纸鹤", time: "2024.11 - 2024.12",
+          description: "网页应用：展示摇签，折纸，放飞。",
+          skills: ["URP渲染管线", "ShaderGraph", "WebCam", "WebGL"],
+          image: "index/qianzhihe.png",
+          link: "https://mr-liu-cheng.github.io/qianzhihe/",
+          videoUrl: "/About/index/犬夜叉.mp4"
+        },
+        {
+          name: "Psd2UGUI", time: "2024.9 - 2024.10",
+          description: "支持PS自动切片并生成配置文件，导入unity自动生成界面预制体，无需拼UI和添加组件脚本。",
+          image: "index/qianzhihe.png",
+          skills: ["JSX", "Psd脚本开发", "导入配置生成界面预制体"],
+        },
+        {
+          name: "多语言工具", time: "2024.10 - 2024.11",
+          description: "支持批量筛选汇总表格的多语言字段记录，生成一张总表便于策划填写，生成时对比老表，表格导出为对应语种的xml文件",
+          image: "index/qianzhihe.png",
+          skills: ["bat批处理", "Epplus"],
+        },
+        {
+          name: "安装包应用程序开发", time: "2024.10 - 2024.11",
+          description: "使用Nsis语法，nsNiuniuSkin美化界面工具和NSISBI工具将unity构建的文件打包成可以执行的自动安装程序。",
+          image: "index/qianzhihe.png",
+          skills: ["NSIS", "nsNiuniuSkin", "NSISBI"],
+        },
+        {
+          name: "龙虎", time: "2023.11-2024.4",
+          description: "海外Slot游戏，3轴转动，单一中间线，匹配图案",
+          image: "index/qianzhihe.png",
+          skills: ["spin", "艺术字体制作", "数字滚动动画"],
+        },
+        {
+          name: "招财猫", time: "2024.4-2024.7",
+          description: "海外Slot游戏,老虎机，五轴转动，3x5匹配中奖线",
+          image: "index/qianzhihe.png",
+          skills: ["GF", "HybridCLR", "横竖屏切换"],
+        },
+        {
+          name: "WayPoint", time: "2022.9-2023.6",
+          description: "网页应用：展示摇签，折纸，放飞。",
+          image: "index/qianzhihe.png",
+          skills: ["URP渲染管线", "ShaderGraph", "WebCam", "WebGL"],
+        },
+        {
+          name: "路沿标注", time: "2021.9-2022.9",
+          description: "网页应用：展示摇签，折纸，放飞。",
+          image: "index/qianzhihe.png",
+          skills: ["URP渲染管线", "ShaderGraph", "WebCam", "WebGL"],
+        },
+        {
+          name: "骑士的誓言", time: "2020.12-2021.8",
+          description: "2D、SLG、三消手游，欧美画风，海外市场",
+          image: "index/qianzhihe.png",
+          skills: ["FGUI", "UnityGameFramework", "观察者模式", "代理模式"],
+        },
+        {
+          name: "LovinHouse", time: "2020.3-2020.12",
+          description: "2D互动式漫画手游,讲述的几对情侣合租爱情故事，周边有宠物养成，房间装扮",
+          image: "index/qianzhihe.png",
+          skills: ["live2d", "Dotween", "导表", "打ab包", "svn", "git", "UGUI适配","ET"],
+          link: "https://apps.apple.com/cn/app/lovin-house-%E8%90%BD%E6%A8%B1%E5%B0%8F%E5%B1%8B/id1447097214",
+        },
+        {
+          name: "跳岛旅者", time: "2019.4-2019.6",
+          description: "3D跑酷手游,多边形风格，场景是一个漂浮的天空之城，玩家若是不幸掉落游戏则结束。",
+          image: "index/qianzhihe.png",
+          skills: ["Litjson", "粒子特效", "Animator Controller", "ASE加密","天空盒", "贴图材质", "无限地图", "AudioMixer"],
+          videoUrl: "/About/index/跳岛旅者.mp4"
+        },
+        {
+          name: "指尖足球", time: "2019.7-2019.9",
+          description: "一款单机3D休闲类手游，基本玩法:玩家接到球通过手指滑动实现人物跟随手指释放，球就会根据与发球者的方向运动，如果击碎对方所有的保护块则胜利。",
+          image: "index/qianzhihe.png",
+          skills: ["物理碰撞", "角色控制", "相机跟随", "动画控制器","AI"],
+          videoUrl: "/About/index/BattleDisc.mp4"
+        },
+        {
+          name: "达芬奇密码", time: "2019.9-2020.03",
+          description: "2D棋牌端游，推理，当玩家手牌都被猜光后，该玩家就算输。",
+          image: "index/qianzhihe.png",
+          skills: ["Socket", "TCP", "SQL", "MySQL-Front","协程","多线程","心跳包","断线重连","反射"],
+          videoUrl: "/About/index/达芬奇密码.mp4"
+        },
+      ];
 
-      <div class="project-card bg-gray-800 rounded-lg shadow-md overflow-hidden mb-6">
-        <!-- 项目信息 -->
-        <div class="project-card" style="background-color: #505050;">
-          <!-- 宣传图 -->
-          <img src="https://mr-liu-cheng.github.io/About/index/image-1.png" alt="捡贝" class="project-image w-full h-64 object-cover">
-          <!-- 项目名 -->
-          <h3 class="text-2xl font-bold text-white">捡贝</h3>
-          <!-- 时间段 -->
-          2024.10 - Now
-          <!-- 项目概述 -->
-          <p class="text-white mb-4">一键同步微信读书所有笔记和划线，在新标签页展示优雅的书摘，提供沉浸式的回顾体验。</p>
-          <!-- 技能标签 -->
-          <div class="skill-tags">
-            <span style="background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;">Next</span>
-            <span style="background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;">Plasmo</span>
-            <span style="background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;">Typescript</span>
-            <span style="background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;">Supabase</span>
-            <span style="background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;">TailwindCSS</span>
+      // 动态生成项目卡片
+      const container = document.getElementById("projects-container");
+      projects.forEach(project => {
+        const projectCard = `
+          <div class="project-card">
+            <img src="${project.image}" class="project-image">
+            <h3>${project.name}</h3>
+            ${project.time}
+            <p class="project-p">${project.description}</p>
+            <div class="skill-tags">
+              ${project.skills.map(skill => `<span class="tag">${skill}</span>`).join("")}
+            </div>
+            
+            <div class="project-buttons">
+              ${project.link ? `<a href="${project.link}" target="_blank">Run</a>` : ""}
+              ${project.videoUrl ? `<a href="${project.videoUrl}" target="_blank">Preview</a>` : ""}
+            </div>
           </div>
-          <style>
-            .skill-tags .tag {
-              background-color: #e0f7fa;
-              /* 浅蓝色背景 */
-              color: #006064;
-              /* 深蓝色文字 */
-              font-size: 0.875rem;
-              /* 文字大小 */
-              padding: 4px 12px;
-              /* 内边距 */
-              border-radius: 999px;
-              /* 圆角背景 */
-              display: inline-block;
-              text-align: center;
-            }
-          </style>
+        `;
+        container.innerHTML += projectCard;
+      });
 
-          <div class="skill-tags">
-            <span class="tag">Next</span>
-            <span class="tag">Plasmo</span>
-            <span class="tag">Typescript</span>
-            <span class="tag">Supabase</span>
-            <span class="tag">TailwindCSS</span>
-          </div>
-          <!-- 按钮组 -->
-          <div class="project-buttons flex items-center space-x-4">
-            <button onclick="playVideo('video1.mp4')" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
-              播放视频1
-            </button>
-            <a href="https://project1-link.com" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg">
-              查看项目
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" style="background-color: #505050;">
-        <img src="https://mr-liu-cheng.github.io/About/index/image.png" alt="Camlife" class="project-image">
-        <h3>Camlife</h3>
-        <h3>Camlife</h3>
-        <h3>Camlife</h3>
-        <h3>Camlife</h3>
-        <p>2024.08 - Now</p>
-        <p>用影像记录每一个生活瞬间</p>
-        <div class="project-buttons">
-          <button onclick="playVideo('video2.mp4')">播放视频</button>
-          <a href="https://project2-link.com" target="_blank">查看项目</a>
-        </div>
-      </div>
-      <!-- Add more project cards as needed -->
-    </div>
+      function playVideo(videoUrl) {
+        // 打开视频播放链接
+        window.open(videoUrl, '_blank');
+      }
+    </script>
   </section>
-
-  <script>
-    function playVideo(videoUrl) {
-      // 打开视频播放链接
-      window.open(videoUrl, '_blank');
-    }
-  </script>
 
   <style>
     .projects {
@@ -272,7 +311,7 @@
     }
 
     .project-card {
-      background: #fff;
+      background: #505050;
       padding: 15px;
       border: 1px solid #ddd;
       border-radius: 10px;
@@ -286,6 +325,28 @@
       border-radius: 5px;
     }
 
+    .project-p {
+      font-size: 12px;
+    }
+
+    .skill-tags .tag {
+      background-color: #e0f7fa;
+      /* 浅蓝色背景 */
+      color: #006064;
+      /* 深蓝色文字 */
+      font-size: 0.65rem;
+      /* 文字大小 */
+      padding: 0px 10px;
+      border: 2px solid #006064;
+      /* 边框宽度、样式、颜色 */
+      /* 内边距 */
+      border-radius: 999px;
+      margin-top: 4px;
+      /* 圆角背景 */
+      display: inline-block;
+      text-align: center;
+    }
+
     .project-buttons {
       margin-top: 10px;
     }
@@ -294,24 +355,32 @@
     .project-buttons a {
       display: inline-block;
       margin: 5px;
-      padding: 8px 12px;
+      padding: 5px 12px;
       text-decoration: none;
       color: white;
       background-color: #007bff;
       border: none;
-      border-radius: 5px;
+      border-radius: 15px;
       cursor: pointer;
+      font-size: 0.65rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      /* 将字符间距设置为2像素 */
+      word-spacing: 5px;
+      /* 将单词间距设置为5像素 */
     }
 
     .project-buttons button:hover,
     .project-buttons a:hover {
-      background-color: #0056b3;
+      background-color: #34bbd0;
     }
   </style>
+
 </body>
 
 </html></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">LiuCheng</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Mr-liu-cheng"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://mr-liu-cheng.github.io/img/weixin.jpg" target="_blank" title="WeChat"><i class="fa-brands fa-weixin" style="color: #00ff00;"></i></a><a class="social-icon" href="mailto:liuchengyg@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://mr-liu-cheng.github.io/img/qq.jpg" target="_blank" title="QQ"><i class="fa-brands fa-qq" style="color: #ffffff;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="card-widget task-widget" id="task-list"><div class="item-headline"><i class="fas fa-tasks"></i><span>任务列表</span></div><div class="item-content"><div>
   <ul>
+    <li>About项目的视频和封面添加，标签技能完善</li>
     <li>完成 Hexo 广告接入</li>
     <li>完成 Hexo 游戏接入</li>
   </ul>
@@ -337,7 +406,7 @@
           </div>
           <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/butterfly/"><span class="card-category-list-name">butterfly</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/hexo/"><span class="card-category-list-name">hexo</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/unity/"><span class="card-category-list-name">unity</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/unity/webGL/"><span class="card-category-list-name">webGL</span><span class="card-category-list-count">1</span></a></li></ul></li>
-          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/butterfly/" style="font-size: 1.15em; color: rgb(194, 104, 95);">butterfly</a><a href="/tags/git/" style="font-size: 1.45em; color: rgb(172, 159, 119);">git</a><a href="/tags/Hexo/" style="font-size: 1.15em; color: rgb(50, 50, 136);">Hexo</a><a href="/tags/hexo/" style="font-size: 1.45em; color: rgb(74, 172, 145);">hexo</a><a href="/tags/tmp/" style="font-size: 1.15em; color: rgb(50, 50, 50);">tmp</a><a href="/tags/unity/" style="font-size: 1.45em; color: rgb(177, 165, 68);">unity</a><a href="/tags/webGL/" style="font-size: 1.15em; color: rgb(106, 141, 63);">webGL</a></div></div><div class="card-widget card-archives">
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/butterfly/" style="font-size: 1.15em; color: rgb(82, 70, 50);">butterfly</a><a href="/tags/git/" style="font-size: 1.45em; color: rgb(162, 50, 128);">git</a><a href="/tags/Hexo/" style="font-size: 1.15em; color: rgb(97, 50, 55);">Hexo</a><a href="/tags/hexo/" style="font-size: 1.45em; color: rgb(191, 164, 72);">hexo</a><a href="/tags/tmp/" style="font-size: 1.15em; color: rgb(50, 50, 158);">tmp</a><a href="/tags/unity/" style="font-size: 1.45em; color: rgb(76, 105, 118);">unity</a><a href="/tags/webGL/" style="font-size: 1.15em; color: rgb(50, 66, 129);">webGL</a></div></div><div class="card-widget card-archives">
     <div class="item-headline">
       <i class="fas fa-archive"></i>
       <span>归档</span>
@@ -351,7 +420,7 @@
           <span class="card-archive-list-count">8</span>
         </a>
       </li>
-    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2024-11-20T00:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-12-27T06:01:43.715Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By LiuCheng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><div id="music-player"></div><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script>  fetch("/music/playlist.json")    .then(response => response.json())    .then(data => {      const ap = new APlayer({        container: document.getElementById("music-player"),        fixed: true,        autoplay: false,        audio: data,        lrcType: 3      });    })    .catch(error => console.error("Error loading playlist:", error));</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2024-11-20T00:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-12-27T10:01:59.173Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By LiuCheng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><div id="music-player"></div><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script>  fetch("/music/playlist.json")    .then(response => response.json())    .then(data => {      const ap = new APlayer({        container: document.getElementById("music-player"),        fixed: true,        autoplay: false,        audio: data,        lrcType: 3      });    })    .catch(error => console.error("Error loading playlist:", error));</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
   const destroyAplayer = () => {
     if (window.aplayers) {
       for (let i = 0; i < window.aplayers.length; i++) {
