@@ -6,6 +6,7 @@ top:
     html: |
       <div>
         <ul>
+          <li>About项目的视频和封面添加，标签技能完善</li>
           <li>完成 Hexo 广告接入</li>
           <li>完成 Hexo 游戏接入</li>
         </ul>
