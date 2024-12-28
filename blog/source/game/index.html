@@ -1,3 +1,6 @@
+---
+aside: false
+---
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -12,22 +15,23 @@
     <h2>我的作品</h2>
     <div class="projects" id="projects-container"> </div>
     <script>
-      // 配置数据
-      const projects = [
-        {
-          name: "千纸鹤",
-          time: "2024.11 - 2024.12",
-          description: "网页应用：展示摇签，折纸，放飞。",
-          skills: ["URP渲染管线", "ShaderGraph", "WebCam", "WebGL"],
-          link: "https://mr-liu-cheng.github.io/qianzhihe/",
-          image: "index/qianzhihe.png"
-        },
-      ];
+      function Render() {
+        // 配置数据
+        const projects = [
+          {
+            name: "千纸鹤",
+            time: "2024.11 - 2024.12",
+            description: "网页应用：展示摇签，折纸，放飞。",
+            skills: ["URP渲染管线", "ShaderGraph", "WebCam", "WebGL"],
+            link: "https://mr-liu-cheng.github.io/qianzhihe/",
+            image: "index/qianzhihe.png"
+          },
+        ];
 
-      // 动态生成项目卡片
-      const container = document.getElementById("projects-container");
-      projects.forEach(project => {
-        const projectCard = `
+        // 动态生成项目卡片
+        const container = document.getElementById("projects-container");
+        projects.forEach(project => {
+          const projectCard = `
           <div class="project-card">
             <img src="${project.image}" class="project-image">
             <h3>${project.name}</h3>
@@ -41,8 +45,11 @@
             </div>
           </div>
         `;
-        container.innerHTML += projectCard;
-      });
+          container.innerHTML += projectCard;
+        });
+      }
+      setTimeout(function () { Render(); }, 100); // 延迟渲染，确保布局已完成
+
     </script>
 
   </section>

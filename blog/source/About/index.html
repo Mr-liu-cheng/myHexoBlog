@@ -1,3 +1,6 @@
+---
+aside: false
+---
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -36,98 +39,109 @@
     <h2>参与项目</h2>
     <div class="projects" id="projects-container"> </div>
     <script>
-      // 配置数据
-      const projects = [
-        {
-          name: "千纸鹤", time: "2024.11 - 2024.12",
-          description: "网页应用：展示摇签，折纸，放飞。",
-          skills: ["URP渲染管线", "ShaderGraph", "WebCam", "WebGL"],
-          image: "index/qianzhihe.png",
-          link: "https://mr-liu-cheng.github.io/qianzhihe/",
-          videoUrl: "/About/index/犬夜叉.mp4"
-        },
-        {
-          name: "Psd2UGUI", time: "2024.9 - 2024.10",
-          description: "支持PS自动切片并生成配置文件，导入unity自动生成界面预制体，无需拼UI和添加组件脚本。",
-          image: "index/qianzhihe.png",
-          skills: ["JSX", "Psd脚本开发", "导入配置生成界面预制体"],
-        },
-        {
-          name: "多语言工具", time: "2024.10 - 2024.11",
-          description: "支持批量筛选汇总表格的多语言字段记录，生成一张总表便于策划填写，生成时对比老表，表格导出为对应语种的xml文件",
-          image: "index/qianzhihe.png",
-          skills: ["bat批处理", "Epplus"],
-        },
-        {
-          name: "安装包应用程序开发", time: "2024.10 - 2024.11",
-          description: "使用Nsis语法，nsNiuniuSkin美化界面工具和NSISBI工具将unity构建的文件打包成可以执行的自动安装程序。",
-          image: "index/qianzhihe.png",
-          skills: ["NSIS", "nsNiuniuSkin", "NSISBI"],
-        },
-        {
-          name: "龙虎", time: "2023.11-2024.4",
-          description: "海外Slot游戏，3轴转动，单一中间线，匹配图案",
-          image: "index/qianzhihe.png",
-          skills: ["spin", "艺术字体制作", "数字滚动动画"],
-        },
-        {
-          name: "招财猫", time: "2024.4-2024.7",
-          description: "海外Slot游戏,老虎机，五轴转动，3x5匹配中奖线",
-          image: "index/qianzhihe.png",
-          skills: ["GF", "HybridCLR", "横竖屏切换"],
-        },
-        {
-          name: "WayPoint", time: "2022.9-2023.6",
-          description: "网页应用：展示摇签，折纸，放飞。",
-          image: "index/qianzhihe.png",
-          skills: ["URP渲染管线", "ShaderGraph", "WebCam", "WebGL"],
-        },
-        {
-          name: "路沿标注", time: "2021.9-2022.9",
-          description: "网页应用：展示摇签，折纸，放飞。",
-          image: "index/qianzhihe.png",
-          skills: ["URP渲染管线", "ShaderGraph", "WebCam", "WebGL"],
-        },
-        {
-          name: "骑士的誓言", time: "2020.12-2021.8",
-          description: "2D、SLG、三消手游，欧美画风，海外市场",
-          image: "index/qianzhihe.png",
-          skills: ["FGUI", "UnityGameFramework", "观察者模式", "代理模式"],
-        },
-        {
-          name: "LovinHouse", time: "2020.3-2020.12",
-          description: "2D互动式漫画手游,讲述的几对情侣合租爱情故事，周边有宠物养成，房间装扮",
-          image: "index/qianzhihe.png",
-          skills: ["live2d", "Dotween", "导表", "打ab包", "svn", "git", "UGUI适配","ET"],
-          link: "https://apps.apple.com/cn/app/lovin-house-%E8%90%BD%E6%A8%B1%E5%B0%8F%E5%B1%8B/id1447097214",
-        },
-        {
-          name: "跳岛旅者", time: "2019.4-2019.6",
-          description: "3D跑酷手游,多边形风格，场景是一个漂浮的天空之城，玩家若是不幸掉落游戏则结束。",
-          image: "index/qianzhihe.png",
-          skills: ["Litjson", "粒子特效", "Animator Controller", "ASE加密","天空盒", "贴图材质", "无限地图", "AudioMixer"],
-          videoUrl: "/About/index/跳岛旅者.mp4"
-        },
-        {
-          name: "指尖足球", time: "2019.7-2019.9",
-          description: "一款单机3D休闲类手游，基本玩法:玩家接到球通过手指滑动实现人物跟随手指释放，球就会根据与发球者的方向运动，如果击碎对方所有的保护块则胜利。",
-          image: "index/qianzhihe.png",
-          skills: ["物理碰撞", "角色控制", "相机跟随", "动画控制器","AI"],
-          videoUrl: "/About/index/BattleDisc.mp4"
-        },
-        {
-          name: "达芬奇密码", time: "2019.9-2020.03",
-          description: "2D棋牌端游，推理，当玩家手牌都被猜光后，该玩家就算输。",
-          image: "index/qianzhihe.png",
-          skills: ["Socket", "TCP", "SQL", "MySQL-Front","协程","多线程","心跳包","断线重连","反射"],
-          videoUrl: "/About/index/达芬奇密码.mp4"
-        },
-      ];
+      function Render() {
+        // 配置数据
+        const projects = [
+          {
+            name: "千纸鹤", time: "2024.11 - 2024.12",
+            description: "网页应用：展示摇签，折纸，放飞。",
+            skills: ["URP渲染管线", "ShaderGraph", "WebCam", "WebGL"],
+            image: "index/qianzhihe.png",
+            link: "https://mr-liu-cheng.github.io/qianzhihe/",
+            videoUrl: "/About/index/犬夜叉.mp4"
+          },
+          {
+            name: "Psd2UGUI", time: "2024.9 - 2024.10",
+            description: "支持PS自动切片并生成配置文件，导入unity自动生成界面预制体，无需拼UI和添加组件脚本。",
+            image: "index/PSD2UGUI.png",
+            skills: ["JSX", "Psd脚本开发", "导入配置生成界面预制体"],
+          },
+          {
+            name: "多语言工具", time: "2024.10 - 2024.11",
+            description: "支持批量筛选汇总表格的多语言字段记录，生成一张总表便于策划填写，生成时对比老表，表格导出为对应语种的xml文件",
+            image: "index/多语言工具.png",
+            skills: ["bat批处理", "Epplus"],
+          },
+          {
+            name: "安装包应用程序开发", time: "2024.10 - 2024.11",
+            description: "使用Nsis语法，nsNiuniuSkin美化界面工具和NSISBI工具将unity构建的文件打包成可以执行的自动安装程序。",
+            image: "index/安装包程序.png",
+            skills: ["NSIS", "nsNiuniuSkin", "NSISBI"],
+          },
+          {
+            name: "龙虎", time: "2023.11-2024.4",
+            description: "海外Slot游戏，3轴转动，单一中间线，匹配图案",
+            image: "index/龙虎.png",
+            skills: ["spin", "艺术字体制作", "数字滚动动画"],
+          },
+          {
+            name: "招财猫", time: "2024.4-2024.7",
+            description: "海外Slot游戏,老虎机，五轴转动，3x5匹配中奖线",
+            image: "index/招财猫.png",
+            skills: ["GF", "HybridCLR", "横竖屏切换"],
+          },
+          {
+            name: "WayPoint", time: "2022.9-2023.6",
+            description: "支持路径的可视化、编辑，数据读写，tag信息可视化以及读写，tag筛选，路径圆弧平滑和差值平滑等。",
+            image: "index/waypoint.png",
+            skills: ["属性面板拓展", "Catmull-Rom", "scene窗口拓展", "贝塞尔曲线", "Undo/Redo"],
+          },
+          {
+            name: "路沿标注", time: "2021.9-2022.9",
+            description: "支持点云地图渲染，在场景中，绘制路沿和停车位，导出和导入数据，可进行二次编辑",
+            image: "index/路沿标注.png",
+            skills: ["DLL导入", "handles", "自定义window窗口", "LineRenderer"],
+          },
+          {
+            name: "骑士的誓言", time: "2020.12-2021.8",
+            description: "2D、SLG、三消手游，欧美画风，海外市场",
+            image: "index/骑士的誓言.png",
+            skills: ["FGUI", "UnityGameFramework", "观察者模式", "代理模式"],
+            link: "https://a.4399.cn/game-id-183377.html",
+          },
+          {
+            name: "LovinHouse", time: "2020.3-2020.12",
+            description: "2D互动式漫画手游,讲述的几对情侣合租爱情故事，周边有宠物养成，房间装扮",
+            image: "index/栖木小屋.png",
+            skills: ["live2d", "Dotween", "导表", "打ab包", "svn", "git", "UGUI适配", "ET"],
+            link: "https://apps.apple.com/cn/app/lovin-house-%E8%90%BD%E6%A8%B1%E5%B0%8F%E5%B1%8B/id1447097214",
+          },
+          {
+            name: "跳岛旅者", time: "2019.4-2019.6",
+            description: "3D跑酷手游,多边形风格，场景是一个漂浮的天空之城，玩家若是不幸掉落游戏则结束。",
+            image: "index/跳岛旅者.png",
+            skills: ["Litjson", "粒子特效", "Animator Controller", "ASE加密", "天空盒", "贴图材质", "无限地图", "AudioMixer"],
+            videoUrl: "/About/index/跳岛旅者.mp4"
+          },
+          {
+            name: "指尖足球", time: "2019.7-2019.9",
+            description: "一款单机3D休闲类手游，基本玩法:玩家接到球通过手指滑动实现人物跟随手指释放，球就会根据与发球者的方向运动，如果击碎对方所有的保护块则胜利。",
+            image: "index/BattleDisc.png",
+            skills: ["物理碰撞", "角色控制", "相机跟随", "动画控制器", "AI"],
+            videoUrl: "/About/index/BattleDisc.mp4"
+          },
+          {
+            name: "达芬奇密码", time: "2019.9-2020.03",
+            description: "2D棋牌端游，推理，当玩家手牌都被猜光后，该玩家就算输。",
+            image: "index/达芬奇密码.png",
+            skills: ["Socket", "TCP", "SQL", "MySQL-Front", "协程", "多线程", "心跳包", "断线重连", "反射"],
+            videoUrl: "/About/index/达芬奇密码.mp4"
+          },
+        ];
+        
+        //内容扩宽
+        const page = document.getElementById("page");
+        page.style.width = "100%"; // 撑满屏幕
+        const content = document.getElementById("content-inner");
+        content.style.width = "1489px"; // 撑满屏幕
+        content.style.maxWidth = "100%"; // 撑满屏幕
+        content.style.margin = "0"; // 撑满屏幕
+        content.style.padding = "0"; // 撑满屏幕
 
-      // 动态生成项目卡片
-      const container = document.getElementById("projects-container");
-      projects.forEach(project => {
-        const projectCard = `
+        // 动态生成项目卡片
+        const container = document.getElementById("projects-container");
+        projects.forEach(project => {
+          const projectCard = `
           <div class="project-card">
             <img src="${project.image}" class="project-image">
             <h3>${project.name}</h3>
@@ -143,13 +157,15 @@
             </div>
           </div>
         `;
-        container.innerHTML += projectCard;
-      });
+          container.innerHTML += projectCard;
+        });
 
-      function playVideo(videoUrl) {
-        // 打开视频播放链接
-        window.open(videoUrl, '_blank');
+        function playVideo(videoUrl) {
+          // 打开视频播放链接
+          window.open(videoUrl, '_blank');
+        }
       }
+      setTimeout(function () { Render(); }, 100); // 延迟渲染，确保布局已完成
     </script>
   </section>
 

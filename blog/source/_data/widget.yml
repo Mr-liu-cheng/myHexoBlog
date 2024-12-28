@@ -6,6 +6,9 @@ top:
     html: |
       <div>
         <ul>
+          <li>aside设置：除home都隐藏</li>
+          <li>内容div拓宽，home除外</li>
+          <li>图片自定义尺寸</li>
           <li>About项目的视频和封面添加，标签技能完善</li>
           <li>完成 Hexo 广告接入</li>
           <li>完成 Hexo 游戏接入</li>
