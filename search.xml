@@ -313,6 +313,18 @@
       </tags>
   </entry>
   <entry>
+    <title>git学习</title>
+    <url>/2024/12/11/git%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><img src="https://mr-liu-cheng.github.io/2024/12/11/image.png" alt="alt text"></p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo 路径表示</title>
     <url>/2024/12/01/hexo%20%E8%B7%AF%E5%BE%84%E8%A1%A8%E7%A4%BA/</url>
     <content><![CDATA[<h1 id="hexo-路径表示"><a href="#hexo-路径表示" class="headerlink" title="hexo 路径表示"></a>hexo 路径表示</h1><p>ChatGPT:</p>
@@ -473,18 +485,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git学习</title>
-    <url>/2024/12/11/git%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><img src="https://mr-liu-cheng.github.io/2024/12/11/image.png" alt="alt text"></p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo 图片加载方案</title>
     <url>/2024/12/11/hexo-%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h1 id="安装-hexo-asset-image-插件"><a href="#安装-hexo-asset-image-插件" class="headerlink" title="安装 hexo-asset-image 插件"></a>安装 hexo-asset-image 插件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
@@ -526,97 +526,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>unity tmp中文显示</title>
-    <url>/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<h1 id="一、创建tmp中文字体资源"><a href="#一、创建tmp中文字体资源" class="headerlink" title="一、创建tmp中文字体资源"></a>一、创建tmp中文字体资源</h1><p>1.<strong>选择Window&#x2F;TextMeshPro&#x2F;Font Asset Creator</strong></p>
-<p>2.<strong>Font Asset Creator设置界面如图</strong><br><img src="https://mr-liu-cheng.github.io/2024/12/13/image-1.png" alt="alt text"><br>Source Font File：拖入需要使用的字体</p>
-<ul>
-<li>Sampling Point Size：设置用于生成字体纹理的字体大小（以磅为单位）</li>
-<li>Auto Sizeing：自动设置大小</li>
-<li>Custom Size：自定义大小，在文本框中输入所需的大小</li>
-</ul>
-<p>Padding：字间距，填充越大，过渡越平滑，从而允许更高质量的渲染和更大的效果，如粗轮廓。</p>
-<p>Packing Method：指定如何使字符适合字体纹理。</p>
-<ul>
-<li>Optimum：查找仍然适合纹理中所有字符的最大可能自动字体大小。</li>
-<li>Fast：更快地计算字符打包，但可能使用比优化模式更小的字体大小。</li>
-</ul>
-<p>Atlas Resolution：设置字体纹理的大小宽度和高度，以像素为单位</p>
-<p>Character Set：选择预定义的字符集。</p>
-<ul>
-<li>ASCII：包括 ASCII 字符集中的可见字符。</li>
-<li>Extended ASCII：包括扩展 ASCII 字符集中的可见字符。</li>
-<li>ASCII Lowercase：仅包含 ASCII 字符集中可见的小写字符。</li>
-<li>ASCII Uppercase：仅包含 ASCII 字符集中可见的大写字符</li>
-<li>Numbers+Sysbols：仅包括来自 ASCII 字符集的可见数字和符号。</li>
-<li>Custom Range：输入一系列十进制值或值范围，以指定要包括的字符。</li>
-<li>Unicode Range(Hex)：输入一系列 unicode 十六进制值或值范围，以指定要包含的字符。</li>
-<li>Custom Characters：输入字符序列以指定要包含的字符。</li>
-<li>Characters from File：指定的文本资源</li>
-</ul>
-<p>Render Mode：指定输出字体图集时要使用的渲染模式。</p>
-<ul>
-<li>SMOOTH_HINTED：将图集渲染为抗锯齿位图，并将字符像素与纹理像素对齐以获得更清晰的结果。</li>
-<li>SMOOTH：将图集渲染为抗锯齿位图。</li>
-<li>RASTER_HINTED：将图集渲染为非抗锯齿位图，并将字符像素与纹理像素对齐以获得更清晰的结果。</li>
-<li>RASTER：将图集渲染为非抗锯齿位图。</li>
-<li>SDF：使用较慢但更准确的 SDF 生成模式渲染图集，并且没有过采样。</li>
-<li>SDF8：使用较慢但更准确的 SDF 生成模式和 8 倍过采样渲染图集。</li>
-<li>SDF16：使用更慢但更准确的 SDF 生成模式和 16 倍过采样渲染图集。</li>
-<li>SDF32：使用较慢但更准确的 SDF 生成模式和 32 倍过采样渲染图集。将此设置用于具有复杂或小字符的字体。</li>
-<li>SDFAA_HINTED：使用更快但不太准确的 SDF 生成模式渲染图集，并将字符像素与纹理像素对齐以获得更清晰的结果，它生成的字体图集足以满足大多数情况。</li>
-<li>SDFAA：使用更快但不太准确的 SDF 生成模式渲染图集，它生成的字体图集足以满足大多数情况。</li>
-</ul>
-<p>Get Kerning Pairs：启用此选项可从字体复制字距调整数据。</p>
-<p>Generate Font Atlas：我们把包含中文字体的文件拖入Characters from File中，然后点击此按钮开始生成</p>
-<p>3.生成后，如上面效果图<br>注意：字体越多，生成的时间越长…Packing Method还是选Fast吧，Optimum太慢了</p>
-<p>4.点击Save按钮保存</p>
-<p>5.现在就可以正常使用这个字体了</p>
-<h1 id="二、tmp创建字体报错"><a href="#二、tmp创建字体报错" class="headerlink" title="二、tmp创建字体报错:"></a>二、tmp创建字体报错:</h1><p><img src="https://mr-liu-cheng.github.io/2024/12/13/image.png" alt="alt text"></p>
-<p>问题原因:</p>
-<ul>
-<li>字体贴图空间不足</li>
-</ul>
-<p>字体贴图的分辨率（Font Atlas Resolution）不够大，无法容纳所有字符。</p>
-<p>生成 3000 字符所需的贴图分辨率和时间较低，一般<code>1024x1024</code> 或<code>2048x2048</code> 即可完成。</p>
-<p>生成 7000 字符可能需要<code>4096x4096</code> 或更高分辨率，耗时更长。</p>
-<ul>
-<li>字符范围太大</li>
-</ul>
-<p>您可能尝试一次性添加过多的字符，例如一个完整的 Unicode 中文字符集。</p>
-<ul>
-<li>字体文件不支持这些字符</li>
-</ul>
-<p>使用的字体文件可能并未包含这些特定的字符。</p>
-<ul>
-<li>渲染模式设置不当</li>
-</ul>
-<p>当前的 Render Mode 设置可能导致字体生成失败。</p>
-<hr>
-<ul>
-<li><strong>选择 3000 汉字：</strong><ul>
-<li>如果项目是游戏、日常应用或现代场景，3000 字足够使用。</li>
-<li>性能优先的项目，如 WebGL、移动端、嵌入式系统。</li>
-</ul>
-</li>
-<li><strong>选择 7000 汉字：</strong><ul>
-<li>如果项目需要显示古文、法律文书或覆盖专业领域的特殊字符。</li>
-<li>针对高性能设备或专业场景，如 PC 端应用、大型屏幕展示。</li>
-</ul>
-</li>
-</ul>
-<p>汉字集下载：</p>
-<p><a href="https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set">https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set</a></p>
-]]></content>
-      <categories>
-        <category>unity</category>
-      </categories>
-      <tags>
-        <tag>tmp</tag>
-        <tag>unity</tag>
       </tags>
   </entry>
   <entry>
@@ -828,6 +737,232 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo 疑难杂症</title>
+    <url>/2024/12/28/hexo%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</url>
+    <content><![CDATA[<h2 id="butterfly通过样式隐藏页脚"><a href="#butterfly通过样式隐藏页脚" class="headerlink" title="butterfly通过样式隐藏页脚"></a>butterfly通过样式隐藏页脚</h2><p>如果配置文件没有提供选项，可以通过 CSS 隐藏页脚区域。<br>打开或创建 source&#x2F;css&#x2F;_layout&#x2F;footer.styl 文件。</p>
+<p>添加以下内容：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">复制代码</span><br><span class="line"><span class="selector-id">#footer</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo-页面跳转时，界面未完全加载"><a href="#hexo-页面跳转时，界面未完全加载" class="headerlink" title="hexo 页面跳转时，界面未完全加载"></a>hexo 页面跳转时，界面未完全加载</h2><p>页面刷新时正常的，但是从其他页面跳转过来时，js代码加载的内容都没加载出来</p>
+<p>我的做法是采用延时执行js的函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123; <span class="title class_">Render</span>(); &#125;, <span class="number">100</span>); <span class="comment">// 延迟渲染，确保布局已完成</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//这个方法不行</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;<span class="title class_">Render</span>();&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo-butterfly-主题的布局修改"><a href="#hexo-butterfly-主题的布局修改" class="headerlink" title="hexo butterfly 主题的布局修改"></a>hexo butterfly 主题的布局修改</h2><h3 id="隐藏侧边栏：Front-matter中添加"><a href="#隐藏侧边栏：Front-matter中添加" class="headerlink" title="隐藏侧边栏：Front-matter中添加"></a>隐藏侧边栏：Front-matter中添加</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">aside: false</span><br></pre></td></tr></table></figure>
+
+<p>如果要今后添加的的page或者post都隐藏侧边栏可以在模版Front-matter中添加上面的代码就行。但是已有的界面是需要自己手动添加从而实现隐藏效果。<br>scaffolds\page.md<br>scaffolds\post.md</p>
+<p>若是要完全隐藏或者在特殊的page隐藏可以在butterfly.config中修改配置实现：这里好像不能添加自定义的page，不然将会省事很多。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">aside:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">hide:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show the button to hide the aside in bottom right button</span></span><br><span class="line">  <span class="attr">button:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">mobile:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Position: left / right</span></span><br><span class="line">  <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">archive:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">tag:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">category:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="拓宽页面内容div"><a href="#拓宽页面内容div" class="headerlink" title="拓宽页面内容div"></a>拓宽页面内容div</h3><ul>
+<li>方法一：直接在md&#x2F;html&#x2F;js文件中添加js代码<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//内容扩宽</span></span><br><span class="line"><span class="keyword">const</span> page = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;page&quot;</span>);</span><br><span class="line">page.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line"><span class="comment">// page.style.setProperty(&quot;padding&quot;, &quot;160px&quot;, &quot;important&quot;);</span></span><br><span class="line">page.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;86px&quot;</span>; <span class="comment">// 撑满屏幕 不加单位视为百分百</span></span><br><span class="line"><span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;content-inner&quot;</span>);</span><br><span class="line">content.<span class="property">style</span>.<span class="property">maxWidth</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">margin</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br></pre></td></tr></table></figure></li>
+<li>方法二：直接在themes\butterfly\source\js\main.js文件中添加js代码<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//内容扩宽</span></span><br><span class="line"><span class="keyword">const</span> page = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;page&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (page &amp;&amp; saveStatus == <span class="string">&#x27;hide&#x27;</span>) &#123;</span><br><span class="line">page.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">page.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;86px&quot;</span>; <span class="comment">// 撑满屏幕 不加单位视为百分百</span></span><br><span class="line"><span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;content-inner&quot;</span>);</span><br><span class="line">content.<span class="property">style</span>.<span class="property">maxWidth</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">margin</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>强调：<br>样式中尺寸有两种表现：百分百、具体像素值（12px）。<br>自带的标签可能会有默认样式信息，例如<code>&lt;Img&gt;</code>,若是要修改，需要使用 !important 提高当前样式的优先级</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;$&#123;project.image&#125;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;project-cover&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.project-cover</span> &#123;</span></span><br><span class="line"><span class="language-css">     <span class="attribute">max-width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 图片宽度不会超出容器宽度 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">max-height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 图片高度不会超出容器高度 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">object-fit</span>: contain;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 保持图片比例，完全显示图片 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 防止图片默认的 inline 行为 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">margin</span>: <span class="number">0</span> <span class="meta">!important</span>;<span class="comment">/* 防止img默认的样式覆盖，提高当前样式的优先级*/</span></span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 设置外边距为零 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">border</span>: none;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 移除边框 */</span></span></span><br><span class="line"><span class="language-css">   &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或者这样：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">page.<span class="property">style</span>.<span class="title function_">setProperty</span>(<span class="string">&quot;padding&quot;</span>, <span class="string">&quot;160px&quot;</span>, <span class="string">&quot;important&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="div中的图片居中"><a href="#div中的图片居中" class="headerlink" title="div中的图片居中"></a>div中的图片居中</h2><p>display: flex;<br>flex-direction: column;<br>align-items: center;</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project-card</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#505050</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 设置为弹性布局 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="comment">/* 子元素纵向排列 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="comment">/* 子元素水平居中 */</span></span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">4px</span> <span class="number">8px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="格子布局"><a href="#格子布局" class="headerlink" title="格子布局"></a>格子布局</h2><p><strong>总结对比</strong> </p>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>列数</th>
+<th>列宽度计算</th>
+<th>剩余空间行为</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>repeat(4, 1fr)</td>
+<td>固定为 4 列</td>
+<td>按容器宽度动态调整</td>
+<td>每列均分剩余空间</td>
+</tr>
+<tr>
+<td>repeat(auto-fit, 250px)</td>
+<td>动态调整</td>
+<td>固定为 250px</td>
+<td>剩余空间为空白（列不会超出内容）</td>
+</tr>
+<tr>
+<td>repeat(auto-fit, minmax(250px, 1fr))</td>
+<td>动态调整</td>
+<td>最小 250px，最大均分剩余空间</td>
+<td>剩余空间被列均分,空列也会被均分掉</td>
+</tr>
+<tr>
+<td>repeat(auto-fill, minmax(250px, 1fr))</td>
+<td>动态调整</td>
+<td>最小 250px，最大均分剩余空间</td>
+<td>剩余空间被列均分，但空列会保留</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.projects</span> &#123;</span><br><span class="line">     <span class="attribute">display</span>: grid;</span><br><span class="line">     <span class="comment">/* 指定4列，每列等分容器宽度 */</span></span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr); </span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fit, <span class="number">250px</span>);</span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fit, <span class="built_in">minmax</span>(<span class="number">250px</span>, <span class="number">1</span>fr));</span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fill, <span class="built_in">minmax</span>(<span class="number">250px</span>, <span class="number">1</span>fr));</span><br><span class="line">     <span class="comment">/* grid-auto-rows: 150px; */</span></span><br><span class="line">     <span class="comment">/* 每行高度固定为 150px */</span></span><br><span class="line">     <span class="attribute">gap</span>: <span class="number">20px</span>;</span><br><span class="line">     <span class="comment">/* 格子间距 20px*/</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+<br>
+
+
+<h2 id="auto-fit-与-auto-fill-的主要区别"><a href="#auto-fit-与-auto-fill-的主要区别" class="headerlink" title="auto-fit 与 auto-fill 的主要区别"></a><code>auto-fit</code> 与 <code>auto-fill</code> 的主要区别</h2><ul>
+<li><p><strong><code>auto-fit</code></strong> : 将列压缩以适应容器宽度，仅保留有内容的列，列之间的多余空间会重新分配。</p>
+</li>
+<li><p><strong><code>auto-fill</code></strong> : 尽可能填满容器，即使某些列是“空的”，也会在容器内保留这些占位列。</p>
+</li>
+</ul>
+<h2 id="repeat-auto-fit-minmax-250px-1fr"><a href="#repeat-auto-fit-minmax-250px-1fr" class="headerlink" title="repeat(auto-fit, minmax(250px, 1fr)) "></a><code>repeat(auto-fit, minmax(250px, 1fr))</code> </h2><ul>
+<li>重点是“<strong>压缩列数</strong> ”：如果列宽足够，未使用的列会被移除，只有实际需要的列保留。</li>
+<li>剩余空间会被现有列均分。</li>
+<li>只生成实际需要的列，不创建空列。</li>
+<li>列总数 &#x3D; <strong>实际内容列数</strong> 。</li>
+</ul>
+<br>
+
+<h2 id="repeat-auto-fill-minmax-250px-1fr"><a href="#repeat-auto-fill-minmax-250px-1fr" class="headerlink" title="repeat(auto-fill, minmax(250px, 1fr)) "></a><code>repeat(auto-fill, minmax(250px, 1fr))</code> </h2><ul>
+<li>重点是“<strong>填满容器</strong> ”：尝试创建更多列，即使其中部分列没有内容（生成“空列”作为占位）。</li>
+<li>剩余空间会均分到所有列（包括空列）。</li>
+<li>列总数 &#x3D; <strong>容器能容纳的最大列数</strong> 。</li>
+</ul>
+<br>
+
+<p><strong>详细比较表</strong> </p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>auto-fit</th>
+<th>auto-fill</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>列数</td>
+<td>根据实际内容调整列数</td>
+<td>根据容器宽度填满列数</td>
+</tr>
+<tr>
+<td>剩余空间分配</td>
+<td>均分到现有列</td>
+<td>均分到所有列（包括空列）</td>
+</tr>
+<tr>
+<td>未使用的列</td>
+<td>移除</td>
+<td>保留为占位列</td>
+</tr>
+<tr>
+<td>空列是否创建</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>优势</td>
+<td>精简布局，适合动态内容数量，仅有实际内容需要显示时 ,移除无用列，避免产生空白列</td>
+<td>容器填满，适合固定布局，需要固定网格布局（占位列）时 ,空列提供一致的布局效果</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>butterfly</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>unity tmp中文显示</title>
+    <url>/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<h1 id="一、创建tmp中文字体资源"><a href="#一、创建tmp中文字体资源" class="headerlink" title="一、创建tmp中文字体资源"></a>一、创建tmp中文字体资源</h1><p>1.<strong>选择Window&#x2F;TextMeshPro&#x2F;Font Asset Creator</strong></p>
+<p>2.<strong>Font Asset Creator设置界面如图</strong><br><img src="https://mr-liu-cheng.github.io/2024/12/13/image-1.png" alt="alt text"><br>Source Font File：拖入需要使用的字体</p>
+<ul>
+<li>Sampling Point Size：设置用于生成字体纹理的字体大小（以磅为单位）</li>
+<li>Auto Sizeing：自动设置大小</li>
+<li>Custom Size：自定义大小，在文本框中输入所需的大小</li>
+</ul>
+<p>Padding：字间距，填充越大，过渡越平滑，从而允许更高质量的渲染和更大的效果，如粗轮廓。</p>
+<p>Packing Method：指定如何使字符适合字体纹理。</p>
+<ul>
+<li>Optimum：查找仍然适合纹理中所有字符的最大可能自动字体大小。</li>
+<li>Fast：更快地计算字符打包，但可能使用比优化模式更小的字体大小。</li>
+</ul>
+<p>Atlas Resolution：设置字体纹理的大小宽度和高度，以像素为单位</p>
+<p>Character Set：选择预定义的字符集。</p>
+<ul>
+<li>ASCII：包括 ASCII 字符集中的可见字符。</li>
+<li>Extended ASCII：包括扩展 ASCII 字符集中的可见字符。</li>
+<li>ASCII Lowercase：仅包含 ASCII 字符集中可见的小写字符。</li>
+<li>ASCII Uppercase：仅包含 ASCII 字符集中可见的大写字符</li>
+<li>Numbers+Sysbols：仅包括来自 ASCII 字符集的可见数字和符号。</li>
+<li>Custom Range：输入一系列十进制值或值范围，以指定要包括的字符。</li>
+<li>Unicode Range(Hex)：输入一系列 unicode 十六进制值或值范围，以指定要包含的字符。</li>
+<li>Custom Characters：输入字符序列以指定要包含的字符。</li>
+<li>Characters from File：指定的文本资源</li>
+</ul>
+<p>Render Mode：指定输出字体图集时要使用的渲染模式。</p>
+<ul>
+<li>SMOOTH_HINTED：将图集渲染为抗锯齿位图，并将字符像素与纹理像素对齐以获得更清晰的结果。</li>
+<li>SMOOTH：将图集渲染为抗锯齿位图。</li>
+<li>RASTER_HINTED：将图集渲染为非抗锯齿位图，并将字符像素与纹理像素对齐以获得更清晰的结果。</li>
+<li>RASTER：将图集渲染为非抗锯齿位图。</li>
+<li>SDF：使用较慢但更准确的 SDF 生成模式渲染图集，并且没有过采样。</li>
+<li>SDF8：使用较慢但更准确的 SDF 生成模式和 8 倍过采样渲染图集。</li>
+<li>SDF16：使用更慢但更准确的 SDF 生成模式和 16 倍过采样渲染图集。</li>
+<li>SDF32：使用较慢但更准确的 SDF 生成模式和 32 倍过采样渲染图集。将此设置用于具有复杂或小字符的字体。</li>
+<li>SDFAA_HINTED：使用更快但不太准确的 SDF 生成模式渲染图集，并将字符像素与纹理像素对齐以获得更清晰的结果，它生成的字体图集足以满足大多数情况。</li>
+<li>SDFAA：使用更快但不太准确的 SDF 生成模式渲染图集，它生成的字体图集足以满足大多数情况。</li>
+</ul>
+<p>Get Kerning Pairs：启用此选项可从字体复制字距调整数据。</p>
+<p>Generate Font Atlas：我们把包含中文字体的文件拖入Characters from File中，然后点击此按钮开始生成</p>
+<p>3.生成后，如上面效果图<br>注意：字体越多，生成的时间越长…Packing Method还是选Fast吧，Optimum太慢了</p>
+<p>4.点击Save按钮保存</p>
+<p>5.现在就可以正常使用这个字体了</p>
+<h1 id="二、tmp创建字体报错"><a href="#二、tmp创建字体报错" class="headerlink" title="二、tmp创建字体报错:"></a>二、tmp创建字体报错:</h1><p><img src="https://mr-liu-cheng.github.io/2024/12/13/image.png" alt="alt text"></p>
+<p>问题原因:</p>
+<ul>
+<li>字体贴图空间不足</li>
+</ul>
+<p>字体贴图的分辨率（Font Atlas Resolution）不够大，无法容纳所有字符。</p>
+<p>生成 3000 字符所需的贴图分辨率和时间较低，一般<code>1024x1024</code> 或<code>2048x2048</code> 即可完成。</p>
+<p>生成 7000 字符可能需要<code>4096x4096</code> 或更高分辨率，耗时更长。</p>
+<ul>
+<li>字符范围太大</li>
+</ul>
+<p>您可能尝试一次性添加过多的字符，例如一个完整的 Unicode 中文字符集。</p>
+<ul>
+<li>字体文件不支持这些字符</li>
+</ul>
+<p>使用的字体文件可能并未包含这些特定的字符。</p>
+<ul>
+<li>渲染模式设置不当</li>
+</ul>
+<p>当前的 Render Mode 设置可能导致字体生成失败。</p>
+<hr>
+<ul>
+<li><strong>选择 3000 汉字：</strong><ul>
+<li>如果项目是游戏、日常应用或现代场景，3000 字足够使用。</li>
+<li>性能优先的项目，如 WebGL、移动端、嵌入式系统。</li>
+</ul>
+</li>
+<li><strong>选择 7000 汉字：</strong><ul>
+<li>如果项目需要显示古文、法律文书或覆盖专业领域的特殊字符。</li>
+<li>针对高性能设备或专业场景，如 PC 端应用、大型屏幕展示。</li>
+</ul>
+</li>
+</ul>
+<p>汉字集下载：</p>
+<p><a href="https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set">https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set</a></p>
+]]></content>
+      <categories>
+        <category>unity</category>
+      </categories>
+      <tags>
+        <tag>tmp</tag>
+        <tag>unity</tag>
       </tags>
   </entry>
   <entry>
