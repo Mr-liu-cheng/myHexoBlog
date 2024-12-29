@@ -628,6 +628,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const saveStatus = $htmlDom.contains('hide-aside') ? 'show' : 'hide'
       btf.saveToLocal.set('aside-status', saveStatus, 2)
       $htmlDom.toggle('hide-aside')
+
+      //内容扩宽
+      const page = document.getElementById("page");
+      if (page && saveStatus == 'hide') {
+        page.style.width = "100%"; // 撑满屏幕
+        page.style.padding = "86px"; // 撑满屏幕 不加单位视为百分百
+        const content = document.getElementById("content-inner");
+        content.style.maxWidth = "100%"; // 撑满屏幕
+        content.style.margin = "0"; // 撑满屏幕
+        content.style.padding = "0"; // 撑满屏幕
+      }
     },
     'mobile-toc-button': (p, item) => { // Show mobile toc
       const tocEle = document.getElementById('card-toc')

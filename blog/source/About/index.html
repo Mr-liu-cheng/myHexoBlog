@@ -128,12 +128,13 @@ aside: false
             videoUrl: "/About/index/达芬奇密码.mp4"
           },
         ];
-        
+
         //内容扩宽
         const page = document.getElementById("page");
         page.style.width = "100%"; // 撑满屏幕
+        // page.style.setProperty("padding", "160px", "important");
+        page.style.padding = "86px"; // 撑满屏幕 不加单位视为百分百
         const content = document.getElementById("content-inner");
-        content.style.width = "1489px"; // 撑满屏幕
         content.style.maxWidth = "100%"; // 撑满屏幕
         content.style.margin = "0"; // 撑满屏幕
         content.style.padding = "0"; // 撑满屏幕
@@ -143,14 +144,15 @@ aside: false
         projects.forEach(project => {
           const projectCard = `
           <div class="project-card">
-            <img src="${project.image}" class="project-image">
+            <div class="project-image-container">
+              <img src="${project.image}" class="project-cover">
+            </div>
             <h3>${project.name}</h3>
             ${project.time}
             <p class="project-p">${project.description}</p>
             <div class="skill-tags">
               ${project.skills.map(skill => `<span class="tag">${skill}</span>`).join("")}
             </div>
-            
             <div class="project-buttons">
               ${project.link ? `<a href="${project.link}" target="_blank">Run</a>` : ""}
               ${project.videoUrl ? `<a href="${project.videoUrl}" target="_blank">Preview</a>` : ""}
@@ -181,15 +183,52 @@ aside: false
       padding: 15px;
       border: 1px solid #ddd;
       border-radius: 10px;
+      display: flex;
+      /* 设置为弹性布局 */
+      flex-direction: column;
+      /* 子元素纵向排列 */
+      align-items: center;
+      /* 子元素水平居中 */
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .project-image {
+    .project-cover {
       max-width: 100%;
-      height: auto;
-      border-radius: 5px;
+      /* 图片宽度不会超出容器宽度 */
+      max-height: 100%;
+      /* 图片高度不会超出容器高度 */
+      object-fit: contain;
+      /* 保持图片比例，完全显示图片 */
+      display: block;
+      /* 防止图片默认的 inline 行为 */
+      margin: 0 !important;/* 防止img默认的样式覆盖，提高当前样式的优先级*/
+      /* 设置外边距为零 */
+      border: none;
+      /* 移除边框 */
     }
+
+
+    .project-image-container {
+      width: 200px;
+      /* 固定容器宽度 */
+      height: 200px;
+      /* 固定容器高度 */
+      display: flex;
+      /* 使用 flex 布局 */
+      justify-content: center;
+      /* 水平居中 */
+      align-items: center;
+      /* 垂直居中 */
+      overflow: hidden;
+      /* 避免图片溢出 */
+      border-radius: 5px;
+      /* 可选：设置圆角 */
+    }
+
+
+
+
 
     .project-p {
       font-size: 12px;
