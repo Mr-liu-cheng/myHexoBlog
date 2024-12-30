@@ -77,6 +77,7 @@ ignore: null
 theme: butterfly
 deploy:
   type: git
+  #ssh方式连接
   repo: git@github.com:Mr-liu-cheng/mr-liu-cheng.github.io.git
   branch: gh-pages
 url: https://mr-liu-cheng.github.io
