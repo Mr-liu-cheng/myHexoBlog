@@ -13,6 +13,306 @@
       </tags>
   </entry>
   <entry>
+    <title>git修改历史提交</title>
+    <url>/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</url>
+    <content><![CDATA[<p>You: </p>
+<p>git reset –soft 29f9bbd77da69902335cad77a12eac7b022b9f63</p>
+<p>讲解一下这个git reset命令</p>
+<p>ChatGPT: </p>
+<p><code>git reset --soft</code> 命令是 Git 中的一个强大工具，它可以用于回退到某个特定的提交，同时保留文件的修改内容。这里是对该命令的详细解释：</p>
+<h3 id="命令结构："><a href="#命令结构：" class="headerlink" title="命令结构："></a>命令结构：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft &lt;commit-hash&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>git reset</code> 是 Git 的一个基本命令，用于将当前的分支回退到指定的提交，并调整索引和工作目录中的内容。</p>
+</li>
+<li><p><code>--soft</code> 是 <code>git reset</code> 的一个选项，决定了在回退时如何处理文件的状态。<code>--soft</code> 会将 <code>HEAD</code> 移动到指定的 commit，但 <strong>不会修改工作目录</strong>  和 <strong>索引</strong> （也就是暂存区），因此你仍然可以看到文件的修改。</p>
+</li>
+</ul>
+<h3 id="各部分的解释："><a href="#各部分的解释：" class="headerlink" title="各部分的解释："></a>各部分的解释：</h3><ol>
+<li><strong><code>&lt;commit-hash&gt;</code></strong> ：</li>
+</ol>
+<ul>
+<li><code>&lt;commit-hash&gt;</code> 是你想回退到的 commit 的哈希值。可以是一个完整的哈希（如 <code>29f9bbd77da69902335cad77a12eac7b022b9f63</code>）或者它的前几位字符（例如，<code>29f9bbd</code>）。<code>git log</code> 可以帮助你查找这个哈希值。</li>
+</ul>
+<ol start="2">
+<li><strong><code>--soft</code> 选项</strong> ：</li>
+</ol>
+<ul>
+<li><p><code>--soft</code> 选项使得 Git <strong>只移动 HEAD</strong> ，即将当前分支指针（HEAD）回退到指定的 commit，但 <strong>保留工作目录和暂存区的内容不变</strong> 。换句话说，你的文件更改不会丢失，修改内容仍然会保留在暂存区。</p>
+</li>
+<li><p>如果你有一些修改没有提交，<code>git reset --soft</code> 会将这些修改<strong>保留</strong> ，并将它们放回暂存区，让你可以再次提交。</p>
+</li>
+</ul>
+<h3 id="具体的效果："><a href="#具体的效果：" class="headerlink" title="具体的效果："></a>具体的效果：</h3><ol>
+<li><p><strong><code>HEAD</code> 会回退</strong> ：这会将当前分支的 HEAD 指针（即当前正在工作的提交）指向指定的 commit。</p>
+</li>
+<li><p><strong>工作目录不变</strong> ：你的工作目录中的文件不会被修改，意味着所有修改都会被保留，你的文件内容依然存在。</p>
+</li>
+<li><p><strong>暂存区不变</strong> ：所有已暂存的文件也会被保留，意味着如果你之前用 <code>git add</code> 添加了修改，那么这些修改依然会保留在暂存区。</p>
+</li>
+</ol>
+<h3 id="举个例子："><a href="#举个例子：" class="headerlink" title="举个例子："></a>举个例子：</h3><p>假设你有如下提交历史：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">commit</span> a1b2c3d <span class="operator">-</span> 最新的提交</span><br><span class="line"><span class="keyword">commit</span> <span class="number">29</span>f9bbd <span class="operator">-</span> 需要回退到的提交</span><br><span class="line"><span class="keyword">commit</span> d4e5f6g <span class="operator">-</span> 更早的提交</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果你执行 <code>git reset --soft 29f9bbd77da69902335cad77a12eac7b022b9f63</code>，这会发生以下变化： <ul>
+<li><p><strong><code>HEAD</code></strong>  会指向 <code>29f9bbd</code> 提交，即回到你指定的提交。</p>
+</li>
+<li><p><strong>工作目录</strong>  保持不变，你的文件内容依然会保留。</p>
+</li>
+<li><p><strong>暂存区</strong>  也保持不变，你之前 <code>git add</code> 的修改仍然会保留。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>这样，你就可以修改代码并重新提交，而不丢失之前的修改。</p>
+<h3 id="常见的用法："><a href="#常见的用法：" class="headerlink" title="常见的用法："></a>常见的用法：</h3><ul>
+<li><strong>撤销最近的提交并保留修改</strong> ：假设你做了一个提交，但发现需要修改其中的内容，你可以使用 <code>git reset --soft HEAD^</code>（<code>HEAD^</code> 是指上一个提交）。这会撤销最近的提交，并保留你工作目录和暂存区的内容，允许你重新修改并提交。</li>
+</ul>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li><p><code>git reset --soft &lt;commit-hash&gt;</code> 会将 <code>HEAD</code> 回退到指定的 commit，但 <strong>保留文件内容和暂存区的修改</strong> 。这适用于想要撤销某个提交，但又不希望丢失工作进度的情况。</p>
+</li>
+<li><p>使用此命令时，你可以修改或更新暂存区的文件，再次进行提交。</p>
+</li>
+</ul>
+<p>You: </p>
+<p>git reset 有三种讲一下</p>
+<p>ChatGPT: </p>
+<p><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <strong><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <code>git reset --soft &lt;commit&gt;</code></strong>  </p>
+<ul>
+<li><p><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</p>
+</li>
+<li><p><strong>效果</strong> ： </p>
+<ul>
+<li><p><code>HEAD</code> 回退到指定的提交，即当前分支指针会指向指定的提交。</p>
+</li>
+<li><p><strong>工作目录（Working Directory）</strong>  不变，文件的内容保留不变。</p>
+</li>
+<li><p><strong>暂存区（Staging Area）</strong>  保持不变，之前已经暂存的文件仍然存在于暂存区。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>使用场景</strong> ：</p>
+<ul>
+<li>用于撤销最后一次提交并修改其中的内容，但保留文件更改和暂存区内容。适合你想重新提交修改内容时使用。</li>
+</ul>
+</li>
+<li><p><strong>示例</strong> ：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
+<p>这个命令将 HEAD 回退到上一个提交（<code>HEAD~1</code>），但是保留当前工作目录和暂存区中的修改。你可以编辑文件、重新暂存并提交。</p>
+<hr>
+<ol start="2">
+<li>**<code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <strong><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <code>git reset --soft &lt;commit&gt;</code></strong></li>
+</ol>
+<ul>
+<li><p><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</p>
+</li>
+<li><p><strong>效果</strong> ： </p>
+<ul>
+<li><p><code>HEAD</code> 回退到指定的提交，即当前分支指针会指向指定的提交。</p>
+</li>
+<li><p><strong>工作目录（Working Directory）</strong>  不变，文件的内容保留不变。</p>
+</li>
+<li><p><strong>暂存区（Staging Area）</strong>  保持不变，之前已经暂存的文件仍然存在于暂存区。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>使用场景</strong> ：</p>
+<ul>
+<li>用于撤销最后一次提交并修改其中的内容，但保留文件更改和暂存区内容。适合你想重新提交修改内容时使用。</li>
+</ul>
+</li>
+<li><p><strong>示例</strong> ：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
+<p>这个命令将 HEAD 回退到上一个提交（<code>HEAD~1</code>），但是保留当前工作目录和暂存区中的修改。你可以编辑文件、重新暂存并提交。</p>
+<hr>
+<ol start="2">
+<li><code>git reset --mixed &lt;commit&gt;</code>**  （默认选项）</li>
+</ol>
+<ul>
+<li><p><strong>作用</strong> ：将 <code>HEAD</code> 回退到指定的 commit，并且 <strong>更新暂存区</strong> （即撤销暂存），但 <strong>不更改工作目录</strong> 。</p>
+</li>
+<li><p><strong>效果</strong> ： </p>
+<ul>
+<li><p><code>HEAD</code> 回退到指定的提交。</p>
+</li>
+<li><p><strong>工作目录</strong>  不变，文件内容保留不变。</p>
+</li>
+<li><p><strong>暂存区（Staging Area）</strong>  被更新为与指定 commit 的内容一致。也就是说，撤销所有已经 <code>git add</code> 的文件，将它们从暂存区中移除，但文件内容仍然保持在工作目录中。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>使用场景</strong> ：</p>
+<ul>
+<li>用于撤销提交并取消暂存文件，但你仍然想保留文件修改。适用于需要修改代码但不想保留当前暂存区修改的场景。</li>
+</ul>
+</li>
+<li><p><strong>示例</strong> ：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --mixed HEAD~1</span><br></pre></td></tr></table></figure>
+<p>这个命令将 HEAD 回退到上一个提交，并且从暂存区移除修改，但文件内容仍然保留。相当于撤销最近的 <code>git add</code> 操作。</p>
+<hr>
+<ol start="3">
+<li>**<code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <strong><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <code>git reset --soft &lt;commit&gt;</code></strong></li>
+</ol>
+<ul>
+<li><p><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</p>
+</li>
+<li><p><strong>效果</strong> ： </p>
+<ul>
+<li><p><code>HEAD</code> 回退到指定的提交，即当前分支指针会指向指定的提交。</p>
+</li>
+<li><p><strong>工作目录（Working Directory）</strong>  不变，文件的内容保留不变。</p>
+</li>
+<li><p><strong>暂存区（Staging Area）</strong>  保持不变，之前已经暂存的文件仍然存在于暂存区。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>使用场景</strong> ：</p>
+<ul>
+<li>用于撤销最后一次提交并修改其中的内容，但保留文件更改和暂存区内容。适合你想重新提交修改内容时使用。</li>
+</ul>
+</li>
+<li><p><strong>示例</strong> ：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
+<p>这个命令将 HEAD 回退到上一个提交（<code>HEAD~1</code>），但是保留当前工作目录和暂存区中的修改。你可以编辑文件、重新暂存并提交。</p>
+<hr>
+<ol start="2">
+<li>**<code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <strong><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <code>git reset --soft &lt;commit&gt;</code></strong></li>
+</ol>
+<ul>
+<li><p><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</p>
+</li>
+<li><p><strong>效果</strong> ： </p>
+<ul>
+<li><p><code>HEAD</code> 回退到指定的提交，即当前分支指针会指向指定的提交。</p>
+</li>
+<li><p><strong>工作目录（Working Directory）</strong>  不变，文件的内容保留不变。</p>
+</li>
+<li><p><strong>暂存区（Staging Area）</strong>  保持不变，之前已经暂存的文件仍然存在于暂存区。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>使用场景</strong> ：</p>
+<ul>
+<li>用于撤销最后一次提交并修改其中的内容，但保留文件更改和暂存区内容。适合你想重新提交修改内容时使用。</li>
+</ul>
+</li>
+<li><p><strong>示例</strong> ：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
+<p>这个命令将 HEAD 回退到上一个提交（<code>HEAD~1</code>），但是保留当前工作目录和暂存区中的修改。你可以编辑文件、重新暂存并提交。</p>
+<hr>
+<ol start="2">
+<li><code>git reset --mixed &lt;commit&gt;</code>**  （默认选项）</li>
+</ol>
+<ul>
+<li><p><strong>作用</strong> ：将 <code>HEAD</code> 回退到指定的 commit，并且 <strong>更新暂存区</strong> （即撤销暂存），但 <strong>不更改工作目录</strong> 。</p>
+</li>
+<li><p><strong>效果</strong> ： </p>
+<ul>
+<li><p><code>HEAD</code> 回退到指定的提交。</p>
+</li>
+<li><p><strong>工作目录</strong>  不变，文件内容保留不变。</p>
+</li>
+<li><p><strong>暂存区（Staging Area）</strong>  被更新为与指定 commit 的内容一致。也就是说，撤销所有已经 <code>git add</code> 的文件，将它们从暂存区中移除，但文件内容仍然保持在工作目录中。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>使用场景</strong> ：</p>
+<ul>
+<li>用于撤销提交并取消暂存文件，但你仍然想保留文件修改。适用于需要修改代码但不想保留当前暂存区修改的场景。</li>
+</ul>
+</li>
+<li><p><strong>示例</strong> ：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --mixed HEAD~1</span><br></pre></td></tr></table></figure>
+<p>这个命令将 HEAD 回退到上一个提交，并且从暂存区移除修改，但文件内容仍然保留。相当于撤销最近的 <code>git add</code> 操作。</p>
+<hr>
+<ol start="3">
+<li><code>git reset --hard &lt;commit&gt;</code>**</li>
+</ol>
+<ul>
+<li><p><strong>作用</strong> ：将 <code>HEAD</code>、<strong>暂存区</strong>  和 <strong>工作目录</strong>  都回退到指定的 commit。</p>
+</li>
+<li><p><strong>效果</strong> ： </p>
+<ul>
+<li><p><code>HEAD</code> 回退到指定的提交。</p>
+</li>
+<li><p><strong>工作目录</strong>  会被重置为指定 commit 的内容，所有未提交的修改（无论是暂存区的还是工作目录的）都会被丢弃。</p>
+</li>
+<li><p><strong>暂存区</strong>  也会被重置，撤销所有已暂存的文件。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>使用场景</strong> ：</p>
+<ul>
+<li>用于彻底放弃当前的修改，回到某个提交状态。适用于你想完全撤销修改并且不保留任何更改时使用。</li>
+</ul>
+</li>
+<li><p><strong>示例</strong> ：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD~1</span><br></pre></td></tr></table></figure>
+<p>这个命令会将 HEAD 回退到上一个提交，并且<strong>彻底丢弃</strong> 工作目录和暂存区中的所有修改。<strong>注意</strong> ：此操作无法恢复，慎重使用！</p>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>HEAD</th>
+<th>工作目录</th>
+<th>暂存区</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>–soft</td>
+<td>回退到指定 commit</td>
+<td>保持不变</td>
+<td>保持不变</td>
+<td>用于撤销提交并重新提交，保留修改和暂存区内容</td>
+</tr>
+<tr>
+<td>–mixed</td>
+<td>回退到指定 commit</td>
+<td>保持不变</td>
+<td>更新为指定 commit 内容</td>
+<td>用于撤销提交并取消暂存，保留工作目录的内容</td>
+</tr>
+<tr>
+<td>–hard</td>
+<td>回退到指定 commit</td>
+<td>重置为指定 commit 内容</td>
+<td>重置为指定 commit 内容</td>
+<td>用于彻底丢弃修改，回到某个 commit 状态</td>
+</tr>
+</tbody></table>
+<h3 id="适用场景举例："><a href="#适用场景举例：" class="headerlink" title="适用场景举例："></a>适用场景举例：</h3><ul>
+<li><p><strong><code>--soft</code></strong> ：你想撤销最近的提交，但不丢失文件修改，准备重新提交。</p>
+</li>
+<li><p><strong><code>--mixed</code></strong> ：你想撤销提交并取消暂存，但仍然保留修改，进行后续编辑。</p>
+</li>
+<li><p><strong><code>--hard</code></strong> ：你想丢弃所有本地的修改并回到某个提交的状态，彻底放弃当前修改。</p>
+</li>
+</ul>
+<p>每个选项的影响不同，选择时需要根据实际需求来决定。</p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git学习</title>
     <url>/2024/12/11/git%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p><img src="https://mr-liu-cheng.github.io/2024/12/11/image.png" alt="alt text"></p>
@@ -182,6 +482,50 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo 图片加载方案</title>
+    <url>/2024/12/11/hexo-%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h1 id="安装-hexo-asset-image-插件"><a href="#安装-hexo-asset-image-插件" class="headerlink" title="安装 hexo-asset-image 插件"></a>安装 hexo-asset-image 插件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>打开node_modules\hexo-asset-image\index.js文件59行附近：<br>修改代码为如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//src = srcArray.join(&#x27;/&#x27;);这个是源码,从这下面开始修改替换</span></span><br><span class="line"><span class="keyword">var</span> baseUrl = data.<span class="property">permalink</span>;</span><br><span class="line"><span class="comment">// 判断当前页面是否为文章</span></span><br><span class="line"><span class="keyword">if</span> (data.<span class="property">layout</span> === <span class="string">&#x27;post&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 匹配最后两个斜杠间的内容和最后的斜杠，并替换为单个斜杠，目的是去掉文档存放的文件夹名</span></span><br><span class="line">    baseUrl = data.<span class="property">permalink</span>.<span class="title function_">replace</span>(<span class="regexp">/\/[^\/]+\/$/</span>, <span class="string">&#x27;/&#x27;</span>); </span><br><span class="line">&#125;</span><br><span class="line">$(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>, baseUrl +src);</span><br><span class="line"><span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;update link as:--&gt;&quot;</span>+baseUrl+src);</span><br></pre></td></tr></table></figure>
+
+<h2 id="页签页md文档中插入图片"><a href="#页签页md文档中插入图片" class="headerlink" title="页签页md文档中插入图片"></a>页签页md文档中插入图片</h2><p>上面的方法可以在普通文章使用，但是页签页内容插入图片会多出: .html后缀</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://xxx/musicPage/index.html</span><br></pre></td></tr></table></figure>
+<p>打开_config.yml ，修改如下：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-trailing-index"><a href="#1-trailing-index" class="headerlink" title="1. trailing_index"></a>1. trailing_index</h3><p>这个选项控制是否在 URL 末尾自动添加 index。例如：</p>
+<p>如果 trailing_index: true，那么像 <a href="https://example.com/posts/">https://example.com/posts/</a> 这样的 URL 会变成 <a href="https://example.com/posts/index.html%E3%80%82">https://example.com/posts/index.html。</a><br>如果 trailing_index: false，URL 末尾就不会自动添加 index，它会保持 <a href="https://example.com/posts/">https://example.com/posts/</a> 的形式。</p>
+<h3 id="2-trailing-html"><a href="#2-trailing-html" class="headerlink" title="2. trailing_html"></a>2. trailing_html</h3><p>这个选项控制是否在 URL 末尾添加 .html 后缀。例如：</p>
+<p>如果 trailing_html: true，像 <a href="https://example.com/posts/">https://example.com/posts/</a> 会变成 <a href="https://example.com/posts/index.html%E3%80%82">https://example.com/posts/index.html。</a><br>如果 trailing_html: false，URL 会去掉 .html 后缀，直接使用像 <a href="https://example.com/posts/">https://example.com/posts/</a> 这样的格式。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>这个方式的好处在于：</p>
+<ul>
+<li>支持vscode中正常预览</li>
+<li>无需修改Ctrl+V粘贴的路径</li>
+<li>本地构建的网站和正式部署的网站都能正常显示</li>
+</ul>
+<h1 id="html-脚本中添加图片"><a href="#html-脚本中添加图片" class="headerlink" title="html 脚本中添加图片"></a>html 脚本中添加图片</h1><p>我们直接复制粘贴的路径：<br>将路径</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">alt text</span>](<span class="link">index/image.png</span>)</span><br></pre></td></tr></table></figure>
+<p>粘贴到scr中</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;index/image.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;捡贝&quot;</span> <span class="attr">class</span>=<span class="string">&quot;project-image w-full h-64 object-cover&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们会发现 html 最终生成的路径中少了 index 这一层：</p>
+<p>src : index&#x2F;image.png</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">update link as:--&gt;https://xxxx/About/   image.png</span><br></pre></td></tr></table></figure>
+<p>我们需要在hexo-asset-image\index.js文件中处理：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(srcArray.<span class="property">length</span> &gt; <span class="number">1</span> &amp;&amp; srcArray[<span class="number">0</span>]!=<span class="string">&quot;index&quot;</span>)<span class="comment">//添加判断防止使用html 加载图片时会抹去index层级</span></span><br><span class="line">   srcArray.<span class="title function_">shift</span>();</span><br></pre></td></tr></table></figure>
+<p>这段代码原本是要移出src中第一层目录，应为md格式会自动补充根目录，会出现重复目录，但是html 格式不涉及自动补充根目录，所以不需要这一步，因此要添加判断。</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -531,375 +875,6 @@
       </tags>
   </entry>
   <entry>
-    <title>unity webGL 移动端 输入框无法弹出虚拟键盘</title>
-    <url>/2024/12/13/unity-webGL-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E8%BE%93%E5%85%A5%E6%A1%86%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98/</url>
-    <content><![CDATA[<ol>
-<li>去这个网站下载工程：</li>
-</ol>
-<p><a href="https://github.com/kou-yeung/WebGLInput">https://github.com/kou-yeung/WebGLInput</a></p>
-<ol start="2">
-<li>将下载工程中的WebGLSupport文件夹拷贝到自己的工程中</li>
-</ol>
-<p><img src="https://mr-liu-cheng.github.io/2024/12/13/20241213_141006_image.png"></p>
-<ol>
-<li>将WebGLInput.cs组件添加到InputField组件挂载的对象上</li>
-<li>勾选show html element 不然输入后不显示。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>unity</category>
-        <category>webGL</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>webGL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git修改历史提交</title>
-    <url>/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</url>
-    <content><![CDATA[<p>You: </p>
-<p>git reset –soft 29f9bbd77da69902335cad77a12eac7b022b9f63</p>
-<p>讲解一下这个git reset命令</p>
-<p>ChatGPT: </p>
-<p><code>git reset --soft</code> 命令是 Git 中的一个强大工具，它可以用于回退到某个特定的提交，同时保留文件的修改内容。这里是对该命令的详细解释：</p>
-<h3 id="命令结构："><a href="#命令结构：" class="headerlink" title="命令结构："></a>命令结构：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft &lt;commit-hash&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p><code>git reset</code> 是 Git 的一个基本命令，用于将当前的分支回退到指定的提交，并调整索引和工作目录中的内容。</p>
-</li>
-<li><p><code>--soft</code> 是 <code>git reset</code> 的一个选项，决定了在回退时如何处理文件的状态。<code>--soft</code> 会将 <code>HEAD</code> 移动到指定的 commit，但 <strong>不会修改工作目录</strong>  和 <strong>索引</strong> （也就是暂存区），因此你仍然可以看到文件的修改。</p>
-</li>
-</ul>
-<h3 id="各部分的解释："><a href="#各部分的解释：" class="headerlink" title="各部分的解释："></a>各部分的解释：</h3><ol>
-<li><strong><code>&lt;commit-hash&gt;</code></strong> ：</li>
-</ol>
-<ul>
-<li><code>&lt;commit-hash&gt;</code> 是你想回退到的 commit 的哈希值。可以是一个完整的哈希（如 <code>29f9bbd77da69902335cad77a12eac7b022b9f63</code>）或者它的前几位字符（例如，<code>29f9bbd</code>）。<code>git log</code> 可以帮助你查找这个哈希值。</li>
-</ul>
-<ol start="2">
-<li><strong><code>--soft</code> 选项</strong> ：</li>
-</ol>
-<ul>
-<li><p><code>--soft</code> 选项使得 Git <strong>只移动 HEAD</strong> ，即将当前分支指针（HEAD）回退到指定的 commit，但 <strong>保留工作目录和暂存区的内容不变</strong> 。换句话说，你的文件更改不会丢失，修改内容仍然会保留在暂存区。</p>
-</li>
-<li><p>如果你有一些修改没有提交，<code>git reset --soft</code> 会将这些修改<strong>保留</strong> ，并将它们放回暂存区，让你可以再次提交。</p>
-</li>
-</ul>
-<h3 id="具体的效果："><a href="#具体的效果：" class="headerlink" title="具体的效果："></a>具体的效果：</h3><ol>
-<li><p><strong><code>HEAD</code> 会回退</strong> ：这会将当前分支的 HEAD 指针（即当前正在工作的提交）指向指定的 commit。</p>
-</li>
-<li><p><strong>工作目录不变</strong> ：你的工作目录中的文件不会被修改，意味着所有修改都会被保留，你的文件内容依然存在。</p>
-</li>
-<li><p><strong>暂存区不变</strong> ：所有已暂存的文件也会被保留，意味着如果你之前用 <code>git add</code> 添加了修改，那么这些修改依然会保留在暂存区。</p>
-</li>
-</ol>
-<h3 id="举个例子："><a href="#举个例子：" class="headerlink" title="举个例子："></a>举个例子：</h3><p>假设你有如下提交历史：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">commit</span> a1b2c3d <span class="operator">-</span> 最新的提交</span><br><span class="line"><span class="keyword">commit</span> <span class="number">29</span>f9bbd <span class="operator">-</span> 需要回退到的提交</span><br><span class="line"><span class="keyword">commit</span> d4e5f6g <span class="operator">-</span> 更早的提交</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果你执行 <code>git reset --soft 29f9bbd77da69902335cad77a12eac7b022b9f63</code>，这会发生以下变化： <ul>
-<li><p><strong><code>HEAD</code></strong>  会指向 <code>29f9bbd</code> 提交，即回到你指定的提交。</p>
-</li>
-<li><p><strong>工作目录</strong>  保持不变，你的文件内容依然会保留。</p>
-</li>
-<li><p><strong>暂存区</strong>  也保持不变，你之前 <code>git add</code> 的修改仍然会保留。</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>这样，你就可以修改代码并重新提交，而不丢失之前的修改。</p>
-<h3 id="常见的用法："><a href="#常见的用法：" class="headerlink" title="常见的用法："></a>常见的用法：</h3><ul>
-<li><strong>撤销最近的提交并保留修改</strong> ：假设你做了一个提交，但发现需要修改其中的内容，你可以使用 <code>git reset --soft HEAD^</code>（<code>HEAD^</code> 是指上一个提交）。这会撤销最近的提交，并保留你工作目录和暂存区的内容，允许你重新修改并提交。</li>
-</ul>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
-<li><p><code>git reset --soft &lt;commit-hash&gt;</code> 会将 <code>HEAD</code> 回退到指定的 commit，但 <strong>保留文件内容和暂存区的修改</strong> 。这适用于想要撤销某个提交，但又不希望丢失工作进度的情况。</p>
-</li>
-<li><p>使用此命令时，你可以修改或更新暂存区的文件，再次进行提交。</p>
-</li>
-</ul>
-<p>You: </p>
-<p>git reset 有三种讲一下</p>
-<p>ChatGPT: </p>
-<p><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <strong><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <code>git reset --soft &lt;commit&gt;</code></strong>  </p>
-<ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</p>
-</li>
-<li><p><strong>效果</strong> ： </p>
-<ul>
-<li><p><code>HEAD</code> 回退到指定的提交，即当前分支指针会指向指定的提交。</p>
-</li>
-<li><p><strong>工作目录（Working Directory）</strong>  不变，文件的内容保留不变。</p>
-</li>
-<li><p><strong>暂存区（Staging Area）</strong>  保持不变，之前已经暂存的文件仍然存在于暂存区。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
-<li>用于撤销最后一次提交并修改其中的内容，但保留文件更改和暂存区内容。适合你想重新提交修改内容时使用。</li>
-</ul>
-</li>
-<li><p><strong>示例</strong> ：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
-<p>这个命令将 HEAD 回退到上一个提交（<code>HEAD~1</code>），但是保留当前工作目录和暂存区中的修改。你可以编辑文件、重新暂存并提交。</p>
-<hr>
-<ol start="2">
-<li>**<code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <strong><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <code>git reset --soft &lt;commit&gt;</code></strong></li>
-</ol>
-<ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</p>
-</li>
-<li><p><strong>效果</strong> ： </p>
-<ul>
-<li><p><code>HEAD</code> 回退到指定的提交，即当前分支指针会指向指定的提交。</p>
-</li>
-<li><p><strong>工作目录（Working Directory）</strong>  不变，文件的内容保留不变。</p>
-</li>
-<li><p><strong>暂存区（Staging Area）</strong>  保持不变，之前已经暂存的文件仍然存在于暂存区。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
-<li>用于撤销最后一次提交并修改其中的内容，但保留文件更改和暂存区内容。适合你想重新提交修改内容时使用。</li>
-</ul>
-</li>
-<li><p><strong>示例</strong> ：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
-<p>这个命令将 HEAD 回退到上一个提交（<code>HEAD~1</code>），但是保留当前工作目录和暂存区中的修改。你可以编辑文件、重新暂存并提交。</p>
-<hr>
-<ol start="2">
-<li><code>git reset --mixed &lt;commit&gt;</code>**  （默认选项）</li>
-</ol>
-<ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code> 回退到指定的 commit，并且 <strong>更新暂存区</strong> （即撤销暂存），但 <strong>不更改工作目录</strong> 。</p>
-</li>
-<li><p><strong>效果</strong> ： </p>
-<ul>
-<li><p><code>HEAD</code> 回退到指定的提交。</p>
-</li>
-<li><p><strong>工作目录</strong>  不变，文件内容保留不变。</p>
-</li>
-<li><p><strong>暂存区（Staging Area）</strong>  被更新为与指定 commit 的内容一致。也就是说，撤销所有已经 <code>git add</code> 的文件，将它们从暂存区中移除，但文件内容仍然保持在工作目录中。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
-<li>用于撤销提交并取消暂存文件，但你仍然想保留文件修改。适用于需要修改代码但不想保留当前暂存区修改的场景。</li>
-</ul>
-</li>
-<li><p><strong>示例</strong> ：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --mixed HEAD~1</span><br></pre></td></tr></table></figure>
-<p>这个命令将 HEAD 回退到上一个提交，并且从暂存区移除修改，但文件内容仍然保留。相当于撤销最近的 <code>git add</code> 操作。</p>
-<hr>
-<ol start="3">
-<li>**<code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <strong><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <code>git reset --soft &lt;commit&gt;</code></strong></li>
-</ol>
-<ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</p>
-</li>
-<li><p><strong>效果</strong> ： </p>
-<ul>
-<li><p><code>HEAD</code> 回退到指定的提交，即当前分支指针会指向指定的提交。</p>
-</li>
-<li><p><strong>工作目录（Working Directory）</strong>  不变，文件的内容保留不变。</p>
-</li>
-<li><p><strong>暂存区（Staging Area）</strong>  保持不变，之前已经暂存的文件仍然存在于暂存区。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
-<li>用于撤销最后一次提交并修改其中的内容，但保留文件更改和暂存区内容。适合你想重新提交修改内容时使用。</li>
-</ul>
-</li>
-<li><p><strong>示例</strong> ：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
-<p>这个命令将 HEAD 回退到上一个提交（<code>HEAD~1</code>），但是保留当前工作目录和暂存区中的修改。你可以编辑文件、重新暂存并提交。</p>
-<hr>
-<ol start="2">
-<li>**<code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <strong><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <code>git reset --soft &lt;commit&gt;</code></strong></li>
-</ol>
-<ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</p>
-</li>
-<li><p><strong>效果</strong> ： </p>
-<ul>
-<li><p><code>HEAD</code> 回退到指定的提交，即当前分支指针会指向指定的提交。</p>
-</li>
-<li><p><strong>工作目录（Working Directory）</strong>  不变，文件的内容保留不变。</p>
-</li>
-<li><p><strong>暂存区（Staging Area）</strong>  保持不变，之前已经暂存的文件仍然存在于暂存区。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
-<li>用于撤销最后一次提交并修改其中的内容，但保留文件更改和暂存区内容。适合你想重新提交修改内容时使用。</li>
-</ul>
-</li>
-<li><p><strong>示例</strong> ：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
-<p>这个命令将 HEAD 回退到上一个提交（<code>HEAD~1</code>），但是保留当前工作目录和暂存区中的修改。你可以编辑文件、重新暂存并提交。</p>
-<hr>
-<ol start="2">
-<li><code>git reset --mixed &lt;commit&gt;</code>**  （默认选项）</li>
-</ol>
-<ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code> 回退到指定的 commit，并且 <strong>更新暂存区</strong> （即撤销暂存），但 <strong>不更改工作目录</strong> 。</p>
-</li>
-<li><p><strong>效果</strong> ： </p>
-<ul>
-<li><p><code>HEAD</code> 回退到指定的提交。</p>
-</li>
-<li><p><strong>工作目录</strong>  不变，文件内容保留不变。</p>
-</li>
-<li><p><strong>暂存区（Staging Area）</strong>  被更新为与指定 commit 的内容一致。也就是说，撤销所有已经 <code>git add</code> 的文件，将它们从暂存区中移除，但文件内容仍然保持在工作目录中。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
-<li>用于撤销提交并取消暂存文件，但你仍然想保留文件修改。适用于需要修改代码但不想保留当前暂存区修改的场景。</li>
-</ul>
-</li>
-<li><p><strong>示例</strong> ：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --mixed HEAD~1</span><br></pre></td></tr></table></figure>
-<p>这个命令将 HEAD 回退到上一个提交，并且从暂存区移除修改，但文件内容仍然保留。相当于撤销最近的 <code>git add</code> 操作。</p>
-<hr>
-<ol start="3">
-<li><code>git reset --hard &lt;commit&gt;</code>**</li>
-</ol>
-<ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code>、<strong>暂存区</strong>  和 <strong>工作目录</strong>  都回退到指定的 commit。</p>
-</li>
-<li><p><strong>效果</strong> ： </p>
-<ul>
-<li><p><code>HEAD</code> 回退到指定的提交。</p>
-</li>
-<li><p><strong>工作目录</strong>  会被重置为指定 commit 的内容，所有未提交的修改（无论是暂存区的还是工作目录的）都会被丢弃。</p>
-</li>
-<li><p><strong>暂存区</strong>  也会被重置，撤销所有已暂存的文件。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
-<li>用于彻底放弃当前的修改，回到某个提交状态。适用于你想完全撤销修改并且不保留任何更改时使用。</li>
-</ul>
-</li>
-<li><p><strong>示例</strong> ：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD~1</span><br></pre></td></tr></table></figure>
-<p>这个命令会将 HEAD 回退到上一个提交，并且<strong>彻底丢弃</strong> 工作目录和暂存区中的所有修改。<strong>注意</strong> ：此操作无法恢复，慎重使用！</p>
-<hr>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>HEAD</th>
-<th>工作目录</th>
-<th>暂存区</th>
-<th>应用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>–soft</td>
-<td>回退到指定 commit</td>
-<td>保持不变</td>
-<td>保持不变</td>
-<td>用于撤销提交并重新提交，保留修改和暂存区内容</td>
-</tr>
-<tr>
-<td>–mixed</td>
-<td>回退到指定 commit</td>
-<td>保持不变</td>
-<td>更新为指定 commit 内容</td>
-<td>用于撤销提交并取消暂存，保留工作目录的内容</td>
-</tr>
-<tr>
-<td>–hard</td>
-<td>回退到指定 commit</td>
-<td>重置为指定 commit 内容</td>
-<td>重置为指定 commit 内容</td>
-<td>用于彻底丢弃修改，回到某个 commit 状态</td>
-</tr>
-</tbody></table>
-<h3 id="适用场景举例："><a href="#适用场景举例：" class="headerlink" title="适用场景举例："></a>适用场景举例：</h3><ul>
-<li><p><strong><code>--soft</code></strong> ：你想撤销最近的提交，但不丢失文件修改，准备重新提交。</p>
-</li>
-<li><p><strong><code>--mixed</code></strong> ：你想撤销提交并取消暂存，但仍然保留修改，进行后续编辑。</p>
-</li>
-<li><p><strong><code>--hard</code></strong> ：你想丢弃所有本地的修改并回到某个提交的状态，彻底放弃当前修改。</p>
-</li>
-</ul>
-<p>每个选项的影响不同，选择时需要根据实际需求来决定。</p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo 图片加载方案</title>
-    <url>/2024/12/11/hexo-%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<h1 id="安装-hexo-asset-image-插件"><a href="#安装-hexo-asset-image-插件" class="headerlink" title="安装 hexo-asset-image 插件"></a>安装 hexo-asset-image 插件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-
-<p>打开node_modules\hexo-asset-image\index.js文件59行附近：<br>修改代码为如下</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//src = srcArray.join(&#x27;/&#x27;);这个是源码,从这下面开始修改替换</span></span><br><span class="line"><span class="keyword">var</span> baseUrl = data.<span class="property">permalink</span>;</span><br><span class="line"><span class="comment">// 判断当前页面是否为文章</span></span><br><span class="line"><span class="keyword">if</span> (data.<span class="property">layout</span> === <span class="string">&#x27;post&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 匹配最后两个斜杠间的内容和最后的斜杠，并替换为单个斜杠，目的是去掉文档存放的文件夹名</span></span><br><span class="line">    baseUrl = data.<span class="property">permalink</span>.<span class="title function_">replace</span>(<span class="regexp">/\/[^\/]+\/$/</span>, <span class="string">&#x27;/&#x27;</span>); </span><br><span class="line">&#125;</span><br><span class="line">$(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>, baseUrl +src);</span><br><span class="line"><span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;update link as:--&gt;&quot;</span>+baseUrl+src);</span><br></pre></td></tr></table></figure>
-
-<h2 id="页签页md文档中插入图片"><a href="#页签页md文档中插入图片" class="headerlink" title="页签页md文档中插入图片"></a>页签页md文档中插入图片</h2><p>上面的方法可以在普通文章使用，但是页签页内容插入图片会多出: .html后缀</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://xxx/musicPage/index.html</span><br></pre></td></tr></table></figure>
-<p>打开_config.yml ，修改如下：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="1-trailing-index"><a href="#1-trailing-index" class="headerlink" title="1. trailing_index"></a>1. trailing_index</h3><p>这个选项控制是否在 URL 末尾自动添加 index。例如：</p>
-<p>如果 trailing_index: true，那么像 <a href="https://example.com/posts/">https://example.com/posts/</a> 这样的 URL 会变成 <a href="https://example.com/posts/index.html%E3%80%82">https://example.com/posts/index.html。</a><br>如果 trailing_index: false，URL 末尾就不会自动添加 index，它会保持 <a href="https://example.com/posts/">https://example.com/posts/</a> 的形式。</p>
-<h3 id="2-trailing-html"><a href="#2-trailing-html" class="headerlink" title="2. trailing_html"></a>2. trailing_html</h3><p>这个选项控制是否在 URL 末尾添加 .html 后缀。例如：</p>
-<p>如果 trailing_html: true，像 <a href="https://example.com/posts/">https://example.com/posts/</a> 会变成 <a href="https://example.com/posts/index.html%E3%80%82">https://example.com/posts/index.html。</a><br>如果 trailing_html: false，URL 会去掉 .html 后缀，直接使用像 <a href="https://example.com/posts/">https://example.com/posts/</a> 这样的格式。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>这个方式的好处在于：</p>
-<ul>
-<li>支持vscode中正常预览</li>
-<li>无需修改Ctrl+V粘贴的路径</li>
-<li>本地构建的网站和正式部署的网站都能正常显示</li>
-</ul>
-<h1 id="html-脚本中添加图片"><a href="#html-脚本中添加图片" class="headerlink" title="html 脚本中添加图片"></a>html 脚本中添加图片</h1><p>我们直接复制粘贴的路径：<br>将路径</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">alt text</span>](<span class="link">index/image.png</span>)</span><br></pre></td></tr></table></figure>
-<p>粘贴到scr中</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;index/image.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;捡贝&quot;</span> <span class="attr">class</span>=<span class="string">&quot;project-image w-full h-64 object-cover&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>我们会发现 html 最终生成的路径中少了 index 这一层：</p>
-<p>src : index&#x2F;image.png</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">update link as:--&gt;https://xxxx/About/   image.png</span><br></pre></td></tr></table></figure>
-<p>我们需要在hexo-asset-image\index.js文件中处理：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(srcArray.<span class="property">length</span> &gt; <span class="number">1</span> &amp;&amp; srcArray[<span class="number">0</span>]!=<span class="string">&quot;index&quot;</span>)<span class="comment">//添加判断防止使用html 加载图片时会抹去index层级</span></span><br><span class="line">   srcArray.<span class="title function_">shift</span>();</span><br></pre></td></tr></table></figure>
-<p>这段代码原本是要移出src中第一层目录，应为md格式会自动补充根目录，会出现重复目录，但是html 格式不涉及自动补充根目录，所以不需要这一步，因此要添加判断。</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>unity tmp中文显示</title>
     <url>/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/</url>
     <content><![CDATA[<h1 id="一、创建tmp中文字体资源"><a href="#一、创建tmp中文字体资源" class="headerlink" title="一、创建tmp中文字体资源"></a>一、创建tmp中文字体资源</h1><p>1.<strong>选择Window&#x2F;TextMeshPro&#x2F;Font Asset Creator</strong></p>
@@ -986,8 +961,33 @@
         <category>unity</category>
       </categories>
       <tags>
-        <tag>unity</tag>
         <tag>tmp</tag>
+        <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>unity webGL 移动端 输入框无法弹出虚拟键盘</title>
+    <url>/2024/12/13/unity-webGL-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E8%BE%93%E5%85%A5%E6%A1%86%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98/</url>
+    <content><![CDATA[<ol>
+<li>去这个网站下载工程：</li>
+</ol>
+<p><a href="https://github.com/kou-yeung/WebGLInput">https://github.com/kou-yeung/WebGLInput</a></p>
+<ol start="2">
+<li>将下载工程中的WebGLSupport文件夹拷贝到自己的工程中</li>
+</ol>
+<p><img src="https://mr-liu-cheng.github.io/2024/12/13/20241213_141006_image.png"></p>
+<ol>
+<li>将WebGLInput.cs组件添加到InputField组件挂载的对象上</li>
+<li>勾选show html element 不然输入后不显示。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>unity</category>
+        <category>webGL</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>webGL</tag>
       </tags>
   </entry>
 </search>
