@@ -42,8 +42,8 @@ function AddAnniversaryDate() {
 function defineMyEvent() {
     // 其他事件列表（自定义事件）
     myEvents = [
-        //{ title: 'Recurring Event', rrule: { freq: 'weekly', interval: 1, byweekday: ['mo', 'we'], dtstart: '2024-01-01T10:00:00', until: '2024-12-31T23:59:59' } },// 每周一、三
-        { title: '1year Event', rrule: { freq: 'yearly', interval: 1, bymonth: 12, bymonthday: 25, dtstart: '2021-01-01T10:00:00', until: '2026-12-31T23:59:59' } },
+        { title: 'Recurring Event', rrule: { freq: 'weekly', interval: 1, byweekday: ['mo', 'we'], dtstart: '2024-01-01' } },
+        { title: '1year Event', rrule: { freq: 'yearly', interval: 1, bymonth: 12, bymonthday: 25 } },
         { title: "项目截止日", start: `${currentYear}-12-15`, color: 'red' },
         { title: "团队会议", start: `${currentYear}-12-20T10:00:00`, color: 'blue', description: 'Thisisaverylongwordthatexceedscontainerwidthjjjkajndqjnjncjahsdbhefbhqioiwiqwjdkssjkahdwlaahwajjjjhkdnqjwnqjwdkqjnrwlqkrqknr', },
         { title: "给幺爸买火车票", start: `2025-01-06`, allDay: true, color: 'green' },
@@ -55,21 +55,42 @@ function defineMyEvent() {
     ];
 }
 
+// 获取指定年份中某月的第N个星期几的日期
+function getNthWeekdayOfMonth(year, month, weekday, nth) {
+    const firstDay = new Date(year, month - 1, 1); // 当月第一天
+    const firstWeekday = (firstDay.getDay() + 6) % 7; // 调整星期天为7，星期一为0，其他不变
+
+    // 计算第一个目标星期几的日期
+    const daysToFirstTarget = (7 + weekday - firstWeekday) % 7;
+    const firstTargetDate = 1 + daysToFirstTarget;
+
+    // 计算第 nth 个目标星期几的日期
+    const nthTargetDate = firstTargetDate + (nth - 1) * 7;
+
+    return new Date(year, month - 1, nthTargetDate); // 返回正确的日期对象
+}
+
 function defineInternationalFestivals() {
+    // 动态计算每年节日日期
+    const mothersDay = getNthWeekdayOfMonth(currentYear, 5, 0, 2); // 每年5月第二个星期日
+    const fathersDay = getNthWeekdayOfMonth(currentYear, 6, 0, 3); // 每年6月第三个星期日
+    const thanksgiving = getNthWeekdayOfMonth(currentYear, 11, 4, 4); // 每年11月第四个星期四
+
     InternationalFestivals = [
-        { title: "情人节", start: "2024-02-14", color: "pink" },
-        { title: "愚人节", start: "2024-04-01", color: "orange" },
-        { title: "母亲节", start: "2024-05-12", color: "red" },   // 2024年5月12日（5月第二个星期日）
-        { title: "父亲节", start: "2024-06-16", color: "blue" },  // 2024年6月16日（6月第三个星期日）
-        { title: "618购物节", start: "2024-06-18", color: "red" }, // 中国电商购物节
-        { title: "感恩节", start: "2024-11-28", color: "brown" },  // 2024年感恩节（11月第四个星期四）
-        { title: "黑色星期五", start: "2024-11-29", color: "black" },
-        { title: "双十一购物节", start: "2024-11-11", color: "purple" }, // 光棍节/购物节
-        { title: "万圣节", start: "2024-10-31", color: "darkorange" },
-        { title: "双十二购物节", start: "2024-12-12", color: "green" },
-        { title: "圣诞节", start: "2024-12-25", color: "green" },
-        { title: "跨年夜", start: "2024-12-31", color: "blue" },
+        { title: "情人节", start: `${currentYear}-02-14`, color: "pink" },
+        { title: "愚人节", start: `${currentYear}-04-01`, color: "orange" },
+        { title: "母亲节", start: mothersDay.toISOString().split('T')[0], color: "red" },   // 动态计算的日期
+        { title: "父亲节", start: fathersDay.toISOString().split('T')[0], color: "blue" },  // 动态计算的日期
+        { title: "618购物节", start: `${currentYear}-06-18`, color: "red" },
+        { title: "感恩节", start: thanksgiving.toISOString().split('T')[0], color: "brown" },  // 动态计算的日期
+        { title: "黑色星期五", start: `${currentYear}-11-29`, color: "black" },
+        { title: "双十一购物节", start: `${currentYear}-11-11`, color: "purple" },
+        { title: "万圣节", start: `${currentYear}-10-31`, color: "darkorange" },
+        { title: "双十二购物节", start: `${currentYear}-12-12`, color: "green" },
+        { title: "圣诞节", start: `${currentYear}-12-25`, color: "green" },
+        { title: "跨年夜", start: `${currentYear}-12-31`, color: "blue" },
     ];
+
 }
 
 
