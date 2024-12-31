@@ -97,3 +97,41 @@ update link as:-->https://xxxx/About/   image.png
     srcArray.shift();
 ```
 这段代码原本是要移出src中第一层目录，应为md格式会自动补充根目录，会出现重复目录，但是html 格式不涉及自动补充根目录，所以不需要这一步，因此要添加判断。
+
+node_modules\hexo-asset-image\index.js需要修改部分的完整的代码
+``` js
+   $('img').each(function(){
+        if ($(this).attr('src')){
+          // For windows style path, we replace '\' to '/'.
+          var src = $(this).attr('src').replace('\\', '/');
+          //console.info&&console.info(".... "+src);
+          if(!(/http[s]*.*|\/\/.*/.test(src)
+            || /^\s+\//.test(src)
+            || /^\s*\/uploads|images\//.test(src))) {
+            // For "about" page, the first part of "src" can't be removed.
+            // In addition, to support multi-level local directory.
+            var linkArray = link.split('/').filter(function(elem){
+              return elem != '';
+            });
+            var srcArray = src.split('/').filter(function(elem){
+              return elem != '' && elem != '.';
+            });
+            // if(srcArray.length > 1 && srcArray[0]!="index")//添加判断防止使用html 加载图片时会抹去index层级
+            // srcArray.shift();
+            src = srcArray.join('/');
+            // console.info&&console.info("____" +src);
+            
+            var baseUrl = data.permalink;
+            // 判断当前页面是否为文章
+            if (data.layout === 'post') {
+              baseUrl = data.permalink.replace(/\/[^\/]+\/$/, '/'); // 匹配最后两个斜杠间的内容和最后的斜杠，并替换为单个斜杠
+            }
+            $(this).attr('src', baseUrl +src);
+            console.info&&console.info("update link as:-->"+baseUrl+ "   "  +src);
+          }
+        }else{
+          console.info&&console.info("no src attr, skipped...");
+          console.info&&console.info($(this));
+        }
+      });
+```
