@@ -315,7 +315,7 @@
   <entry>
     <title>git学习</title>
     <url>/2024/12/11/git%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><img src="https://mr-liu-cheng.github.io/2024/12/11/image.png" alt="alt text"></p>
+    <content><![CDATA[<p><img src="https://mr-liu-cheng.github.io/2024/12/11/git%E5%AD%A6%E4%B9%A0/image.png" alt="alt text"></p>
 ]]></content>
       <categories>
         <category>git</category>
@@ -648,7 +648,8 @@
 <p>我们需要在hexo-asset-image\index.js文件中处理：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(srcArray.<span class="property">length</span> &gt; <span class="number">1</span> &amp;&amp; srcArray[<span class="number">0</span>]!=<span class="string">&quot;index&quot;</span>)<span class="comment">//添加判断防止使用html 加载图片时会抹去index层级</span></span><br><span class="line">   srcArray.<span class="title function_">shift</span>();</span><br></pre></td></tr></table></figure>
 <p>这段代码原本是要移出src中第一层目录，应为md格式会自动补充根目录，会出现重复目录，但是html 格式不涉及自动补充根目录，所以不需要这一步，因此要添加判断。</p>
-]]></content>
+<p>node_modules\hexo-asset-image\index.js需要修改部分的完整的代码</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;img&#x27;</span>).<span class="title function_">each</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="keyword">if</span> ($(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>))&#123;</span><br><span class="line">       <span class="comment">// For windows style path, we replace &#x27;\&#x27; to &#x27;/&#x27;.</span></span><br><span class="line">       <span class="keyword">var</span> src = $(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>).<span class="title function_">replace</span>(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">       <span class="comment">//console.info&amp;&amp;console.info(&quot;.... &quot;+src);</span></span><br><span class="line">       <span class="keyword">if</span>(!(<span class="regexp">/http[s]*.*|\/\/.*/</span>.<span class="title function_">test</span>(src)</span><br><span class="line">         || <span class="regexp">/^\s+\//</span>.<span class="title function_">test</span>(src)</span><br><span class="line">         || <span class="regexp">/^\s*\/uploads|images\//</span>.<span class="title function_">test</span>(src))) &#123;</span><br><span class="line">         <span class="comment">// For &quot;about&quot; page, the first part of &quot;src&quot; can&#x27;t be removed.</span></span><br><span class="line">         <span class="comment">// In addition, to support multi-level local directory.</span></span><br><span class="line">         <span class="keyword">var</span> linkArray = link.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>).<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">elem</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">         &#125;);</span><br><span class="line">         <span class="keyword">var</span> srcArray = src.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>).<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">elem</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span> &amp;&amp; elem != <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">         &#125;);</span><br><span class="line">         <span class="comment">// if(srcArray.length &gt; 1 &amp;&amp; srcArray[0]!=&quot;index&quot;)//添加判断防止使用html 加载图片时会抹去index层级</span></span><br><span class="line">         <span class="comment">// srcArray.shift();</span></span><br><span class="line">         src = srcArray.<span class="title function_">join</span>(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">         <span class="comment">// console.info&amp;&amp;console.info(&quot;____&quot; +src);</span></span><br><span class="line">         </span><br><span class="line">         <span class="keyword">var</span> baseUrl = data.<span class="property">permalink</span>;</span><br><span class="line">         <span class="comment">// 判断当前页面是否为文章</span></span><br><span class="line">         <span class="keyword">if</span> (data.<span class="property">layout</span> === <span class="string">&#x27;post&#x27;</span>) &#123;</span><br><span class="line">           baseUrl = data.<span class="property">permalink</span>.<span class="title function_">replace</span>(<span class="regexp">/\/[^\/]+\/$/</span>, <span class="string">&#x27;/&#x27;</span>); <span class="comment">// 匹配最后两个斜杠间的内容和最后的斜杠，并替换为单个斜杠</span></span><br><span class="line">         &#125;</span><br><span class="line">         $(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>, baseUrl +src);</span><br><span class="line">         <span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;update link as:--&gt;&quot;</span>+baseUrl+ <span class="string">&quot;   &quot;</span>  +src);</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;no src attr, skipped...&quot;</span>);</span><br><span class="line">       <span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>($(<span class="variable language_">this</span>));</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>hexo</category>
       </categories>
@@ -1006,7 +1007,7 @@
     <title>unity tmp中文显示</title>
     <url>/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/</url>
     <content><![CDATA[<h1 id="一、创建tmp中文字体资源"><a href="#一、创建tmp中文字体资源" class="headerlink" title="一、创建tmp中文字体资源"></a>一、创建tmp中文字体资源</h1><p>1.<strong>选择Window&#x2F;TextMeshPro&#x2F;Font Asset Creator</strong></p>
-<p>2.<strong>Font Asset Creator设置界面如图</strong><br><img src="https://mr-liu-cheng.github.io/2024/12/13/image-1.png" alt="alt text"><br>Source Font File：拖入需要使用的字体</p>
+<p>2.<strong>Font Asset Creator设置界面如图</strong><br><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image-1.png" alt="alt text"><br>Source Font File：拖入需要使用的字体</p>
 <ul>
 <li>Sampling Point Size：设置用于生成字体纹理的字体大小（以磅为单位）</li>
 <li>Auto Sizeing：自动设置大小</li>
@@ -1049,7 +1050,7 @@
 <p>3.生成后，如上面效果图<br>注意：字体越多，生成的时间越长…Packing Method还是选Fast吧，Optimum太慢了</p>
 <p>4.点击Save按钮保存</p>
 <p>5.现在就可以正常使用这个字体了</p>
-<h1 id="二、tmp创建字体报错"><a href="#二、tmp创建字体报错" class="headerlink" title="二、tmp创建字体报错:"></a>二、tmp创建字体报错:</h1><p><img src="https://mr-liu-cheng.github.io/2024/12/13/image.png" alt="alt text"></p>
+<h1 id="二、tmp创建字体报错"><a href="#二、tmp创建字体报错" class="headerlink" title="二、tmp创建字体报错:"></a>二、tmp创建字体报错:</h1><p><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image.png" alt="alt text"></p>
 <p>问题原因:</p>
 <ul>
 <li>字体贴图空间不足</li>
@@ -1103,7 +1104,7 @@
 <ol start="2">
 <li>将下载工程中的WebGLSupport文件夹拷贝到自己的工程中</li>
 </ol>
-<p><img src="https://mr-liu-cheng.github.io/2024/12/13/20241213_141006_image.png"></p>
+<p><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-webGL-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E8%BE%93%E5%85%A5%E6%A1%86%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98/20241213_141006_image.png"></p>
 <ol>
 <li>将WebGLInput.cs组件添加到InputField组件挂载的对象上</li>
 <li>勾选show html element 不然输入后不显示。</li>
