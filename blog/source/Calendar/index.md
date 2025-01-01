@@ -9,6 +9,7 @@ date: 2024-12-17 09:14:26
 <head>
     <meta charset="UTF-8">
     <title>FullCalendar 农历和调休示例</title>
+    <script src='https://cdn.jsdelivr.net/npm/rrule@2.6.4/dist/es5/rrule.min.js'></script>
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@latest/main.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -25,8 +26,6 @@ date: 2024-12-17 09:14:26
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
     <!-- 引入农历库 -->
     <script src="https://cdn.jsdelivr.net/npm/lunar-javascript@latest/lunar.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/rrule@2.6.8/dist/es5/rrule.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@5.11.3/main.global.min.js"></script>
     <!-- 本地脚本加载路径需要添加根目录节点-->
     <script src="/js/myCalendar.js"></script>
 </body>

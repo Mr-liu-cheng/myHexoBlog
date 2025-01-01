@@ -2,6 +2,27 @@ console.log('Calendar start');
 
 var birthdayEvents, myEvents, InternationalFestivals;
 var currentYear;
+var RRule = rrule.RRule;
+
+var rruleEvent =
+{
+    title: 'rrule event',
+    rrule: {
+        freq: RRule.WEEKLY,
+        interval: 5,
+        byweekday: [RRule.MO, RRule.FR],
+        dtstart: new Date(2024, 2, 1, 10, 30),
+        until: new Date(2025, 12, 31)
+    },
+    duration: '02:00',
+};
+// 使用 rrule.js 解析 RRule
+const rruleOccurrences = new RRule(rruleEvent.rrule).all(); // 获取所有日期实例
+// 转换为 FullCalendar 可用事件格式
+const rruleEvents = rruleOccurrences.map(date => ({
+    title: rruleEvent.title,
+    start: date,
+}));
 
 function defineBirthday(curYearLunar) {
     var lunarBirth = [
@@ -42,8 +63,6 @@ function AddAnniversaryDate() {
 function defineMyEvent() {
     // 其他事件列表（自定义事件）
     myEvents = [
-        { title: 'Recurring Event', rrule: { freq: 'weekly', interval: 1, byweekday: ['mo', 'we'], dtstart: '2024-01-01' } },
-        { title: '1year Event', rrule: { freq: 'yearly', interval: 1, bymonth: 12, bymonthday: 25 } },
         { title: "项目截止日", start: `${currentYear}-12-15`, color: 'red' },
         { title: "团队会议", start: `${currentYear}-12-20T10:00:00`, color: 'blue', description: 'Thisisaverylongwordthatexceedscontainerwidthjjjkajndqjnjncjahsdbhefbhqioiwiqwjdkssjkahdwlaahwajjjjhkdnqjwnqjwdkqjnrwlqkrqknr', },
         { title: "给幺爸买火车票", start: `2025-01-06`, allDay: true, color: 'green' },
@@ -228,7 +247,7 @@ function commonHandler() {
             defineMyEvent();
             defineInternationalFestivals();
             // 合并所有事件数组
-            const allEvents = [...birthdayEvents, ...myEvents, ...InternationalFestivals];
+            const allEvents = [...birthdayEvents, ...myEvents, ...InternationalFestivals, ...rruleEvents];
 
             // 过滤出在当前视图范围内的事件
             const filteredEvents = allEvents.filter(event => {
