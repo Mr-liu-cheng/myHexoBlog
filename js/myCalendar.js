@@ -127,22 +127,24 @@ function commonHandler() {
             const clickedDate = new Date(info.dateStr);
             updateLunarInfo(clickedDate); // 点击日期时更新底部信息
         },
-        datesSet: function (dateInfo) {//处理默认空事件留白
-            console.log('Dates set:', dateInfo);  // 打印日期范围
-            // 延迟执行，以确保日历完全渲染
-            setTimeout(function () {
-                var dayCells = document.querySelectorAll('.fc-daygrid-day');  // 获取所有日期格子
-                dayCells.forEach(function (dayCell) {
-                    var eventsContainer = dayCell.querySelector('.fc-daygrid-day-events');
-                    // 如果该日期格子没有事件，隐藏事件容器
-                    if (!dayCell.querySelector('.fc-event')) {
+        datesSet:
+            function (dateInfo) {//处理默认空事件留白
+                console.log('Dates set:', dateInfo);  // 打印日期范围
+                // 延迟执行，以确保日历完全渲染
+                setTimeout(function () {
+                    var dayCells = document.querySelectorAll('.fc-daygrid-day');  // 获取所有日期格子
+                    dayCells.forEach(function (dayCell) {
+                        var eventsContainer = dayCell.querySelector('.fc-daygrid-day-events');
                         if (eventsContainer) {
-                            eventsContainer.style.display = 'none';  // 隐藏没有事件的容器
+                            eventsContainer.style.margin = 0;  // 隐藏没有事件的容器
+                            // 如果该日期格子没有事件，隐藏事件容器
+                            if (!dayCell.querySelector('.fc-event')) {
+                                eventsContainer.style.display = 'none';  // 隐藏没有事件的容器
+                            }
                         }
-                    }
-                });
-            }, 100);  // 延迟100ms执行
-        },
+                    });
+                }, 100);  // 延迟100ms执行
+            },
         eventDidMount: function (info) {
             const eventElement = info.el;
             const title = info.event.title;  // 获取事件标题
@@ -261,14 +263,6 @@ function commonHandler() {
             // 返回过滤后的事件
             successCallback(filteredEvents);
         },
-        viewDidMount: function (info) {
-            // 每次视图加载完成后，检查所有日期单元格
-            removeEmptyEventContainers();
-        },
-        datesRender: function (info) {
-            // 每次视图渲染时都检查日期单元格
-            removeEmptyEventContainers();
-        },
         headerToolbar: {
             center: 'dayGridMonth,timeGridFourDay,listWeek,dayGridWeek,dayGridDay' // buttons for switching between views
         },
@@ -359,18 +353,4 @@ function commonHandler() {
     document.getElementById('day-of-year-info').innerHTML = `今年剩余 <strong>${SolarUtil.getDaysOfYear(today.getYear()) - dayOfYear}</strong> 天，距离过年(除夕)还有<strong> ${dayDiff - 1}</strong>   天`;
     setTimeout(function () { calendar.render(); }, 100); // 延迟渲染，确保布局已完成
     console.log('Calendar rendered with Lunar and holidays', SolarUtil.getDaysOfYear(today.getYear()), ' ', dayOfYear, ' springFestivalSolar:', springFestivalSolar.toYmd(), ' ', Solar.fromDate(today).toYmd(), ' ', today.getDate());
-
-
-    function removeEmptyEventContainers() {
-        // 获取所有日期单元格
-        const dayCells = document.querySelectorAll('.fc-daygrid-day');
-        // 遍历所有日期单元格
-        dayCells.forEach(function (dayCell) {
-            const eventContainer = dayCell.querySelector('.fc-daygrid-day-events');
-            // 如果该日期单元格没有事件，移除空的事件容器
-            if (!dayCell.querySelector('.fc-event') && eventContainer) {
-                eventContainer.remove();  // 移除事件容器
-            }
-        });
-    }
 }
