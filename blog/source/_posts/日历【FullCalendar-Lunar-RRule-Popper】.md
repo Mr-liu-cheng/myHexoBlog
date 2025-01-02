@@ -11,17 +11,38 @@ description:
 
 # FullCalendar
 
-## 视图
-## 单元格渲染
-## 单元格大小适配
+- 视图
+- 单元格渲染
+- 单元格大小适配
 
+确保计算和数据加载完毕，延迟100ms渲染。
+``` js
+datesSet:
+    function (dateInfo) {//处理默认空事件留白
+        console.log('Dates set:', dateInfo);  // 打印日期范围
+        // 延迟执行，以确保日历完全渲染
+        setTimeout(function () {
+            var dayCells = document.querySelectorAll('.fc-daygrid-day');  // 获取所有日期格子
+            dayCells.forEach(function (dayCell) {
+                var eventsContainer = dayCell.querySelector('.fc-daygrid-day-events');
+                if (eventsContainer) {
+                    eventsContainer.style.margin = 0;  // 隐藏没有事件的容器
+                    // 如果该日期格子没有事件，隐藏事件容器
+                    if (!dayCell.querySelector('.fc-event')) {
+                        eventsContainer.style.display = 'none';  // 隐藏没有事件的容器
+                    }
+                }
+            });
+        }, 100);  // 延迟100ms执行
+    },
+```
 
 # Lunar
-## 法定节假日
-## 节气
-## 农历日期
-## 宜忌
-## 生日
+- 法定节假日
+- 节气
+- 农历日期
+- 宜忌
+- 生日
 
 # RRule
 
