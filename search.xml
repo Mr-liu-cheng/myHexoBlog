@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>butterfly 禁用头像旋转</title>
-    <url>/2024/12/16/butterfly-%E7%A6%81%E7%94%A8%E5%A4%B4%E5%83%8F%E6%97%8B%E8%BD%AC/</url>
-    <content><![CDATA[<p>当鼠标移到侧边栏头像上时，头像会播放旋转动效，要想禁用可以找到<br>themes\butterfly\source\css_layout\aside.styl文件并按照如下对transform: unset修改即可完成动效屏蔽。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.avatar-img</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden</span><br><span class="line">  margin: <span class="number">0</span> auto</span><br><span class="line">  width: <span class="number">110px</span></span><br><span class="line">  height: <span class="number">110px</span></span><br><span class="line">  border-radius: <span class="number">70px</span></span><br><span class="line"></span><br><span class="line">  img</span><br><span class="line">    width: <span class="number">100%</span></span><br><span class="line">    height: <span class="number">100%</span></span><br><span class="line">    transition: filter <span class="number">375ms</span> ease-in .<span class="number">2s</span>, transform .<span class="number">3s</span></span><br><span class="line">    object-fit: cover</span><br><span class="line"></span><br><span class="line">    &amp;:hover</span><br><span class="line">      transform: unset</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>butterfly</category>
-      </categories>
-      <tags>
-        <tag>butterfly</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git学习</title>
-    <url>/2024/12/11/git%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><img src="https://mr-liu-cheng.github.io/2024/12/11/git%E5%AD%A6%E4%B9%A0/image.png" alt="alt text"></p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git修改历史提交</title>
     <url>/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</url>
     <content><![CDATA[<p>You: </p>
@@ -331,6 +307,158 @@
       </tags>
   </entry>
   <entry>
+    <title>git学习</title>
+    <url>/2024/12/11/git%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><img src="https://mr-liu-cheng.github.io/2024/12/11/git%E5%AD%A6%E4%B9%A0/image.png" alt="alt text"></p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>butterfly 禁用头像旋转</title>
+    <url>/2024/12/16/butterfly-%E7%A6%81%E7%94%A8%E5%A4%B4%E5%83%8F%E6%97%8B%E8%BD%AC/</url>
+    <content><![CDATA[<p>当鼠标移到侧边栏头像上时，头像会播放旋转动效，要想禁用可以找到<br>themes\butterfly\source\css_layout\aside.styl文件并按照如下对transform: unset修改即可完成动效屏蔽。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.avatar-img</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden</span><br><span class="line">  margin: <span class="number">0</span> auto</span><br><span class="line">  width: <span class="number">110px</span></span><br><span class="line">  height: <span class="number">110px</span></span><br><span class="line">  border-radius: <span class="number">70px</span></span><br><span class="line"></span><br><span class="line">  img</span><br><span class="line">    width: <span class="number">100%</span></span><br><span class="line">    height: <span class="number">100%</span></span><br><span class="line">    transition: filter <span class="number">375ms</span> ease-in .<span class="number">2s</span>, transform .<span class="number">3s</span></span><br><span class="line">    object-fit: cover</span><br><span class="line"></span><br><span class="line">    &amp;:hover</span><br><span class="line">      transform: unset</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>butterfly</category>
+      </categories>
+      <tags>
+        <tag>butterfly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git无法访问外网</title>
+    <url>/2024/12/31/git%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%A4%96%E7%BD%91/</url>
+    <content><![CDATA[<h2 id="事情经过"><a href="#事情经过" class="headerlink" title="事情经过"></a>事情经过</h2><p>使用vscode git 提交代码和 hexo d时</p>
+<p>莫名其妙出现 github ssh 22端口无法访问的情况：</p>
+<p>尝试过切换成443端口<br>使用https访问远程，但是github客户端可以访问</p>
+<p>怀疑是网络问题，没添加代理：</p>
+<p>给vscode添加代理<br>给git添加代理</p>
+<p>怀疑clash for windows 没开系统代理或者规则错误：</p>
+<p>开启 system proxy<br>启用 global 规则</p>
+<p>使用vscode、 cmd 、powershell和git ping Google.com 和 ping github.com都无效，只能ping 国内网站。</p>
+<p>使用git bash clone 远程仓库一般都是没问题的，但是还是失败了，</p>
+<p>致使明白翻墙工具的系统代理没开成功，遂比较另一台电脑，执行ping Google.com可以，对比翻墙工具的设置，</p>
+<p>找到罪魁祸首是：tun mode</p>
+<hr>
+<h2 id="Clash-for-Windows-的-TUN-模式是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明："><a href="#Clash-for-Windows-的-TUN-模式是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明：" class="headerlink" title="Clash for Windows 的 TUN 模式是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明："></a>Clash for Windows 的 TUN 模式是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明：</h2><p><strong>什么是 TUN 模式？</strong><br>TUN 模式是基于操作系统的虚拟网络接口（TUN&#x2F;TAP）的工作方式，用于拦截和重定向网络流量。通过 TUN 模式，Clash 可以透明地代理应用程序的流量，而无需每个应用程序单独设置代理。</p>
+<ul>
+<li><p><strong>TUN 的工作原理</strong> ：</p>
+<ul>
+<li><p>它创建一个虚拟网卡，接收系统的所有网络流量。</p>
+</li>
+<li><p>根据 Clash 的代理规则，对网络请求进行分流或直接代理。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>与系统代理的区别</strong> ：</p>
+<ul>
+<li><p>系统代理需要应用程序支持 HTTP&#x2F;HTTPS 或 SOCKS 协议，并手动配置代理。</p>
+</li>
+<li><p>TUN 模式可以自动拦截所有网络请求，适用于不支持代理配置的程序（如部分游戏或终端工具）。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>TUN 模式对系统代理的影响</strong> <strong>为什么影响系统代理？</strong>  </p>
+<ol>
+<li><strong>默认拦截所有流量</strong> ：</li>
+</ol>
+<ul>
+<li>TUN 模式接管了系统的大部分网络流量，可能会导致一些程序不再使用系统代理。</li>
+</ul>
+<ol start="2">
+<li><strong>规则优先级问题</strong> ：</li>
+</ol>
+<ul>
+<li>如果 Clash 的规则设置不正确，可能导致部分流量未能正确代理或被错误路由。</li>
+</ul>
+<ol start="3">
+<li><strong>与其他代理冲突</strong> ：</li>
+</ol>
+<ul>
+<li><p>如果系统已经配置了其他代理设置，TUN 模式可能会导致冲突，从而影响代理功能。<br><strong>常见问题</strong>  </p>
+</li>
+<li><p><strong>系统代理无效</strong> ：TUN 模式可能覆盖了系统代理设置。</p>
+</li>
+<li><p><strong>部分应用程序无法联网</strong> ：TUN 模式可能未正确配置分流规则，导致流量被错误处理。</p>
+</li>
+</ul>
+<hr>
+<p><strong>解决方法</strong> <strong>启用 TUN 模式的正确方式</strong> </p>
+<ol>
+<li><p>打开 Clash for Windows。</p>
+</li>
+<li><p>在设置中启用 TUN 模式：</p>
+</li>
+</ol>
+<ul>
+<li><strong>General &gt; TUN Mode</strong>  勾选开启。</li>
+</ul>
+<ol start="3">
+<li>确保 DNS 设置启用：</li>
+</ol>
+<ul>
+<li>在 <strong>DNS Settings</strong>  中启用 “Enable”。<br><strong>调整代理规则</strong></li>
+</ul>
+<ol>
+<li>确保规则优先级正确：</li>
+</ol>
+<ul>
+<li><p>例如： </p>
+<ul>
+<li><p>将 <code>Direct</code> 设置为默认策略。</p>
+</li>
+<li><p>对需要代理的流量（如 GitHub）添加规则，强制走代理。</p>
+</li>
+</ul>
+</li>
+<li><p>检查规则文件是否准确无误（可以通过日志查看流量是否正确路由）。</p>
+</li>
+</ul>
+<ol start="2">
+<li>测试网络连接：</li>
+</ol>
+<ul>
+<li>通过命令行测试：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -I https://github.com</span><br></pre></td></tr></table></figure>
+<p><strong>关闭 TUN 模式（如果不需要）</strong>  </p>
+<ul>
+<li>如果系统代理已经满足需求，可以关闭 TUN 模式：<ol>
+<li><p>打开 Clash 设置。</p>
+</li>
+<li><p>取消勾选 <strong>TUN Mode</strong> 。</p>
+</li>
+<li><p>确保 <strong>System Proxy</strong>  启用。</p>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<p><strong>TUN 模式的适用场景</strong> </p>
+<ul>
+<li><p>用于拦截不支持手动代理配置的程序流量。</p>
+</li>
+<li><p>适用于需要全局透明代理的环境，如部分终端工具或游戏。</p>
+</li>
+</ul>
+<hr>
+<p>如果您遇到具体问题，例如 TUN 模式导致的网络异常，可以提供更详细的信息，我会帮助您进一步排查和优化配置。</p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo 路径表示</title>
     <url>/2024/12/01/hexo%20%E8%B7%AF%E5%BE%84%E8%A1%A8%E7%A4%BA/</url>
     <content><![CDATA[<p>在 Hexo 中，路径表示（即如何表示文件和目录的路径）有几个常见的用法和约定，具体取决于你是在配置站点、创建内容，还是处理资源。以下是常见的路径表示方式和相关解释：</p>
@@ -475,134 +603,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git无法访问外网</title>
-    <url>/2024/12/31/git%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%A4%96%E7%BD%91/</url>
-    <content><![CDATA[<h2 id="事情经过"><a href="#事情经过" class="headerlink" title="事情经过"></a>事情经过</h2><p>使用vscode git 提交代码和 hexo d时</p>
-<p>莫名其妙出现 github ssh 22端口无法访问的情况：</p>
-<p>尝试过切换成443端口<br>使用https访问远程，但是github客户端可以访问</p>
-<p>怀疑是网络问题，没添加代理：</p>
-<p>给vscode添加代理<br>给git添加代理</p>
-<p>怀疑clash for windows 没开系统代理或者规则错误：</p>
-<p>开启 system proxy<br>启用 global 规则</p>
-<p>使用vscode、 cmd 、powershell和git ping Google.com 和 ping github.com都无效，只能ping 国内网站。</p>
-<p>使用git bash clone 远程仓库一般都是没问题的，但是还是失败了，</p>
-<p>致使明白翻墙工具的系统代理没开成功，遂比较另一台电脑，执行ping Google.com可以，对比翻墙工具的设置，</p>
-<p>找到罪魁祸首是：tun mode</p>
-<hr>
-<h2 id="Clash-for-Windows-的-TUN-模式是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明："><a href="#Clash-for-Windows-的-TUN-模式是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明：" class="headerlink" title="Clash for Windows 的 TUN 模式是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明："></a>Clash for Windows 的 TUN 模式是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明：</h2><p><strong>什么是 TUN 模式？</strong><br>TUN 模式是基于操作系统的虚拟网络接口（TUN&#x2F;TAP）的工作方式，用于拦截和重定向网络流量。通过 TUN 模式，Clash 可以透明地代理应用程序的流量，而无需每个应用程序单独设置代理。</p>
-<ul>
-<li><p><strong>TUN 的工作原理</strong> ：</p>
-<ul>
-<li><p>它创建一个虚拟网卡，接收系统的所有网络流量。</p>
-</li>
-<li><p>根据 Clash 的代理规则，对网络请求进行分流或直接代理。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>与系统代理的区别</strong> ：</p>
-<ul>
-<li><p>系统代理需要应用程序支持 HTTP&#x2F;HTTPS 或 SOCKS 协议，并手动配置代理。</p>
-</li>
-<li><p>TUN 模式可以自动拦截所有网络请求，适用于不支持代理配置的程序（如部分游戏或终端工具）。</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p><strong>TUN 模式对系统代理的影响</strong> <strong>为什么影响系统代理？</strong>  </p>
-<ol>
-<li><strong>默认拦截所有流量</strong> ：</li>
-</ol>
-<ul>
-<li>TUN 模式接管了系统的大部分网络流量，可能会导致一些程序不再使用系统代理。</li>
-</ul>
-<ol start="2">
-<li><strong>规则优先级问题</strong> ：</li>
-</ol>
-<ul>
-<li>如果 Clash 的规则设置不正确，可能导致部分流量未能正确代理或被错误路由。</li>
-</ul>
-<ol start="3">
-<li><strong>与其他代理冲突</strong> ：</li>
-</ol>
-<ul>
-<li><p>如果系统已经配置了其他代理设置，TUN 模式可能会导致冲突，从而影响代理功能。<br><strong>常见问题</strong>  </p>
-</li>
-<li><p><strong>系统代理无效</strong> ：TUN 模式可能覆盖了系统代理设置。</p>
-</li>
-<li><p><strong>部分应用程序无法联网</strong> ：TUN 模式可能未正确配置分流规则，导致流量被错误处理。</p>
-</li>
-</ul>
-<hr>
-<p><strong>解决方法</strong> <strong>启用 TUN 模式的正确方式</strong> </p>
-<ol>
-<li><p>打开 Clash for Windows。</p>
-</li>
-<li><p>在设置中启用 TUN 模式：</p>
-</li>
-</ol>
-<ul>
-<li><strong>General &gt; TUN Mode</strong>  勾选开启。</li>
-</ul>
-<ol start="3">
-<li>确保 DNS 设置启用：</li>
-</ol>
-<ul>
-<li>在 <strong>DNS Settings</strong>  中启用 “Enable”。<br><strong>调整代理规则</strong></li>
-</ul>
-<ol>
-<li>确保规则优先级正确：</li>
-</ol>
-<ul>
-<li><p>例如： </p>
-<ul>
-<li><p>将 <code>Direct</code> 设置为默认策略。</p>
-</li>
-<li><p>对需要代理的流量（如 GitHub）添加规则，强制走代理。</p>
-</li>
-</ul>
-</li>
-<li><p>检查规则文件是否准确无误（可以通过日志查看流量是否正确路由）。</p>
-</li>
-</ul>
-<ol start="2">
-<li>测试网络连接：</li>
-</ol>
-<ul>
-<li>通过命令行测试：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -I https://github.com</span><br></pre></td></tr></table></figure>
-<p><strong>关闭 TUN 模式（如果不需要）</strong>  </p>
-<ul>
-<li>如果系统代理已经满足需求，可以关闭 TUN 模式：<ol>
-<li><p>打开 Clash 设置。</p>
-</li>
-<li><p>取消勾选 <strong>TUN Mode</strong> 。</p>
-</li>
-<li><p>确保 <strong>System Proxy</strong>  启用。</p>
-</li>
-</ol>
-</li>
-</ul>
-<hr>
-<p><strong>TUN 模式的适用场景</strong> </p>
-<ul>
-<li><p>用于拦截不支持手动代理配置的程序流量。</p>
-</li>
-<li><p>适用于需要全局透明代理的环境，如部分终端工具或游戏。</p>
-</li>
-</ul>
-<hr>
-<p>如果您遇到具体问题，例如 TUN 模式导致的网络异常，可以提供更详细的信息，我会帮助您进一步排查和优化配置。</p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo 图片加载方案</title>
     <url>/2024/12/11/hexo-%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h1 id="安装-hexo-asset-image-插件"><a href="#安装-hexo-asset-image-插件" class="headerlink" title="安装 hexo-asset-image 插件"></a>安装 hexo-asset-image 插件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
@@ -644,6 +644,141 @@
         <category>hexo</category>
       </categories>
       <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo 疑难杂症</title>
+    <url>/2024/12/28/hexo%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</url>
+    <content><![CDATA[<h2 id="butterfly通过样式隐藏页脚"><a href="#butterfly通过样式隐藏页脚" class="headerlink" title="butterfly通过样式隐藏页脚"></a>butterfly通过样式隐藏页脚</h2><p>如果配置文件没有提供选项，可以通过 CSS 隐藏页脚区域。<br>打开或创建 source&#x2F;css&#x2F;_layout&#x2F;footer.styl 文件。</p>
+<p>添加以下内容：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">复制代码</span><br><span class="line"><span class="selector-id">#footer</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo-页面跳转时，界面未完全加载"><a href="#hexo-页面跳转时，界面未完全加载" class="headerlink" title="hexo 页面跳转时，界面未完全加载"></a>hexo 页面跳转时，界面未完全加载</h2><p>页面刷新时正常的，但是从其他页面跳转过来时，js代码加载的内容都没加载出来</p>
+<p>我的做法是采用延时执行js的函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123; <span class="title class_">Render</span>(); &#125;, <span class="number">100</span>); <span class="comment">// 延迟渲染，确保布局已完成</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//这个方法不行</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;<span class="title class_">Render</span>();&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo-butterfly-主题的布局修改"><a href="#hexo-butterfly-主题的布局修改" class="headerlink" title="hexo butterfly 主题的布局修改"></a>hexo butterfly 主题的布局修改</h2><h3 id="隐藏侧边栏：Front-matter中添加"><a href="#隐藏侧边栏：Front-matter中添加" class="headerlink" title="隐藏侧边栏：Front-matter中添加"></a>隐藏侧边栏：Front-matter中添加</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">aside: false</span><br></pre></td></tr></table></figure>
+
+<p>如果要今后添加的的page或者post都隐藏侧边栏可以在模版Front-matter中添加上面的代码就行。但是已有的界面是需要自己手动添加从而实现隐藏效果。<br>scaffolds\page.md<br>scaffolds\post.md</p>
+<p>若是要完全隐藏或者在特殊的page隐藏可以在butterfly.config中修改配置实现：这里好像不能添加自定义的page，不然将会省事很多。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">aside:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">hide:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show the button to hide the aside in bottom right button</span></span><br><span class="line">  <span class="attr">button:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">mobile:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Position: left / right</span></span><br><span class="line">  <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">archive:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">tag:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">category:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="拓宽页面内容div"><a href="#拓宽页面内容div" class="headerlink" title="拓宽页面内容div"></a>拓宽页面内容div</h3><ul>
+<li>方法一：直接在md&#x2F;html&#x2F;js文件中添加js代码<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//内容扩宽</span></span><br><span class="line"><span class="keyword">const</span> page = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;page&quot;</span>);</span><br><span class="line">page.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line"><span class="comment">// page.style.setProperty(&quot;padding&quot;, &quot;160px&quot;, &quot;important&quot;);</span></span><br><span class="line">page.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;86px&quot;</span>; <span class="comment">// 撑满屏幕 不加单位视为百分百</span></span><br><span class="line"><span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;content-inner&quot;</span>);</span><br><span class="line">content.<span class="property">style</span>.<span class="property">maxWidth</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">margin</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br></pre></td></tr></table></figure></li>
+<li>方法二：直接在themes\butterfly\source\js\main.js文件中添加js代码<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//内容扩宽</span></span><br><span class="line"><span class="keyword">const</span> page = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;page&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (page &amp;&amp; saveStatus == <span class="string">&#x27;hide&#x27;</span>) &#123;</span><br><span class="line">page.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">page.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;86px&quot;</span>; <span class="comment">// 撑满屏幕 不加单位视为百分百</span></span><br><span class="line"><span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;content-inner&quot;</span>);</span><br><span class="line">content.<span class="property">style</span>.<span class="property">maxWidth</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">margin</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>强调：<br>样式中尺寸有两种表现：百分百、具体像素值（12px）。<br>自带的标签可能会有默认样式信息，例如<code>&lt;Img&gt;</code>,若是要修改，需要使用 !important 提高当前样式的优先级</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;$&#123;project.image&#125;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;project-cover&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.project-cover</span> &#123;</span></span><br><span class="line"><span class="language-css">     <span class="attribute">max-width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 图片宽度不会超出容器宽度 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">max-height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 图片高度不会超出容器高度 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">object-fit</span>: contain;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 保持图片比例，完全显示图片 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 防止图片默认的 inline 行为 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">margin</span>: <span class="number">0</span> <span class="meta">!important</span>;<span class="comment">/* 防止img默认的样式覆盖，提高当前样式的优先级*/</span></span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 设置外边距为零 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">border</span>: none;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 移除边框 */</span></span></span><br><span class="line"><span class="language-css">   &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或者这样：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">page.<span class="property">style</span>.<span class="title function_">setProperty</span>(<span class="string">&quot;padding&quot;</span>, <span class="string">&quot;160px&quot;</span>, <span class="string">&quot;important&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="div中的图片居中"><a href="#div中的图片居中" class="headerlink" title="div中的图片居中"></a>div中的图片居中</h2><p>display: flex;<br>flex-direction: column;<br>align-items: center;</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project-card</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#505050</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 设置为弹性布局 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="comment">/* 子元素纵向排列 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="comment">/* 子元素水平居中 */</span></span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">4px</span> <span class="number">8px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="格子布局"><a href="#格子布局" class="headerlink" title="格子布局"></a>格子布局</h2><p><strong>总结对比</strong> </p>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>列数</th>
+<th>列宽度计算</th>
+<th>剩余空间行为</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>repeat(4, 1fr)</td>
+<td>固定为 4 列</td>
+<td>按容器宽度动态调整</td>
+<td>每列均分剩余空间</td>
+</tr>
+<tr>
+<td>repeat(auto-fit, 250px)</td>
+<td>动态调整</td>
+<td>固定为 250px</td>
+<td>剩余空间为空白（列不会超出内容）</td>
+</tr>
+<tr>
+<td>repeat(auto-fit, minmax(250px, 1fr))</td>
+<td>动态调整</td>
+<td>最小 250px，最大均分剩余空间</td>
+<td>剩余空间被列均分,空列也会被均分掉</td>
+</tr>
+<tr>
+<td>repeat(auto-fill, minmax(250px, 1fr))</td>
+<td>动态调整</td>
+<td>最小 250px，最大均分剩余空间</td>
+<td>剩余空间被列均分，但空列会保留</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.projects</span> &#123;</span><br><span class="line">     <span class="attribute">display</span>: grid;</span><br><span class="line">     <span class="comment">/* 指定4列，每列等分容器宽度 */</span></span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr); </span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fit, <span class="number">250px</span>);</span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fit, <span class="built_in">minmax</span>(<span class="number">250px</span>, <span class="number">1</span>fr));</span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fill, <span class="built_in">minmax</span>(<span class="number">250px</span>, <span class="number">1</span>fr));</span><br><span class="line">     <span class="comment">/* grid-auto-rows: 150px; */</span></span><br><span class="line">     <span class="comment">/* 每行高度固定为 150px */</span></span><br><span class="line">     <span class="attribute">gap</span>: <span class="number">20px</span>;</span><br><span class="line">     <span class="comment">/* 格子间距 20px*/</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+<br>
+
+
+<h2 id="auto-fit-与-auto-fill-的主要区别"><a href="#auto-fit-与-auto-fill-的主要区别" class="headerlink" title="auto-fit 与 auto-fill 的主要区别"></a><code>auto-fit</code> 与 <code>auto-fill</code> 的主要区别</h2><ul>
+<li><p><strong><code>auto-fit</code></strong> : 将列压缩以适应容器宽度，仅保留有内容的列，列之间的多余空间会重新分配。</p>
+</li>
+<li><p><strong><code>auto-fill</code></strong> : 尽可能填满容器，即使某些列是“空的”，也会在容器内保留这些占位列。</p>
+</li>
+</ul>
+<h2 id="repeat-auto-fit-minmax-250px-1fr"><a href="#repeat-auto-fit-minmax-250px-1fr" class="headerlink" title="repeat(auto-fit, minmax(250px, 1fr)) "></a><code>repeat(auto-fit, minmax(250px, 1fr))</code> </h2><ul>
+<li>重点是“<strong>压缩列数</strong> ”：如果列宽足够，未使用的列会被移除，只有实际需要的列保留。</li>
+<li>剩余空间会被现有列均分。</li>
+<li>只生成实际需要的列，不创建空列。</li>
+<li>列总数 &#x3D; <strong>实际内容列数</strong> 。</li>
+</ul>
+<br>
+
+<h2 id="repeat-auto-fill-minmax-250px-1fr"><a href="#repeat-auto-fill-minmax-250px-1fr" class="headerlink" title="repeat(auto-fill, minmax(250px, 1fr)) "></a><code>repeat(auto-fill, minmax(250px, 1fr))</code> </h2><ul>
+<li>重点是“<strong>填满容器</strong> ”：尝试创建更多列，即使其中部分列没有内容（生成“空列”作为占位）。</li>
+<li>剩余空间会均分到所有列（包括空列）。</li>
+<li>列总数 &#x3D; <strong>容器能容纳的最大列数</strong> 。</li>
+</ul>
+<br>
+
+<p><strong>详细比较表</strong> </p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>auto-fit</th>
+<th>auto-fill</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>列数</td>
+<td>根据实际内容调整列数</td>
+<td>根据容器宽度填满列数</td>
+</tr>
+<tr>
+<td>剩余空间分配</td>
+<td>均分到现有列</td>
+<td>均分到所有列（包括空列）</td>
+</tr>
+<tr>
+<td>未使用的列</td>
+<td>移除</td>
+<td>保留为占位列</td>
+</tr>
+<tr>
+<td>空列是否创建</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>优势</td>
+<td>精简布局，适合动态内容数量，仅有实际内容需要显示时 ,移除无用列，避免产生空白列</td>
+<td>容器填满，适合固定布局，需要固定网格布局（占位列）时 ,空列提供一致的布局效果</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>butterfly</tag>
         <tag>hexo</tag>
       </tags>
   </entry>
@@ -859,166 +994,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo 疑难杂症</title>
-    <url>/2024/12/28/hexo%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</url>
-    <content><![CDATA[<h2 id="butterfly通过样式隐藏页脚"><a href="#butterfly通过样式隐藏页脚" class="headerlink" title="butterfly通过样式隐藏页脚"></a>butterfly通过样式隐藏页脚</h2><p>如果配置文件没有提供选项，可以通过 CSS 隐藏页脚区域。<br>打开或创建 source&#x2F;css&#x2F;_layout&#x2F;footer.styl 文件。</p>
-<p>添加以下内容：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">复制代码</span><br><span class="line"><span class="selector-id">#footer</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="hexo-页面跳转时，界面未完全加载"><a href="#hexo-页面跳转时，界面未完全加载" class="headerlink" title="hexo 页面跳转时，界面未完全加载"></a>hexo 页面跳转时，界面未完全加载</h2><p>页面刷新时正常的，但是从其他页面跳转过来时，js代码加载的内容都没加载出来</p>
-<p>我的做法是采用延时执行js的函数：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123; <span class="title class_">Render</span>(); &#125;, <span class="number">100</span>); <span class="comment">// 延迟渲染，确保布局已完成</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//这个方法不行</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;<span class="title class_">Render</span>();&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="hexo-butterfly-主题的布局修改"><a href="#hexo-butterfly-主题的布局修改" class="headerlink" title="hexo butterfly 主题的布局修改"></a>hexo butterfly 主题的布局修改</h2><h3 id="隐藏侧边栏：Front-matter中添加"><a href="#隐藏侧边栏：Front-matter中添加" class="headerlink" title="隐藏侧边栏：Front-matter中添加"></a>隐藏侧边栏：Front-matter中添加</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">aside: false</span><br></pre></td></tr></table></figure>
-
-<p>如果要今后添加的的page或者post都隐藏侧边栏可以在模版Front-matter中添加上面的代码就行。但是已有的界面是需要自己手动添加从而实现隐藏效果。<br>scaffolds\page.md<br>scaffolds\post.md</p>
-<p>若是要完全隐藏或者在特殊的page隐藏可以在butterfly.config中修改配置实现：这里好像不能添加自定义的page，不然将会省事很多。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">aside:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">hide:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show the button to hide the aside in bottom right button</span></span><br><span class="line">  <span class="attr">button:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">mobile:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Position: left / right</span></span><br><span class="line">  <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">archive:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">tag:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">category:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="拓宽页面内容div"><a href="#拓宽页面内容div" class="headerlink" title="拓宽页面内容div"></a>拓宽页面内容div</h3><ul>
-<li>方法一：直接在md&#x2F;html&#x2F;js文件中添加js代码<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//内容扩宽</span></span><br><span class="line"><span class="keyword">const</span> page = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;page&quot;</span>);</span><br><span class="line">page.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line"><span class="comment">// page.style.setProperty(&quot;padding&quot;, &quot;160px&quot;, &quot;important&quot;);</span></span><br><span class="line">page.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;86px&quot;</span>; <span class="comment">// 撑满屏幕 不加单位视为百分百</span></span><br><span class="line"><span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;content-inner&quot;</span>);</span><br><span class="line">content.<span class="property">style</span>.<span class="property">maxWidth</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">margin</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br></pre></td></tr></table></figure></li>
-<li>方法二：直接在themes\butterfly\source\js\main.js文件中添加js代码<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//内容扩宽</span></span><br><span class="line"><span class="keyword">const</span> page = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;page&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (page &amp;&amp; saveStatus == <span class="string">&#x27;hide&#x27;</span>) &#123;</span><br><span class="line">page.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">page.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;86px&quot;</span>; <span class="comment">// 撑满屏幕 不加单位视为百分百</span></span><br><span class="line"><span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;content-inner&quot;</span>);</span><br><span class="line">content.<span class="property">style</span>.<span class="property">maxWidth</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">margin</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>强调：<br>样式中尺寸有两种表现：百分百、具体像素值（12px）。<br>自带的标签可能会有默认样式信息，例如<code>&lt;Img&gt;</code>,若是要修改，需要使用 !important 提高当前样式的优先级</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;$&#123;project.image&#125;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;project-cover&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.project-cover</span> &#123;</span></span><br><span class="line"><span class="language-css">     <span class="attribute">max-width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 图片宽度不会超出容器宽度 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">max-height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 图片高度不会超出容器高度 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">object-fit</span>: contain;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 保持图片比例，完全显示图片 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 防止图片默认的 inline 行为 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">margin</span>: <span class="number">0</span> <span class="meta">!important</span>;<span class="comment">/* 防止img默认的样式覆盖，提高当前样式的优先级*/</span></span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 设置外边距为零 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">border</span>: none;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 移除边框 */</span></span></span><br><span class="line"><span class="language-css">   &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或者这样：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">page.<span class="property">style</span>.<span class="title function_">setProperty</span>(<span class="string">&quot;padding&quot;</span>, <span class="string">&quot;160px&quot;</span>, <span class="string">&quot;important&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="div中的图片居中"><a href="#div中的图片居中" class="headerlink" title="div中的图片居中"></a>div中的图片居中</h2><p>display: flex;<br>flex-direction: column;<br>align-items: center;</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project-card</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#505050</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 设置为弹性布局 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="comment">/* 子元素纵向排列 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="comment">/* 子元素水平居中 */</span></span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">4px</span> <span class="number">8px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="格子布局"><a href="#格子布局" class="headerlink" title="格子布局"></a>格子布局</h2><p><strong>总结对比</strong> </p>
-<table>
-<thead>
-<tr>
-<th>用法</th>
-<th>列数</th>
-<th>列宽度计算</th>
-<th>剩余空间行为</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>repeat(4, 1fr)</td>
-<td>固定为 4 列</td>
-<td>按容器宽度动态调整</td>
-<td>每列均分剩余空间</td>
-</tr>
-<tr>
-<td>repeat(auto-fit, 250px)</td>
-<td>动态调整</td>
-<td>固定为 250px</td>
-<td>剩余空间为空白（列不会超出内容）</td>
-</tr>
-<tr>
-<td>repeat(auto-fit, minmax(250px, 1fr))</td>
-<td>动态调整</td>
-<td>最小 250px，最大均分剩余空间</td>
-<td>剩余空间被列均分,空列也会被均分掉</td>
-</tr>
-<tr>
-<td>repeat(auto-fill, minmax(250px, 1fr))</td>
-<td>动态调整</td>
-<td>最小 250px，最大均分剩余空间</td>
-<td>剩余空间被列均分，但空列会保留</td>
-</tr>
-</tbody></table>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.projects</span> &#123;</span><br><span class="line">     <span class="attribute">display</span>: grid;</span><br><span class="line">     <span class="comment">/* 指定4列，每列等分容器宽度 */</span></span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr); </span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fit, <span class="number">250px</span>);</span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fit, <span class="built_in">minmax</span>(<span class="number">250px</span>, <span class="number">1</span>fr));</span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fill, <span class="built_in">minmax</span>(<span class="number">250px</span>, <span class="number">1</span>fr));</span><br><span class="line">     <span class="comment">/* grid-auto-rows: 150px; */</span></span><br><span class="line">     <span class="comment">/* 每行高度固定为 150px */</span></span><br><span class="line">     <span class="attribute">gap</span>: <span class="number">20px</span>;</span><br><span class="line">     <span class="comment">/* 格子间距 20px*/</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
-<br>
-
-
-<h2 id="auto-fit-与-auto-fill-的主要区别"><a href="#auto-fit-与-auto-fill-的主要区别" class="headerlink" title="auto-fit 与 auto-fill 的主要区别"></a><code>auto-fit</code> 与 <code>auto-fill</code> 的主要区别</h2><ul>
-<li><p><strong><code>auto-fit</code></strong> : 将列压缩以适应容器宽度，仅保留有内容的列，列之间的多余空间会重新分配。</p>
-</li>
-<li><p><strong><code>auto-fill</code></strong> : 尽可能填满容器，即使某些列是“空的”，也会在容器内保留这些占位列。</p>
-</li>
-</ul>
-<h2 id="repeat-auto-fit-minmax-250px-1fr"><a href="#repeat-auto-fit-minmax-250px-1fr" class="headerlink" title="repeat(auto-fit, minmax(250px, 1fr)) "></a><code>repeat(auto-fit, minmax(250px, 1fr))</code> </h2><ul>
-<li>重点是“<strong>压缩列数</strong> ”：如果列宽足够，未使用的列会被移除，只有实际需要的列保留。</li>
-<li>剩余空间会被现有列均分。</li>
-<li>只生成实际需要的列，不创建空列。</li>
-<li>列总数 &#x3D; <strong>实际内容列数</strong> 。</li>
-</ul>
-<br>
-
-<h2 id="repeat-auto-fill-minmax-250px-1fr"><a href="#repeat-auto-fill-minmax-250px-1fr" class="headerlink" title="repeat(auto-fill, minmax(250px, 1fr)) "></a><code>repeat(auto-fill, minmax(250px, 1fr))</code> </h2><ul>
-<li>重点是“<strong>填满容器</strong> ”：尝试创建更多列，即使其中部分列没有内容（生成“空列”作为占位）。</li>
-<li>剩余空间会均分到所有列（包括空列）。</li>
-<li>列总数 &#x3D; <strong>容器能容纳的最大列数</strong> 。</li>
-</ul>
-<br>
-
-<p><strong>详细比较表</strong> </p>
-<table>
-<thead>
-<tr>
-<th>特性</th>
-<th>auto-fit</th>
-<th>auto-fill</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>列数</td>
-<td>根据实际内容调整列数</td>
-<td>根据容器宽度填满列数</td>
-</tr>
-<tr>
-<td>剩余空间分配</td>
-<td>均分到现有列</td>
-<td>均分到所有列（包括空列）</td>
-</tr>
-<tr>
-<td>未使用的列</td>
-<td>移除</td>
-<td>保留为占位列</td>
-</tr>
-<tr>
-<td>空列是否创建</td>
-<td>否</td>
-<td>是</td>
-</tr>
-<tr>
-<td>优势</td>
-<td>精简布局，适合动态内容数量，仅有实际内容需要显示时 ,移除无用列，避免产生空白列</td>
-<td>容器填满，适合固定布局，需要固定网格布局（占位列）时 ,空列提供一致的布局效果</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>butterfly</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>unity webGL 移动端 输入框无法弹出虚拟键盘</title>
-    <url>/2024/12/13/unity-webGL-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E8%BE%93%E5%85%A5%E6%A1%86%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98/</url>
-    <content><![CDATA[<ol>
-<li>去这个网站下载工程：</li>
-</ol>
-<p><a href="https://github.com/kou-yeung/WebGLInput">https://github.com/kou-yeung/WebGLInput</a></p>
-<ol start="2">
-<li>将下载工程中的WebGLSupport文件夹拷贝到自己的工程中</li>
-</ol>
-<p><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-webGL-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E8%BE%93%E5%85%A5%E6%A1%86%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98/20241213_141006_image.png"></p>
-<ol>
-<li>将WebGLInput.cs组件添加到InputField组件挂载的对象上</li>
-<li>勾选show html element 不然输入后不显示。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>unity</category>
-        <category>webGL</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>webGL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>unity tmp中文显示</title>
     <url>/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/</url>
     <content><![CDATA[<h1 id="一、创建tmp中文字体资源"><a href="#一、创建tmp中文字体资源" class="headerlink" title="一、创建tmp中文字体资源"></a>一、创建tmp中文字体资源</h1><p>1.<strong>选择Window&#x2F;TextMeshPro&#x2F;Font Asset Creator</strong></p>
@@ -1105,8 +1080,33 @@
         <category>unity</category>
       </categories>
       <tags>
-        <tag>unity</tag>
         <tag>tmp</tag>
+        <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>unity webGL 移动端 输入框无法弹出虚拟键盘</title>
+    <url>/2024/12/13/unity-webGL-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E8%BE%93%E5%85%A5%E6%A1%86%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98/</url>
+    <content><![CDATA[<ol>
+<li>去这个网站下载工程：</li>
+</ol>
+<p><a href="https://github.com/kou-yeung/WebGLInput">https://github.com/kou-yeung/WebGLInput</a></p>
+<ol start="2">
+<li>将下载工程中的WebGLSupport文件夹拷贝到自己的工程中</li>
+</ol>
+<p><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-webGL-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E8%BE%93%E5%85%A5%E6%A1%86%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98/20241213_141006_image.png"></p>
+<ol>
+<li>将WebGLInput.cs组件添加到InputField组件挂载的对象上</li>
+<li>勾选show html element 不然输入后不显示。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>unity</category>
+        <category>webGL</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>webGL</tag>
       </tags>
   </entry>
   <entry>
