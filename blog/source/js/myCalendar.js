@@ -16,13 +16,7 @@ var rruleEvent =
     },
     duration: '02:00',
 };
-// 使用 rrule.js 解析 RRule
-const rruleOccurrences = new RRule(rruleEvent.rrule).all(); // 获取所有日期实例
-// 转换为 FullCalendar 可用事件格式
-const rruleEvents = rruleOccurrences.map(date => ({
-    title: rruleEvent.title,
-    start: date,
-}));
+
 
 function defineBirthday(curYearLunar) {
     var lunarBirth = [
@@ -116,6 +110,15 @@ function defineInternationalFestivals() {
 
 commonHandler();
 function commonHandler() {
+
+    // 使用 rrule.js 解析 RRule
+    const rruleOccurrences = new RRule(rruleEvent.rrule).all(); // 获取所有日期实例
+    // 转换为 FullCalendar 可用事件格式
+    const rruleEvents = rruleOccurrences.map(date => ({
+        title: rruleEvent.title,
+        start: date,
+    }));
+
     const calendarEl = document.getElementById('calendar');
     //创建FullCalendar实例  
     var calendar = new FullCalendar.Calendar(calendarEl, {
