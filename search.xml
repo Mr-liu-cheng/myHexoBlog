@@ -1,30 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>butterfly 禁用头像旋转</title>
-    <url>/2024/12/16/butterfly-%E7%A6%81%E7%94%A8%E5%A4%B4%E5%83%8F%E6%97%8B%E8%BD%AC/</url>
-    <content><![CDATA[<p>当鼠标移到侧边栏头像上时，头像会播放旋转动效，要想禁用可以找到<br>themes\butterfly\source\css_layout\aside.styl文件并按照如下对transform: unset修改即可完成动效屏蔽。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.avatar-img</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden</span><br><span class="line">  margin: <span class="number">0</span> auto</span><br><span class="line">  width: <span class="number">110px</span></span><br><span class="line">  height: <span class="number">110px</span></span><br><span class="line">  border-radius: <span class="number">70px</span></span><br><span class="line"></span><br><span class="line">  img</span><br><span class="line">    width: <span class="number">100%</span></span><br><span class="line">    height: <span class="number">100%</span></span><br><span class="line">    transition: filter <span class="number">375ms</span> ease-in .<span class="number">2s</span>, transform .<span class="number">3s</span></span><br><span class="line">    object-fit: cover</span><br><span class="line"></span><br><span class="line">    &amp;:hover</span><br><span class="line">      transform: unset</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>butterfly</category>
-      </categories>
-      <tags>
-        <tag>butterfly</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git修改历史提交</title>
     <url>/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</url>
     <content><![CDATA[<h1 id="git-reset命令"><a href="#git-reset命令" class="headerlink" title="git reset命令"></a>git reset命令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft 29f9bbd77da69902335cad77a12eac7b022b9f63</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image-1.png"><br><code>git reset --soft</code> 命令是 Git 中的一个强大工具，它可以用于回退到某个特定的提交，同时保留文件的修改内容。这里是对该命令的详细解释：</p>
-<h2 id="命令结构："><a href="#命令结构：" class="headerlink" title="命令结构："></a>命令结构：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft &lt;commit-hash&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="命令结构"><a href="#命令结构" class="headerlink" title="命令结构"></a>命令结构</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft &lt;commit-hash&gt;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><code>git reset</code> 是 Git 的一个基本命令，用于将当前的分支回退到指定的提交，并调整索引和工作目录中的内容。</li>
 <li><code>--soft</code> 是 <code>git reset</code> 的一个选项，决定了在回退时如何处理文件的状态。<code>--soft</code> 会将 <code>HEAD</code> 移动到指定的 commit，但 <strong>不会修改工作目录</strong>  和 <strong>索引</strong> （也就是暂存区），因此你仍然可以看到文件的修改。</li>
 </ul>
-<h2 id="各部分的解释："><a href="#各部分的解释：" class="headerlink" title="各部分的解释："></a>各部分的解释：</h2><ol>
+<p><strong>各部分的解释：</strong></p>
+<ol>
 <li><strong><code>&lt;commit-hash&gt;</code></strong> ：</li>
 </ol>
 <ul>
@@ -65,7 +54,7 @@
 <li><code>git reset --soft &lt;commit-hash&gt;</code> 会将 <code>HEAD</code> 回退到指定的 commit，但 <strong>保留文件内容和暂存区的修改</strong> 。这适用于想要撤销某个提交，但又不希望丢失工作进度的情况。</li>
 <li>使用此命令时，你可以修改或更新暂存区的文件，再次进行提交。</li>
 </ul>
-<h2 id="git-reset-命令有三种主要的模式"><a href="#git-reset-命令有三种主要的模式" class="headerlink" title="git reset 命令有三种主要的模式"></a><code>git reset</code> <a href="https://x.zhixing.co/devops/the-differences-and-usages-of-3-modes-git-reset/">命令有三种主要的模式</a></h2><p>分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：<br><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image.png"></p>
+<h2 id="reset-三种模式"><a href="#reset-三种模式" class="headerlink" title="reset 三种模式"></a><code>reset</code> <a href="https://x.zhixing.co/devops/the-differences-and-usages-of-3-modes-git-reset/">三种模式</a></h2><p>分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：<br><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image.png"></p>
 <ol>
 <li><strong><code>git reset --soft &lt;commit&gt;</code></strong></li>
 </ol>
@@ -407,6 +396,162 @@
       </tags>
   </entry>
   <entry>
+    <title>butterfly 禁用头像旋转</title>
+    <url>/2024/12/16/butterfly-%E7%A6%81%E7%94%A8%E5%A4%B4%E5%83%8F%E6%97%8B%E8%BD%AC/</url>
+    <content><![CDATA[<p>当鼠标移到侧边栏头像上时，头像会播放旋转动效，要想禁用可以找到<br>themes\butterfly\source\css_layout\aside.styl文件并按照如下对transform: unset修改即可完成动效屏蔽。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.avatar-img</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden</span><br><span class="line">  margin: <span class="number">0</span> auto</span><br><span class="line">  width: <span class="number">110px</span></span><br><span class="line">  height: <span class="number">110px</span></span><br><span class="line">  border-radius: <span class="number">70px</span></span><br><span class="line"></span><br><span class="line">  img</span><br><span class="line">    width: <span class="number">100%</span></span><br><span class="line">    height: <span class="number">100%</span></span><br><span class="line">    transition: filter <span class="number">375ms</span> ease-in .<span class="number">2s</span>, transform .<span class="number">3s</span></span><br><span class="line">    object-fit: cover</span><br><span class="line"></span><br><span class="line">    &amp;:hover</span><br><span class="line">      transform: unset</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>butterfly</category>
+      </categories>
+      <tags>
+        <tag>butterfly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo 路径表示</title>
+    <url>/2024/12/01/hexo%20%E8%B7%AF%E5%BE%84%E8%A1%A8%E7%A4%BA/</url>
+    <content><![CDATA[<p>在 Hexo 中，路径表示（即如何表示文件和目录的路径）有几个常见的用法和约定，具体取决于你是在配置站点、创建内容，还是处理资源。以下是常见的路径表示方式和相关解释：</p>
+<h2 id="相对路径与绝对路径"><a href="#相对路径与绝对路径" class="headerlink" title="相对路径与绝对路径"></a><strong>相对路径与绝对路径</strong></h2><ul>
+<li><p><strong>相对路径</strong> ：Hexo 中很多地方使用相对路径，通常相对路径是相对于 Hexo 项目的根目录或某些子目录的。例如：</p>
+<ul>
+<li><code>source/_posts/</code> 表示博客文章的存储位置。</li>
+<li><code>source/_pages/</code> 表示页面文件的存储位置。</li>
+</ul>
+</li>
+<li><p><strong>绝对路径</strong> ：通常是相对于网站根目录的路径，例如：</p>
+<ul>
+<li><code>/about/</code> 代表网站根目录下的 <code>about</code> 页面（通常通过 Hexo 配置生成）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Hexo-配置文件中的路径表示"><a href="#Hexo-配置文件中的路径表示" class="headerlink" title="Hexo 配置文件中的路径表示"></a><strong>Hexo 配置文件中的路径表示</strong></h2><p>在 Hexo 的 <code>_config.yml</code> 配置文件中，许多路径表示都是相对于站点根目录的。例如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Hexo站点的URL</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">http://yoursite.com</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 博客的URL路径</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 存放站点文件的目录</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><code>url</code></strong> ：表示站点的根 URL。</li>
+<li><strong><code>permalink</code></strong> ：指定生成的文章 URL 格式。<code>/</code> 斜杠表示站点根目录。</li>
+<li><strong><code>source_dir</code></strong>  和 <strong><strong><code>source_dir</code></strong>  和 <code>public_dir</code></strong> ：定义了源文件和生成后的文件所在的目录。</li>
+</ul>
+<h2 id="创建文章与页面的路径表示"><a href="#创建文章与页面的路径表示" class="headerlink" title="创建文章与页面的路径表示"></a><strong>创建文章与页面的路径表示</strong></h2><p>在 Hexo 中，创建文章和页面时通常会有路径约定：</p>
+<ul>
+<li><strong>文章路径</strong> ：默认情况下，文章会存放在 <code>source/_posts/</code> 目录下。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new post <span class="string">&quot;My First Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>该命令会在 <code>source/_posts/</code> 目录下创建一个新的 Markdown 文件，文件名是文章标题的拼音。</p>
+<ul>
+<li><strong>页面路径</strong> ：页面会存放在 <code>source/_pages/</code> 目录下。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;About&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>该命令会在 <code>source/_pages/</code> 下创建一个新的页面文件，通常用于站点的静态页面（如关于页面、联系页面等）。</p>
+<h2 id="静态资源路径表示"><a href="#静态资源路径表示" class="headerlink" title="静态资源路径表示"></a><strong>静态资源路径表示</strong></h2><p>在 Hexo 中，静态资源（如图片、JavaScript 文件、CSS 文件等）通常放在 <code>source</code> 目录中的子目录中，然后通过相对路径引用。这些资源会被复制到 <code>public</code> 目录下，并可以通过 URL 引用。</p>
+<ul>
+<li>例如，你可以把图片放在 <code>source/images/</code> 目录中，引用时使用相对路径：</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Image</span>](<span class="link">images/my-image.jpg</span>)</span><br></pre></td></tr></table></figure>
+
+<p>该图片会被复制到 <code>public/images/</code> 目录，并且可以通过 <code>/images/my-image.jpg</code> 访问。</p>
+<h2 id="主题配置中的路径"><a href="#主题配置中的路径" class="headerlink" title="主题配置中的路径"></a><strong>主题配置中的路径</strong></h2><p>在 Hexo 主题的 <code>_config.yml</code> 配置文件中，通常会有一些与路径相关的设置，特别是与静态资源和模板文件相关的路径。例如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主题中静态资源的路径</span></span><br><span class="line"><span class="attr">favicon:</span> <span class="string">/favicon.ico</span></span><br><span class="line"><span class="attr">logo:</span> <span class="string">/images/logo.png</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>favicon</code> 和 <code>logo</code> 等设置中使用的是站点根目录的路径（如 <code>/images/logo.png</code>），这些路径在生成站点时会指向 <code>public</code> 目录中的相应位置。</li>
+</ul>
+<h2 id="URL-路径与文件路径的映射"><a href="#URL-路径与文件路径的映射" class="headerlink" title="URL 路径与文件路径的映射"></a><strong>URL 路径与文件路径的映射</strong></h2><p>Hexo 将博客文章文件的路径（例如 <code>source/_posts/</code>）转换为对应的 URL 路径。例如，如果你有一个 <code>source/_posts/2024/hello-world.md</code> 的文章文件，Hexo 会将其转换为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://yoursite.com/2024/hello-world/</span><br></pre></td></tr></table></figure>
+
+<p>路径映射规则是通过 <code>_config.yml</code> 中的 <code>permalink</code> 配置项进行控制的。你可以自定义文章的 URL 路径格式，例如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
+
+<p>这样，文章的 URL 路径会包含年份、月份、日期和文章标题。</p>
+<h2 id="路径和文件系统中的斜杠"><a href="#路径和文件系统中的斜杠" class="headerlink" title="路径和文件系统中的斜杠"></a>路径和文件系统中的斜杠</h2><ul>
+<li>在 Hexo 中，路径使用 <code>/</code> 斜杠表示文件和目录之间的分隔符。即使在 Windows 系统中，Hexo 仍然使用 <code>/</code> 作为路径分隔符，这是因为 Hexo 在不同操作系统上有统一的路径处理方式。</li>
+</ul>
+<h2 id="Hexo-路径表示的小技巧"><a href="#Hexo-路径表示的小技巧" class="headerlink" title="Hexo 路径表示的小技巧"></a><strong>Hexo 路径表示的小技巧</strong></h2><ul>
+<li><strong>绝对路径引用：</strong>  如果想要在站点中引用根目录下的文件，可以使用 <code>/</code> 开头的绝对路径。例如，<code>/images/logo.png</code> 会引用 <code>public/images/logo.png</code>。</li>
+<li><strong>相对路径引用：</strong>  在文章或页面中引用文件时，通常使用相对路径。例如，<code>./images/photo.jpg</code> 会引用 <code>source/images/photo.jpg</code>。</li>
+</ul>
+<p><strong>例子：在 Hexo 中使用路径</strong></p>
+<p>假设你有以下文件结构：</p>
+<figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">hexo/</span><br><span class="line">  source/</span><br><span class="line">    _posts/</span><br><span class="line">      <span class="keyword">my</span>-first-post.md</span><br><span class="line">    images/</span><br><span class="line">      logo.png</span><br><span class="line">  themes/</span><br><span class="line">    <span class="keyword">my</span>-theme/</span><br><span class="line">      _config.yml</span><br><span class="line">  _config.yml</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>创建一个新文章</strong> ：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new post <span class="string">&quot;My First Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这将在 <code>source/_posts/</code> 中创建一个 <code>my-first-post.md</code> 文件。</p>
+<ol start="2">
+<li><strong>在文章中引用图片</strong> ：</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Logo</span>](<span class="link">/images/logo.png</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这会引用 <code>public/images/logo.png</code> 文件。</p>
+<ol start="3">
+<li><strong>修改 <code>_config.yml</code> 配置</strong> ：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">http://mywebsite.com</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
+
+<p>这将使生成的文章 URL 类似于 <code>http://mywebsite.com/2024/01/01/my-first-post/</code>。</p>
+<p><strong>总结</strong></p>
+<p>在 Hexo 中，路径的表示方式通常依赖于文件系统的位置、站点的根目录以及 <code>_config.yml</code> 中的配置。你可以使用相对路径和绝对路径来链接文章、页面、静态资源，并通过配置文件来控制 URL 路径和静态资源的位置。</p>
+<h2 id="和"><a href="#和" class="headerlink" title=".&#x2F;和..&#x2F;"></a>.&#x2F;和..&#x2F;</h2><p><code>./</code> 和 <code>../</code> 是文件路径中的相对路径符号，通常用于指示文件系统中的位置。它们在命令行、编程、文件引用等场景中都非常常见。下面是它们的具体含义：</p>
+<h3 id="的含义"><a href="#的含义" class="headerlink" title="./ 的含义"></a><code>./</code> 的含义</h3><ul>
+<li><code>./</code> 表示当前目录（即你当前所在的目录）。</li>
+<li>它通常用来表示当前目录下的某个文件或文件夹，或者作为命令行中的前缀来执行当前目录中的程序。</li>
+</ul>
+<p><strong>例子：</strong></p>
+<ul>
+<li><code>./file.txt</code>：指当前目录下的 <code>file.txt</code> 文件。</li>
+<li>在命令行中执行当前目录中的程序：<code>./myprogram</code>。<br>在 Hexo 或其他 Web 开发场景中，<code>./</code> 主要用于引用当前目录中的文件。例如，在文章中引用当前目录下的图片：</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">My Image</span>](<span class="link">./images/photo.jpg</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这表示引用 <code>source/images/photo.jpg</code> 文件。</p>
+<h3 id="的含义-1"><a href="#的含义-1" class="headerlink" title="../ 的含义"></a><code>../</code> 的含义</h3><ul>
+<li><code>../</code> 表示上一级目录（即当前目录的父目录）。</li>
+<li>它通常用于返回到当前目录的上一级目录，在文件系统中向上移动一个层级。</li>
+</ul>
+<p><strong>例子：</strong></p>
+<ul>
+<li><code>../file.txt</code>：指的是上一级目录中的 <code>file.txt</code> 文件。</li>
+<li><code>../../</code>：表示上上一级目录。<br>在 Hexo 或其他开发场景中，<code>../</code> 用于引用上级目录中的文件。例如，假设你在 <code>source/_posts/</code> 目录下，并且想要引用 <code>source/images/</code> 目录中的文件，可以使用 <code>../</code>：</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Logo</span>](<span class="link">../images/logo.png</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这表示从当前目录 <code>source/_posts/</code> 向上一级（即 <code>source/</code>）跳转，再进入 <code>images/</code> 目录，最终引用 <code>logo.png</code> 文件。</p>
+<p><strong>实际示例</strong></p>
+<p>假设文件结构如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo/</span><br><span class="line">  <span class="built_in">source</span>/</span><br><span class="line">    _posts/</span><br><span class="line">      post1.md</span><br><span class="line">    images/</span><br><span class="line">      logo.png</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果你在 <code>post1.md</code> 文件中想要引用 <code>logo.png</code> 文件：</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Logo</span>](<span class="link">../images/logo.png</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这样，<code>../</code> 表示从 <code>source/_posts/</code> 目录向上返回到 <code>source/</code> 目录，然后再进入 <code>images/</code> 目录。</p>
+<ul>
+<li>如果你在 <code>source/images/</code> 中，想引用 <code>source/_posts/post1.md</code> 文件：</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">Post 1</span>](<span class="link">../_posts/post1.md</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这样，<code>../</code> 会让你从 <code>images/</code> 目录返回到 <code>source/</code>，然后进入 <code>_posts/</code> 目录。</p>
+<p><strong>总结：</strong></p>
+<ul>
+<li><strong><code>./</code></strong> ：当前目录。</li>
+<li><strong><code>../</code></strong> ：上一级目录（父目录）。</li>
+</ul>
+<p>这两个符号是相对路径的一部分，帮助你在不同的目录之间进行导航。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo添加标签样式</title>
     <url>/2024/12/15/hexo%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE%E6%A0%B7%E5%BC%8F/</url>
     <content><![CDATA[<p>在 <strong>Hexo Butterfly</strong>  主题中，由于 Markdown 文件中的代码会经过 Hexo 的解析后转换为 HTML，而 HTML 的样式需要依赖主题中的 CSS 文件，直接嵌入的 TailwindCSS 或自定义 CSS 可能无法生效。如果你希望在 Hexo 中生效样式，可以尝试以下方法：</p>
@@ -618,241 +763,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo 路径表示</title>
-    <url>/2024/12/01/hexo%20%E8%B7%AF%E5%BE%84%E8%A1%A8%E7%A4%BA/</url>
-    <content><![CDATA[<p>在 Hexo 中，路径表示（即如何表示文件和目录的路径）有几个常见的用法和约定，具体取决于你是在配置站点、创建内容，还是处理资源。以下是常见的路径表示方式和相关解释：</p>
-<h2 id="相对路径与绝对路径"><a href="#相对路径与绝对路径" class="headerlink" title="相对路径与绝对路径"></a><strong>相对路径与绝对路径</strong></h2><ul>
-<li><p><strong>相对路径</strong> ：Hexo 中很多地方使用相对路径，通常相对路径是相对于 Hexo 项目的根目录或某些子目录的。例如：</p>
-<ul>
-<li><code>source/_posts/</code> 表示博客文章的存储位置。</li>
-<li><code>source/_pages/</code> 表示页面文件的存储位置。</li>
-</ul>
-</li>
-<li><p><strong>绝对路径</strong> ：通常是相对于网站根目录的路径，例如：</p>
-<ul>
-<li><code>/about/</code> 代表网站根目录下的 <code>about</code> 页面（通常通过 Hexo 配置生成）。</li>
-</ul>
-</li>
-</ul>
-<h2 id="Hexo-配置文件中的路径表示"><a href="#Hexo-配置文件中的路径表示" class="headerlink" title="Hexo 配置文件中的路径表示"></a><strong>Hexo 配置文件中的路径表示</strong></h2><p>在 Hexo 的 <code>_config.yml</code> 配置文件中，许多路径表示都是相对于站点根目录的。例如：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Hexo站点的URL</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">http://yoursite.com</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 博客的URL路径</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 存放站点文件的目录</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong><code>url</code></strong> ：表示站点的根 URL。</li>
-<li><strong><code>permalink</code></strong> ：指定生成的文章 URL 格式。<code>/</code> 斜杠表示站点根目录。</li>
-<li><strong><code>source_dir</code></strong>  和 <strong><strong><code>source_dir</code></strong>  和 <code>public_dir</code></strong> ：定义了源文件和生成后的文件所在的目录。</li>
-</ul>
-<h2 id="创建文章与页面的路径表示"><a href="#创建文章与页面的路径表示" class="headerlink" title="创建文章与页面的路径表示"></a><strong>创建文章与页面的路径表示</strong></h2><p>在 Hexo 中，创建文章和页面时通常会有路径约定：</p>
-<ul>
-<li><strong>文章路径</strong> ：默认情况下，文章会存放在 <code>source/_posts/</code> 目录下。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new post <span class="string">&quot;My First Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>该命令会在 <code>source/_posts/</code> 目录下创建一个新的 Markdown 文件，文件名是文章标题的拼音。</p>
-<ul>
-<li><strong>页面路径</strong> ：页面会存放在 <code>source/_pages/</code> 目录下。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;About&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>该命令会在 <code>source/_pages/</code> 下创建一个新的页面文件，通常用于站点的静态页面（如关于页面、联系页面等）。</p>
-<h2 id="静态资源路径表示"><a href="#静态资源路径表示" class="headerlink" title="静态资源路径表示"></a><strong>静态资源路径表示</strong></h2><p>在 Hexo 中，静态资源（如图片、JavaScript 文件、CSS 文件等）通常放在 <code>source</code> 目录中的子目录中，然后通过相对路径引用。这些资源会被复制到 <code>public</code> 目录下，并可以通过 URL 引用。</p>
-<ul>
-<li>例如，你可以把图片放在 <code>source/images/</code> 目录中，引用时使用相对路径：</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Image</span>](<span class="link">images/my-image.jpg</span>)</span><br></pre></td></tr></table></figure>
-
-<p>该图片会被复制到 <code>public/images/</code> 目录，并且可以通过 <code>/images/my-image.jpg</code> 访问。</p>
-<h2 id="主题配置中的路径"><a href="#主题配置中的路径" class="headerlink" title="主题配置中的路径"></a><strong>主题配置中的路径</strong></h2><p>在 Hexo 主题的 <code>_config.yml</code> 配置文件中，通常会有一些与路径相关的设置，特别是与静态资源和模板文件相关的路径。例如：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主题中静态资源的路径</span></span><br><span class="line"><span class="attr">favicon:</span> <span class="string">/favicon.ico</span></span><br><span class="line"><span class="attr">logo:</span> <span class="string">/images/logo.png</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>favicon</code> 和 <code>logo</code> 等设置中使用的是站点根目录的路径（如 <code>/images/logo.png</code>），这些路径在生成站点时会指向 <code>public</code> 目录中的相应位置。</li>
-</ul>
-<h2 id="URL-路径与文件路径的映射"><a href="#URL-路径与文件路径的映射" class="headerlink" title="URL 路径与文件路径的映射"></a><strong>URL 路径与文件路径的映射</strong></h2><p>Hexo 将博客文章文件的路径（例如 <code>source/_posts/</code>）转换为对应的 URL 路径。例如，如果你有一个 <code>source/_posts/2024/hello-world.md</code> 的文章文件，Hexo 会将其转换为：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://yoursite.com/2024/hello-world/</span><br></pre></td></tr></table></figure>
-
-<p>路径映射规则是通过 <code>_config.yml</code> 中的 <code>permalink</code> 配置项进行控制的。你可以自定义文章的 URL 路径格式，例如：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
-
-<p>这样，文章的 URL 路径会包含年份、月份、日期和文章标题。</p>
-<h2 id="路径和文件系统中的斜杠"><a href="#路径和文件系统中的斜杠" class="headerlink" title="路径和文件系统中的斜杠**"></a>路径和文件系统中的斜杠**</h2><ul>
-<li>在 Hexo 中，路径使用 <code>/</code> 斜杠表示文件和目录之间的分隔符。即使在 Windows 系统中，Hexo 仍然使用 <code>/</code> 作为路径分隔符，这是因为 Hexo 在不同操作系统上有统一的路径处理方式。</li>
-</ul>
-<h2 id="Hexo-路径表示的小技巧"><a href="#Hexo-路径表示的小技巧" class="headerlink" title="Hexo 路径表示的小技巧"></a><strong>Hexo 路径表示的小技巧</strong></h2><ul>
-<li><strong>绝对路径引用：</strong>  如果想要在站点中引用根目录下的文件，可以使用 <code>/</code> 开头的绝对路径。例如，<code>/images/logo.png</code> 会引用 <code>public/images/logo.png</code>。</li>
-<li><strong>相对路径引用：</strong>  在文章或页面中引用文件时，通常使用相对路径。例如，<code>./images/photo.jpg</code> 会引用 <code>source/images/photo.jpg</code>。</li>
-</ul>
-<p><strong>例子：在 Hexo 中使用路径</strong></p>
-<p>假设你有以下文件结构：</p>
-<figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">hexo/</span><br><span class="line">  source/</span><br><span class="line">    _posts/</span><br><span class="line">      <span class="keyword">my</span>-first-post.md</span><br><span class="line">    images/</span><br><span class="line">      logo.png</span><br><span class="line">  themes/</span><br><span class="line">    <span class="keyword">my</span>-theme/</span><br><span class="line">      _config.yml</span><br><span class="line">  _config.yml</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><strong>创建一个新文章</strong> ：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new post <span class="string">&quot;My First Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>这将在 <code>source/_posts/</code> 中创建一个 <code>my-first-post.md</code> 文件。</p>
-<ol start="2">
-<li><strong>在文章中引用图片</strong> ：</li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Logo</span>](<span class="link">/images/logo.png</span>)</span><br></pre></td></tr></table></figure>
-
-<p>这会引用 <code>public/images/logo.png</code> 文件。</p>
-<ol start="3">
-<li><strong>修改 <code>_config.yml</code> 配置</strong> ：</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">http://mywebsite.com</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
-
-<p>这将使生成的文章 URL 类似于 <code>http://mywebsite.com/2024/01/01/my-first-post/</code>。</p>
-<p><strong>总结</strong></p>
-<p>在 Hexo 中，路径的表示方式通常依赖于文件系统的位置、站点的根目录以及 <code>_config.yml</code> 中的配置。你可以使用相对路径和绝对路径来链接文章、页面、静态资源，并通过配置文件来控制 URL 路径和静态资源的位置。</p>
-<h2 id="和"><a href="#和" class="headerlink" title=".&#x2F;和..&#x2F;"></a>.&#x2F;和..&#x2F;</h2><p><code>./</code> 和 <code>../</code> 是文件路径中的相对路径符号，通常用于指示文件系统中的位置。它们在命令行、编程、文件引用等场景中都非常常见。下面是它们的具体含义：</p>
-<h3 id="的含义"><a href="#的含义" class="headerlink" title="./ 的含义**"></a><code>./</code> 的含义**</h3><ul>
-<li><code>./</code> 表示当前目录（即你当前所在的目录）。</li>
-<li>它通常用来表示当前目录下的某个文件或文件夹，或者作为命令行中的前缀来执行当前目录中的程序。</li>
-</ul>
-<p><strong>例子：</strong></p>
-<ul>
-<li><code>./file.txt</code>：指当前目录下的 <code>file.txt</code> 文件。</li>
-<li>在命令行中执行当前目录中的程序：<code>./myprogram</code>。<br>在 Hexo 或其他 Web 开发场景中，<code>./</code> 主要用于引用当前目录中的文件。例如，在文章中引用当前目录下的图片：</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">My Image</span>](<span class="link">./images/photo.jpg</span>)</span><br></pre></td></tr></table></figure>
-
-<p>这表示引用 <code>source/images/photo.jpg</code> 文件。</p>
-<h3 id="的含义-1"><a href="#的含义-1" class="headerlink" title="../ 的含义**"></a><code>../</code> 的含义**</h3><ul>
-<li><code>../</code> 表示上一级目录（即当前目录的父目录）。</li>
-<li>它通常用于返回到当前目录的上一级目录，在文件系统中向上移动一个层级。</li>
-</ul>
-<p><strong>例子：</strong></p>
-<ul>
-<li><code>../file.txt</code>：指的是上一级目录中的 <code>file.txt</code> 文件。</li>
-<li><code>../../</code>：表示上上一级目录。<br>在 Hexo 或其他开发场景中，<code>../</code> 用于引用上级目录中的文件。例如，假设你在 <code>source/_posts/</code> 目录下，并且想要引用 <code>source/images/</code> 目录中的文件，可以使用 <code>../</code>：</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Logo</span>](<span class="link">../images/logo.png</span>)</span><br></pre></td></tr></table></figure>
-
-<p>这表示从当前目录 <code>source/_posts/</code> 向上一级（即 <code>source/</code>）跳转，再进入 <code>images/</code> 目录，最终引用 <code>logo.png</code> 文件。</p>
-<p><strong>实际示例</strong></p>
-<p>假设文件结构如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo/</span><br><span class="line">  <span class="built_in">source</span>/</span><br><span class="line">    _posts/</span><br><span class="line">      post1.md</span><br><span class="line">    images/</span><br><span class="line">      logo.png</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>如果你在 <code>post1.md</code> 文件中想要引用 <code>logo.png</code> 文件：</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Logo</span>](<span class="link">../images/logo.png</span>)</span><br></pre></td></tr></table></figure>
-
-<p>这样，<code>../</code> 表示从 <code>source/_posts/</code> 目录向上返回到 <code>source/</code> 目录，然后再进入 <code>images/</code> 目录。</p>
-<ul>
-<li>如果你在 <code>source/images/</code> 中，想引用 <code>source/_posts/post1.md</code> 文件：</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">Post 1</span>](<span class="link">../_posts/post1.md</span>)</span><br></pre></td></tr></table></figure>
-
-<p>这样，<code>../</code> 会让你从 <code>images/</code> 目录返回到 <code>source/</code>，然后进入 <code>_posts/</code> 目录。</p>
-<p><strong>总结：</strong></p>
-<ul>
-<li><strong><code>./</code></strong> ：当前目录。</li>
-<li><strong><code>../</code></strong> ：上一级目录（父目录）。</li>
-</ul>
-<p>这两个符号是相对路径的一部分，帮助你在不同的目录之间进行导航。</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>unity tmp中文显示</title>
-    <url>/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<h1 id="一、创建tmp中文字体资源"><a href="#一、创建tmp中文字体资源" class="headerlink" title="一、创建tmp中文字体资源"></a>一、创建tmp中文字体资源</h1><p>1.<strong>选择Window&#x2F;TextMeshPro&#x2F;Font Asset Creator</strong></p>
-<p>2.<strong>Font Asset Creator设置界面如图</strong><br><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image-1.png" alt="alt text"><br>Source Font File：拖入需要使用的字体</p>
-<ul>
-<li>Sampling Point Size：设置用于生成字体纹理的字体大小（以磅为单位）</li>
-<li>Auto Sizeing：自动设置大小</li>
-<li>Custom Size：自定义大小，在文本框中输入所需的大小</li>
-</ul>
-<p>Padding：字间距，填充越大，过渡越平滑，从而允许更高质量的渲染和更大的效果，如粗轮廓。</p>
-<p>Packing Method：指定如何使字符适合字体纹理。</p>
-<ul>
-<li>Optimum：查找仍然适合纹理中所有字符的最大可能自动字体大小。</li>
-<li>Fast：更快地计算字符打包，但可能使用比优化模式更小的字体大小。</li>
-</ul>
-<p>Atlas Resolution：设置字体纹理的大小宽度和高度，以像素为单位</p>
-<p>Character Set：选择预定义的字符集。</p>
-<ul>
-<li>ASCII：包括 ASCII 字符集中的可见字符。</li>
-<li>Extended ASCII：包括扩展 ASCII 字符集中的可见字符。</li>
-<li>ASCII Lowercase：仅包含 ASCII 字符集中可见的小写字符。</li>
-<li>ASCII Uppercase：仅包含 ASCII 字符集中可见的大写字符</li>
-<li>Numbers+Sysbols：仅包括来自 ASCII 字符集的可见数字和符号。</li>
-<li>Custom Range：输入一系列十进制值或值范围，以指定要包括的字符。</li>
-<li>Unicode Range(Hex)：输入一系列 unicode 十六进制值或值范围，以指定要包含的字符。</li>
-<li>Custom Characters：输入字符序列以指定要包含的字符。</li>
-<li>Characters from File：指定的文本资源</li>
-</ul>
-<p>Render Mode：指定输出字体图集时要使用的渲染模式。</p>
-<ul>
-<li>SMOOTH_HINTED：将图集渲染为抗锯齿位图，并将字符像素与纹理像素对齐以获得更清晰的结果。</li>
-<li>SMOOTH：将图集渲染为抗锯齿位图。</li>
-<li>RASTER_HINTED：将图集渲染为非抗锯齿位图，并将字符像素与纹理像素对齐以获得更清晰的结果。</li>
-<li>RASTER：将图集渲染为非抗锯齿位图。</li>
-<li>SDF：使用较慢但更准确的 SDF 生成模式渲染图集，并且没有过采样。</li>
-<li>SDF8：使用较慢但更准确的 SDF 生成模式和 8 倍过采样渲染图集。</li>
-<li>SDF16：使用更慢但更准确的 SDF 生成模式和 16 倍过采样渲染图集。</li>
-<li>SDF32：使用较慢但更准确的 SDF 生成模式和 32 倍过采样渲染图集。将此设置用于具有复杂或小字符的字体。</li>
-<li>SDFAA_HINTED：使用更快但不太准确的 SDF 生成模式渲染图集，并将字符像素与纹理像素对齐以获得更清晰的结果，它生成的字体图集足以满足大多数情况。</li>
-<li>SDFAA：使用更快但不太准确的 SDF 生成模式渲染图集，它生成的字体图集足以满足大多数情况。</li>
-</ul>
-<p>Get Kerning Pairs：启用此选项可从字体复制字距调整数据。</p>
-<p>Generate Font Atlas：我们把包含中文字体的文件拖入Characters from File中，然后点击此按钮开始生成</p>
-<p>3.生成后，如上面效果图<br>注意：字体越多，生成的时间越长…Packing Method还是选Fast吧，Optimum太慢了</p>
-<p>4.点击Save按钮保存</p>
-<p>5.现在就可以正常使用这个字体了</p>
-<h1 id="二、tmp创建字体报错"><a href="#二、tmp创建字体报错" class="headerlink" title="二、tmp创建字体报错:"></a>二、tmp创建字体报错:</h1><p><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image.png" alt="alt text"></p>
-<p>问题原因:</p>
-<ul>
-<li>字体贴图空间不足</li>
-</ul>
-<p>字体贴图的分辨率（Font Atlas Resolution）不够大，无法容纳所有字符。</p>
-<p>生成 3000 字符所需的贴图分辨率和时间较低，一般<code>1024x1024</code> 或<code>2048x2048</code> 即可完成。</p>
-<p>生成 7000 字符可能需要<code>4096x4096</code> 或更高分辨率，耗时更长。</p>
-<ul>
-<li>字符范围太大</li>
-</ul>
-<p>您可能尝试一次性添加过多的字符，例如一个完整的 Unicode 中文字符集。</p>
-<ul>
-<li>字体文件不支持这些字符</li>
-</ul>
-<p>使用的字体文件可能并未包含这些特定的字符。</p>
-<ul>
-<li>渲染模式设置不当</li>
-</ul>
-<p>当前的 Render Mode 设置可能导致字体生成失败。</p>
-<hr>
-<ul>
-<li><strong>选择 3000 汉字：</strong><ul>
-<li>如果项目是游戏、日常应用或现代场景，3000 字足够使用。</li>
-<li>性能优先的项目，如 WebGL、移动端、嵌入式系统。</li>
-</ul>
-</li>
-<li><strong>选择 7000 汉字：</strong><ul>
-<li>如果项目需要显示古文、法律文书或覆盖专业领域的特殊字符。</li>
-<li>针对高性能设备或专业场景，如 PC 端应用、大型屏幕展示。</li>
-</ul>
-</li>
-</ul>
-<p>汉字集下载：</p>
-<p><a href="https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set">https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set</a></p>
-]]></content>
-      <categories>
-        <category>unity</category>
-      </categories>
-      <tags>
-        <tag>tmp</tag>
-        <tag>unity</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo 疑难杂症</title>
     <url>/2024/12/28/hexo%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</url>
     <content><![CDATA[<h2 id="butterfly通过样式隐藏页脚"><a href="#butterfly通过样式隐藏页脚" class="headerlink" title="butterfly通过样式隐藏页脚"></a>butterfly通过样式隐藏页脚</h2><p>如果配置文件没有提供选项，可以通过 CSS 隐藏页脚区域。<br>打开或创建 source&#x2F;css&#x2F;_layout&#x2F;footer.styl 文件。</p>
@@ -983,8 +893,99 @@
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>butterfly</tag>
         <tag>hexo</tag>
+        <tag>butterfly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>unity tmp中文显示</title>
+    <url>/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<h1 id="一、创建tmp中文字体资源"><a href="#一、创建tmp中文字体资源" class="headerlink" title="一、创建tmp中文字体资源"></a>一、创建tmp中文字体资源</h1><p>1.<strong>选择Window&#x2F;TextMeshPro&#x2F;Font Asset Creator</strong></p>
+<p>2.<strong>Font Asset Creator设置界面如图</strong><br><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image-1.png" alt="alt text"><br>Source Font File：拖入需要使用的字体</p>
+<ul>
+<li>Sampling Point Size：设置用于生成字体纹理的字体大小（以磅为单位）</li>
+<li>Auto Sizeing：自动设置大小</li>
+<li>Custom Size：自定义大小，在文本框中输入所需的大小</li>
+</ul>
+<p>Padding：字间距，填充越大，过渡越平滑，从而允许更高质量的渲染和更大的效果，如粗轮廓。</p>
+<p>Packing Method：指定如何使字符适合字体纹理。</p>
+<ul>
+<li>Optimum：查找仍然适合纹理中所有字符的最大可能自动字体大小。</li>
+<li>Fast：更快地计算字符打包，但可能使用比优化模式更小的字体大小。</li>
+</ul>
+<p>Atlas Resolution：设置字体纹理的大小宽度和高度，以像素为单位</p>
+<p>Character Set：选择预定义的字符集。</p>
+<ul>
+<li>ASCII：包括 ASCII 字符集中的可见字符。</li>
+<li>Extended ASCII：包括扩展 ASCII 字符集中的可见字符。</li>
+<li>ASCII Lowercase：仅包含 ASCII 字符集中可见的小写字符。</li>
+<li>ASCII Uppercase：仅包含 ASCII 字符集中可见的大写字符</li>
+<li>Numbers+Sysbols：仅包括来自 ASCII 字符集的可见数字和符号。</li>
+<li>Custom Range：输入一系列十进制值或值范围，以指定要包括的字符。</li>
+<li>Unicode Range(Hex)：输入一系列 unicode 十六进制值或值范围，以指定要包含的字符。</li>
+<li>Custom Characters：输入字符序列以指定要包含的字符。</li>
+<li>Characters from File：指定的文本资源</li>
+</ul>
+<p>Render Mode：指定输出字体图集时要使用的渲染模式。</p>
+<ul>
+<li>SMOOTH_HINTED：将图集渲染为抗锯齿位图，并将字符像素与纹理像素对齐以获得更清晰的结果。</li>
+<li>SMOOTH：将图集渲染为抗锯齿位图。</li>
+<li>RASTER_HINTED：将图集渲染为非抗锯齿位图，并将字符像素与纹理像素对齐以获得更清晰的结果。</li>
+<li>RASTER：将图集渲染为非抗锯齿位图。</li>
+<li>SDF：使用较慢但更准确的 SDF 生成模式渲染图集，并且没有过采样。</li>
+<li>SDF8：使用较慢但更准确的 SDF 生成模式和 8 倍过采样渲染图集。</li>
+<li>SDF16：使用更慢但更准确的 SDF 生成模式和 16 倍过采样渲染图集。</li>
+<li>SDF32：使用较慢但更准确的 SDF 生成模式和 32 倍过采样渲染图集。将此设置用于具有复杂或小字符的字体。</li>
+<li>SDFAA_HINTED：使用更快但不太准确的 SDF 生成模式渲染图集，并将字符像素与纹理像素对齐以获得更清晰的结果，它生成的字体图集足以满足大多数情况。</li>
+<li>SDFAA：使用更快但不太准确的 SDF 生成模式渲染图集，它生成的字体图集足以满足大多数情况。</li>
+</ul>
+<p>Get Kerning Pairs：启用此选项可从字体复制字距调整数据。</p>
+<p>Generate Font Atlas：我们把包含中文字体的文件拖入Characters from File中，然后点击此按钮开始生成</p>
+<p>3.生成后，如上面效果图<br>注意：字体越多，生成的时间越长…Packing Method还是选Fast吧，Optimum太慢了</p>
+<p>4.点击Save按钮保存</p>
+<p>5.现在就可以正常使用这个字体了</p>
+<h1 id="二、tmp创建字体报错"><a href="#二、tmp创建字体报错" class="headerlink" title="二、tmp创建字体报错:"></a>二、tmp创建字体报错:</h1><p><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image.png" alt="alt text"></p>
+<p>问题原因:</p>
+<ul>
+<li>字体贴图空间不足</li>
+</ul>
+<p>字体贴图的分辨率（Font Atlas Resolution）不够大，无法容纳所有字符。</p>
+<p>生成 3000 字符所需的贴图分辨率和时间较低，一般<code>1024x1024</code> 或<code>2048x2048</code> 即可完成。</p>
+<p>生成 7000 字符可能需要<code>4096x4096</code> 或更高分辨率，耗时更长。</p>
+<ul>
+<li>字符范围太大</li>
+</ul>
+<p>您可能尝试一次性添加过多的字符，例如一个完整的 Unicode 中文字符集。</p>
+<ul>
+<li>字体文件不支持这些字符</li>
+</ul>
+<p>使用的字体文件可能并未包含这些特定的字符。</p>
+<ul>
+<li>渲染模式设置不当</li>
+</ul>
+<p>当前的 Render Mode 设置可能导致字体生成失败。</p>
+<hr>
+<ul>
+<li><strong>选择 3000 汉字：</strong><ul>
+<li>如果项目是游戏、日常应用或现代场景，3000 字足够使用。</li>
+<li>性能优先的项目，如 WebGL、移动端、嵌入式系统。</li>
+</ul>
+</li>
+<li><strong>选择 7000 汉字：</strong><ul>
+<li>如果项目需要显示古文、法律文书或覆盖专业领域的特殊字符。</li>
+<li>针对高性能设备或专业场景，如 PC 端应用、大型屏幕展示。</li>
+</ul>
+</li>
+</ul>
+<p>汉字集下载：</p>
+<p><a href="https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set">https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set</a></p>
+]]></content>
+      <categories>
+        <category>unity</category>
+      </categories>
+      <tags>
+        <tag>tmp</tag>
+        <tag>unity</tag>
       </tags>
   </entry>
   <entry>
@@ -1010,6 +1011,83 @@
       <tags>
         <tag>unity</tag>
         <tag>webGL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>医保</title>
+    <url>/2025/01/03/%E5%8C%BB%E4%BF%9D/</url>
+    <content><![CDATA[<h1 id="灵活就业一档医保报销政策"><a href="#灵活就业一档医保报销政策" class="headerlink" title="灵活就业一档医保报销政策"></a>灵活就业一档医保报销政策</h1><p>深圳灵活就业人员缴纳的医保是职工一档医保，享受的也是职工一档医保待遇。普通门诊统筹支付比例与医疗机构级别挂钩，最高可报销75%，更多报销内容说明见正文。</p>
+<h2 id="一档医保报销比例"><a href="#一档医保报销比例" class="headerlink" title="一档医保报销比例"></a>一档医保报销比例</h2><p>深圳灵活就业人员缴纳的医保是职工一档医保，享受的也是职工一档医保待遇。</p>
+<h3 id="一、门诊报销比例"><a href="#一、门诊报销比例" class="headerlink" title="一、门诊报销比例"></a>一、门诊报销比例</h3><p>职工基本医保、居民基本医保普通门诊统筹支付比例与医疗机构级别挂钩。</p>
+<ul>
+<li>一级以下医疗机构(例如社康)报销比例：75%;</li>
+<li>二级医院报销比例：65%;</li>
+<li>三级医院报销比例：55%;</li>
+</ul>
+<p>退休人员、60周岁及以上居民在上述基础上相应提高5%。</p>
+<h3 id="二、一档医保市内住院报销比例"><a href="#二、一档医保市内住院报销比例" class="headerlink" title="二、一档医保市内住院报销比例"></a>二、一档医保市内住院报销比例</h3><p>在一级以下医院支付比例为94%;</p>
+<p>二级医院支付比例为92%;</p>
+<p>三级医院支付比例为90%;</p>
+<p>退休人员支付比例为95%。</p>
+<p>住院起付线</p>
+<p>参保人在市内定点医疗机构住院发生的基本医疗费用，未超过起付线的由参保人支付;超过起付线的部分，由基本医疗保险统筹基金按规定支付。</p>
+<p>住院起付线按照医院级别设定，其中一级以下医院为200元，二级医院为400元，三级医院为600元。</p>
+<p>参保人在一个医疗保险年度内二次及以上住院的，住院起付线分别为：一级以下医院为100元，二级医院为200元，三级医院为300元。</p>
+<h2 id="灵活就业医保缴费标准"><a href="#灵活就业医保缴费标准" class="headerlink" title="灵活就业医保缴费标准"></a>灵活就业医保缴费标准</h2><p><img src="https://mr-liu-cheng.github.io/2025/01/03/%E5%8C%BB%E4%BF%9D/image.png"></p>
+<blockquote>
+<p>缴费金额：</p>
+</blockquote>
+<p>6733x0.02 个人余额134</p>
+<p>6733x0.07 个人缴纳医保费用471</p>
+<p>一级医院  限额1万多  报销 75% 费用，个人只需要支付剩余的 25% 费用。</p>
+<p><code>小知识</code>：社康是一级，三甲医院是是三级</p>
+<p><code>各级别医院医保报销比例一般情况</code>（医保内的项目和药物）：</p>
+<ul>
+<li>一级医院（社区医院）： 报销比例最高，鼓励患者首诊在社区医院。</li>
+<li>二级医院： 报销比例次之，适合治疗一些常见的疾病。</li>
+<li>三级医院（三甲医院）： 报销比例最低，主要用于治疗疑难杂症和重症疾病。</li>
+</ul>
+<p><code>不同级别医院的医保报销限额</code>（医保内的项目和药物）：</p>
+<ul>
+<li>一级医院（社区医院）： 报销限额相对较低，但报销比例较高。</li>
+<li>二级医院： 报销限额比一级医院高，但比三级医院低。</li>
+<li>三级医院（三甲医院）： 报销限额最高，但报销比例相对较低。</li>
+</ul>
+<h2 id="门诊和住院医保报销的区别"><a href="#门诊和住院医保报销的区别" class="headerlink" title="门诊和住院医保报销的区别"></a>门诊和住院医保报销的区别</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>门诊</th>
+<th>住院</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>报销比例</td>
+<td>一般较低</td>
+<td>一般较高</td>
+</tr>
+<tr>
+<td>起付线</td>
+<td>一般有</td>
+<td>一般有</td>
+</tr>
+<tr>
+<td>年度限额</td>
+<td>一般有</td>
+<td>一般有</td>
+</tr>
+<tr>
+<td>报销范围</td>
+<td>诊疗费、药费、检查费等</td>
+<td>所有医疗费用</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>社保</category>
+      </categories>
+      <tags>
+        <tag>医保</tag>
       </tags>
   </entry>
   <entry>
