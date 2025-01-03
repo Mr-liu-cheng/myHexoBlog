@@ -146,7 +146,7 @@ function commonHandler() {
                             }
                         }
                     });
-                }, 100);  // 延迟100ms执行
+                }, 0);  // 延迟100ms执行
             },
         eventDidMount: function (info) {
             const eventElement = info.el;
@@ -354,6 +354,6 @@ function commonHandler() {
         document.getElementById('zodiac-info').innerHTML = `${date.toLocaleDateString('zh-CN')} - ${lunarDate}  <strong>${yearZodiac}</strong>年`;
     }
     document.getElementById('day-of-year-info').innerHTML = `今年剩余 <strong>${SolarUtil.getDaysOfYear(today.getYear()) - dayOfYear}</strong> 天，距离过年(除夕)还有<strong> ${dayDiff - 1}</strong>   天`;
-    setTimeout(function () { calendar.render(); }, 100); // 延迟渲染，确保布局已完成
+    setTimeout(function () { calendar.render(); }, 200); // 延迟渲染，确保布局已完成
     console.log('Calendar rendered with Lunar and holidays', SolarUtil.getDaysOfYear(today.getYear()), ' ', dayOfYear, ' springFestivalSolar:', springFestivalSolar.toYmd(), ' ', Solar.fromDate(today).toYmd(), ' ', today.getDate());
 }
