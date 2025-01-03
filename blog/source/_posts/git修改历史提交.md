@@ -20,7 +20,7 @@ git reset --soft 29f9bbd77da69902335cad77a12eac7b022b9f63
 ![](git修改历史提交/image-1.png)
 `git reset --soft` 命令是 Git 中的一个强大工具，它可以用于回退到某个特定的提交，同时保留文件的修改内容。这里是对该命令的详细解释：
 
-## 命令结构：
+## 命令结构
 
 ```bash
 git reset --soft <commit-hash>
@@ -29,7 +29,7 @@ git reset --soft <commit-hash>
 - `git reset` 是 Git 的一个基本命令，用于将当前的分支回退到指定的提交，并调整索引和工作目录中的内容。
 - `--soft` 是 `git reset` 的一个选项，决定了在回退时如何处理文件的状态。`--soft` 会将 `HEAD` 移动到指定的 commit，但 **不会修改工作目录**  和 **索引** （也就是暂存区），因此你仍然可以看到文件的修改。
 
-## 各部分的解释：
+**各部分的解释：**
 
 1. **`<commit-hash>`** ：
 
@@ -72,7 +72,7 @@ commit d4e5f6g - 更早的提交
 - `git reset --soft <commit-hash>` 会将 `HEAD` 回退到指定的 commit，但 **保留文件内容和暂存区的修改** 。这适用于想要撤销某个提交，但又不希望丢失工作进度的情况。
 - 使用此命令时，你可以修改或更新暂存区的文件，再次进行提交。
 
-## `git reset` [命令有三种主要的模式](https://x.zhixing.co/devops/the-differences-and-usages-of-3-modes-git-reset/)
+## `reset` [三种模式](https://x.zhixing.co/devops/the-differences-and-usages-of-3-modes-git-reset/)
 
 分别是 `--soft`、`--mixed` 和 `--hard`，它们的作用和影响不同。下面是对每种模式的详细讲解：
 ![](git修改历史提交/image.png)

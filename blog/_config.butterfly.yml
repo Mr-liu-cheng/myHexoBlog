@@ -312,7 +312,7 @@ aside:
       link: https://github.com/Mr-liu-cheng
   card_announcement:
     enable: true
-    content: This is my Blog
+    content: Stay hungry, stay foolish.
   card_recent_post:
     enable: true
     # If set 0 will show all

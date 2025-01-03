@@ -14,7 +14,7 @@ keywords:
   - 字体资源
 ---
 
-# 一、创建tmp中文字体资源
+# 创建tmp中文字体资源
 
 1.**选择Window/TextMeshPro/Font Asset Creator**
 
@@ -71,7 +71,7 @@ Generate Font Atlas：我们把包含中文字体的文件拖入Characters from 
 
 5.现在就可以正常使用这个字体了
 
-# 二、tmp创建字体报错:
+# tmp创建字体报错:
 
 ![alt text](unity-tmp中文显示/image.png)
 

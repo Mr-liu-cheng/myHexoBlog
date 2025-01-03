@@ -17,13 +17,13 @@ keywords:
 ---
 
 1. 去这个网站下载工程：
-
-[https://github.com/kou-yeung/WebGLInput](https://github.com/kou-yeung/WebGLInput)
+   
+   [https://github.com/kou-yeung/WebGLInput](https://github.com/kou-yeung/WebGLInput)
 
 2. 将下载工程中的WebGLSupport文件夹拷贝到自己的工程中
+   
+   ![](unity-webGL-移动端-输入框无法弹出虚拟键盘/20241213_141006_image.png)
 
-![](unity-webGL-移动端-输入框无法弹出虚拟键盘/20241213_141006_image.png)
-
-1. 将WebGLInput.cs组件添加到InputField组件挂载的对象上
-2. 勾选show html element 不然输入后不显示。
+3. 将WebGLInput.cs组件添加到InputField组件挂载的对象上
+4. 勾选show html element 不然输入后不显示。
 
