@@ -331,7 +331,7 @@
 <p><code>每个选项的影响不同，选择时需要根据实际需求来决定。</code></p>
 <p><strong>git reset</strong> 会改变提交历史，建议不要在公共分支使用，如果在公共分支撤销提交可以使用 <strong>git revert</strong> ，它会保留记录。在前端开发中，如果修改只存在于本地，并且你确定不需要这些修改，可以使用 git reset 来快速清理。但如果修改已经推送到远程分支，或者你只是想撤销某个特定的提交，为了避免影响团队协作和代码历史的完整性，强烈建议使用 git revert。 尤其是在多人协作的项目中，revert 更安全可靠。</p>
 <p><strong>hard</strong> 模式不仅会丢失已提交的改动，还可能丢失本地未提交的改动，要慎重使用。</p>
-<h1 id="git-revert"><a href="#git-revert" class="headerlink" title="git revert"></a>git revert</h1><p>git revert是用于“反做”某一个版本，以达到撤销该版本的修改的目的。比如，我们commit了三个版本（版本一、版本二、 版本三），突然发现版本二不行（如：有bug），想要撤销版本二，但又不想影响撤销版本三的提交，就可以用 git revert 命令来反做版本二，生成新的版本四，这个版本四里会保留版本三的东西，但撤销了版本二的东西(test2)<br><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image-5.png" alt="alt text"></p>
+<h1 id="git-revert"><a href="#git-revert" class="headerlink" title="git revert"></a>git revert</h1><p>git revert是用于“反做”某一个版本，以达到撤销该版本的修改的目的。比如，我们commit了三个版本（版本一、版本二、 版本三），突然发现版本二不行（如：有bug），想要撤销版本二，但又不想影响撤销版本三的提交，就可以用 git revert 命令来反做版本二，生成新的版本四，这个版本四里会保留版本三的东西，但撤销了版本二的东西(test2)<br><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image-6.png"></p>
 <h1 id="revert-vs-reset"><a href="#revert-vs-reset" class="headerlink" title="revert vs reset"></a>revert vs reset</h1><table>
 <thead>
 <tr>
