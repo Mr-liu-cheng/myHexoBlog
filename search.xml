@@ -29,7 +29,7 @@
     <url>/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</url>
     <content><![CDATA[<h1 id="git-reset命令"><a href="#git-reset命令" class="headerlink" title="git reset命令"></a>git reset命令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft 29f9bbd77da69902335cad77a12eac7b022b9f63</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image-1.png" alt="alt text"><br><code>git reset --soft</code> 命令是 Git 中的一个强大工具，它可以用于回退到某个特定的提交，同时保留文件的修改内容。这里是对该命令的详细解释：</p>
+<p><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image-1.png"><br><code>git reset --soft</code> 命令是 Git 中的一个强大工具，它可以用于回退到某个特定的提交，同时保留文件的修改内容。这里是对该命令的详细解释：</p>
 <h2 id="命令结构："><a href="#命令结构：" class="headerlink" title="命令结构："></a>命令结构：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft &lt;commit-hash&gt;</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -77,187 +77,105 @@
 <li><code>git reset --soft &lt;commit-hash&gt;</code> 会将 <code>HEAD</code> 回退到指定的 commit，但 <strong>保留文件内容和暂存区的修改</strong> 。这适用于想要撤销某个提交，但又不希望丢失工作进度的情况。</li>
 <li>使用此命令时，你可以修改或更新暂存区的文件，再次进行提交。</li>
 </ul>
-<h2 id="git-reset-命令有三种主要的模式"><a href="#git-reset-命令有三种主要的模式" class="headerlink" title="git reset 命令有三种主要的模式"></a><code>git reset</code> <a href="https://x.zhixing.co/devops/the-differences-and-usages-of-3-modes-git-reset/">命令有三种主要的模式</a></h2><p><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image.png" alt="alt text"></p>
-<p>分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <strong><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <code>git reset --soft &lt;commit&gt;</code></strong></p>
-<ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</p>
-</li>
-<li><p><strong>效果</strong> ：</p>
-<ul>
-<li><code>HEAD</code> 回退到指定的提交，即当前分支指针会指向指定的提交。</li>
-<li><strong>工作目录（Working Directory）</strong>  不变，文件的内容保留不变。</li>
-<li><strong>暂存区（Staging Area）</strong>  保持不变，之前已经暂存的文件仍然存在于暂存区。</li>
-</ul>
-</li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
-<li>用于撤销最后一次提交并修改其中的内容，但保留文件更改和暂存区内容。适合你想重新提交修改内容时使用。</li>
-</ul>
-</li>
-<li><p><strong>示例</strong> ：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
-
-<p>这个命令将 HEAD 回退到上一个提交（<code>HEAD~1</code>），但是保留当前工作目录和暂存区中的修改。你可以编辑文件、重新暂存并提交。</p>
-<hr>
+<h2 id="git-reset-命令有三种主要的模式"><a href="#git-reset-命令有三种主要的模式" class="headerlink" title="git reset 命令有三种主要的模式"></a><code>git reset</code> <a href="https://x.zhixing.co/devops/the-differences-and-usages-of-3-modes-git-reset/">命令有三种主要的模式</a></h2><p>分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：<br><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image.png"></p>
 <ol>
-<li>**<code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <strong><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <code>git reset --soft &lt;commit&gt;</code></strong></li>
+<li><strong><code>git reset --soft &lt;commit&gt;</code></strong></li>
 </ol>
 <ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</p>
-</li>
-<li><p><strong>效果</strong> ：</p>
-<ul>
+<li><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</li>
+<li><strong>效果</strong> ：<ul>
 <li><code>HEAD</code> 回退到指定的提交，即当前分支指针会指向指定的提交。</li>
 <li><strong>工作目录（Working Directory）</strong>  不变，文件的内容保留不变。</li>
 <li><strong>暂存区（Staging Area）</strong>  保持不变，之前已经暂存的文件仍然存在于暂存区。</li>
 </ul>
 </li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
+<li><strong>使用场景</strong> ：<ul>
 <li>用于撤销最后一次提交并修改其中的内容，但保留文件更改和暂存区内容。适合你想重新提交修改内容时使用。</li>
 </ul>
 </li>
-<li><p><strong>示例</strong> ：</p>
-</li>
+<li><strong>示例</strong> ：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
 
 <p>这个命令将 HEAD 回退到上一个提交（<code>HEAD~1</code>），但是保留当前工作目录和暂存区中的修改。你可以编辑文件、重新暂存并提交。</p>
-<hr>
 <ol start="2">
-<li><code>git reset --mixed &lt;commit&gt;</code>**  （默认选项）</li>
+<li><strong><code>git reset --mixed &lt;commit&gt;</code></strong>  （默认选项）</li>
 </ol>
 <ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code> 回退到指定的 commit，并且 <strong>更新暂存区</strong> （即撤销暂存），但 <strong>不更改工作目录</strong> 。</p>
-</li>
-<li><p><strong>效果</strong> ：</p>
-<ul>
+<li><strong>作用</strong> ：将 <code>HEAD</code> 回退到指定的 commit，并且 <strong>更新暂存区</strong> （即撤销暂存），但 <strong>不更改工作目录</strong> 。</li>
+<li><strong>效果</strong> ：<ul>
 <li><code>HEAD</code> 回退到指定的提交。</li>
 <li><strong>工作目录</strong>  不变，文件内容保留不变。</li>
 <li><strong>暂存区（Staging Area）</strong>  被更新为与指定 commit 的内容一致。也就是说，撤销所有已经 <code>git add</code> 的文件，将它们从暂存区中移除，但文件内容仍然保持在工作目录中。</li>
 </ul>
 </li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
+<li><strong>使用场景</strong> ：<ul>
 <li>用于撤销提交并取消暂存文件，但你仍然想保留文件修改。适用于需要修改代码但不想保留当前暂存区修改的场景。</li>
 </ul>
 </li>
-<li><p><strong>示例</strong> ：</p>
-</li>
+<li><strong>示例</strong> ：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --mixed HEAD~1</span><br></pre></td></tr></table></figure>
 
 <p>这个命令将 HEAD 回退到上一个提交，并且从暂存区移除修改，但文件内容仍然保留。相当于撤销最近的 <code>git add</code> 操作。</p>
-<hr>
 <ol start="3">
-<li>**<code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <strong><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <code>git reset --soft &lt;commit&gt;</code></strong></li>
+<li><strong><code>git reset --hard &lt;commit&gt;</code></strong></li>
 </ol>
 <ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</p>
-</li>
-<li><p><strong>效果</strong> ：</p>
-<ul>
-<li><code>HEAD</code> 回退到指定的提交，即当前分支指针会指向指定的提交。</li>
-<li><strong>工作目录（Working Directory）</strong>  不变，文件的内容保留不变。</li>
-<li><strong>暂存区（Staging Area）</strong>  保持不变，之前已经暂存的文件仍然存在于暂存区。</li>
-</ul>
-</li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
-<li>用于撤销最后一次提交并修改其中的内容，但保留文件更改和暂存区内容。适合你想重新提交修改内容时使用。</li>
-</ul>
-</li>
-<li><p><strong>示例</strong> ：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
-
-<p>这个命令将 HEAD 回退到上一个提交（<code>HEAD~1</code>），但是保留当前工作目录和暂存区中的修改。你可以编辑文件、重新暂存并提交。</p>
-<hr>
-<ol start="2">
-<li>**<code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <strong><code>git reset</code> 命令有三种主要的模式，分别是 <code>--soft</code>、<code>--mixed</code> 和 <code>--hard</code>，它们的作用和影响不同。下面是对每种模式的详细讲解：1. <code>git reset --soft &lt;commit&gt;</code></strong></li>
-</ol>
-<ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code> 指针回退到指定的 commit，但 <strong>不更改工作目录和暂存区</strong> 。</p>
-</li>
-<li><p><strong>效果</strong> ：</p>
-<ul>
-<li><code>HEAD</code> 回退到指定的提交，即当前分支指针会指向指定的提交。</li>
-<li><strong>工作目录（Working Directory）</strong>  不变，文件的内容保留不变。</li>
-<li><strong>暂存区（Staging Area）</strong>  保持不变，之前已经暂存的文件仍然存在于暂存区。</li>
-</ul>
-</li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
-<li>用于撤销最后一次提交并修改其中的内容，但保留文件更改和暂存区内容。适合你想重新提交修改内容时使用。</li>
-</ul>
-</li>
-<li><p><strong>示例</strong> ：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
-
-<p>这个命令将 HEAD 回退到上一个提交（<code>HEAD~1</code>），但是保留当前工作目录和暂存区中的修改。你可以编辑文件、重新暂存并提交。</p>
-<hr>
-<ol start="2">
-<li><code>git reset --mixed &lt;commit&gt;</code>**  （默认选项）</li>
-</ol>
-<ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code> 回退到指定的 commit，并且 <strong>更新暂存区</strong> （即撤销暂存），但 <strong>不更改工作目录</strong> 。</p>
-</li>
-<li><p><strong>效果</strong> ：</p>
-<ul>
-<li><code>HEAD</code> 回退到指定的提交。</li>
-<li><strong>工作目录</strong>  不变，文件内容保留不变。</li>
-<li><strong>暂存区（Staging Area）</strong>  被更新为与指定 commit 的内容一致。也就是说，撤销所有已经 <code>git add</code> 的文件，将它们从暂存区中移除，但文件内容仍然保持在工作目录中。</li>
-</ul>
-</li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
-<li>用于撤销提交并取消暂存文件，但你仍然想保留文件修改。适用于需要修改代码但不想保留当前暂存区修改的场景。</li>
-</ul>
-</li>
-<li><p><strong>示例</strong> ：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --mixed HEAD~1</span><br></pre></td></tr></table></figure>
-
-<p>这个命令将 HEAD 回退到上一个提交，并且从暂存区移除修改，但文件内容仍然保留。相当于撤销最近的 <code>git add</code> 操作。</p>
-<hr>
-<ol start="3">
-<li><code>git reset --hard &lt;commit&gt;</code>**</li>
-</ol>
-<ul>
-<li><p><strong>作用</strong> ：将 <code>HEAD</code>、<strong>暂存区</strong>  和 <strong>工作目录</strong>  都回退到指定的 commit。</p>
-</li>
-<li><p><strong>效果</strong> ：</p>
-<ul>
+<li><strong>作用</strong> ：将 <code>HEAD</code>、<strong>暂存区</strong>  和 <strong>工作目录</strong>  都回退到指定的 commit。</li>
+<li><strong>效果</strong> ：<ul>
 <li><code>HEAD</code> 回退到指定的提交。</li>
 <li><strong>工作目录</strong>  会被重置为指定 commit 的内容，所有未提交的修改（无论是暂存区的还是工作目录的）都会被丢弃。</li>
 <li><strong>暂存区</strong>  也会被重置，撤销所有已暂存的文件。</li>
 </ul>
 </li>
-<li><p><strong>使用场景</strong> ：</p>
-<ul>
+<li><strong>使用场景</strong> ：<ul>
 <li>用于彻底放弃当前的修改，回到某个提交状态。适用于你想完全撤销修改并且不保留任何更改时使用。</li>
 </ul>
 </li>
-<li><p><strong>示例</strong> ：</p>
-</li>
+<li><strong>示例</strong> ：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD~1</span><br></pre></td></tr></table></figure>
 
 <p>这个命令会将 HEAD 回退到上一个提交，并且<strong>彻底丢弃</strong> 工作目录和暂存区中的所有修改。<strong>注意</strong> ：此操作无法恢复，慎重使用！</p>
-<hr>
-<p><strong>总结</strong> </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>HEAD</th>
+<th>工作目录</th>
+<th>暂存区</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>soft</td>
+<td>回退到指定 commit</td>
+<td>保持不变</td>
+<td>保持不变</td>
+<td>用于撤销提交并重新提交，保留修改和暂存区内容</td>
+</tr>
+<tr>
+<td>mixed</td>
+<td>回退到指定 commit</td>
+<td>保持不变</td>
+<td>更新为指定 commit 内容</td>
+<td>用于撤销提交并取消暂存，保留工作目录的内容</td>
+</tr>
+<tr>
+<td>hard</td>
+<td>回退到指定 commit</td>
+<td>重置为指定 commit 内容</td>
+<td>重置为指定 commit 内容</td>
+<td>用于彻底丢弃修改，回到某个 commit 状态</td>
+</tr>
+</tbody></table>
 <table>
 <thead>
 <tr>
-<th><img src="https://mr-liu-cheng.github.io/2024/12/09/**git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image-2.png**" alt="**alt text**"></th>
-<th><img src="https://mr-liu-cheng.github.io/2024/12/09/**git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image-3.png**" alt="**alt text**"></th>
-<th><img src="https://mr-liu-cheng.github.io/2024/12/09/**git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image-4.png**" alt="**alt text**"></th>
+<th><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image-2.png"></th>
+<th><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image-3.png"></th>
+<th><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image-4.png"></th>
 </tr>
 </thead>
 </table>
@@ -267,9 +185,44 @@
 <li><strong><code>--mixed</code></strong> ：你想撤销提交并取消暂存，但仍然保留修改，进行后续编辑。</li>
 <li><strong><code>--hard</code></strong> ：你想丢弃所有本地的修改并回到某个提交的状态，彻底放弃当前修改。</li>
 </ul>
-<p>每个选项的影响不同，选择时需要根据实际需求来决定。</p>
-<p><strong>git reset</strong> 会改变提交历史，建议不要在公共分支使用，如果在公共分支撤销提交可以使用 <strong>git revert</strong> ，它会保留记录。</p>
+<p><code>每个选项的影响不同，选择时需要根据实际需求来决定。</code></p>
+<p><strong>git reset</strong> 会改变提交历史，建议不要在公共分支使用，如果在公共分支撤销提交可以使用 <strong>git revert</strong> ，它会保留记录。在前端开发中，如果修改只存在于本地，并且你确定不需要这些修改，可以使用 git reset 来快速清理。但如果修改已经推送到远程分支，或者你只是想撤销某个特定的提交，为了避免影响团队协作和代码历史的完整性，强烈建议使用 git revert。 尤其是在多人协作的项目中，revert 更安全可靠。</p>
 <p><strong>hard</strong> 模式不仅会丢失已提交的改动，还可能丢失本地未提交的改动，要慎重使用。</p>
+<h1 id="git-revert"><a href="#git-revert" class="headerlink" title="git revert"></a>git revert</h1><p>git revert是用于“反做”某一个版本，以达到撤销该版本的修改的目的。比如，我们commit了三个版本（版本一、版本二、 版本三），突然发现版本二不行（如：有bug），想要撤销版本二，但又不想影响撤销版本三的提交，就可以用 git revert 命令来反做版本二，生成新的版本四，这个版本四里会保留版本三的东西，但撤销了版本二的东西(test2)<br><img src="https://mr-liu-cheng.github.io/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/image-5.png" alt="alt text"></p>
+<h1 id="revert-vs-reset"><a href="#revert-vs-reset" class="headerlink" title="revert vs reset"></a>revert vs reset</h1><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>git reset</th>
+<th>git revert</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>修改历史</td>
+<td>会修改分支历史</td>
+<td>不会修改分支历史，而是创建一个新的提交</td>
+</tr>
+<tr>
+<td>应用场景</td>
+<td>本地开发，未推送的修改</td>
+<td>已经推送的提交</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>相对低，可能会丢失提交</td>
+<td>相对高，保留完整的提交历史</td>
+</tr>
+<tr>
+<td>精确度</td>
+<td>可以回退到任意提交</td>
+<td>可以精确撤销某个提交的更改</td>
+</tr>
+<tr>
+<td>应用场景</td>
+<td>1.本地开发，还未推送: 当你提交了一些错误的更改，或者想放弃一些本地的修改，可以使用 reset 来撤销这些更改。2.修改提交历史: 例如，合并多个提交为一个，或者修改某个提交的message。3.放弃合并: 如果你在合并分支时遇到冲突，并且决定放弃合并，可以使用 reset 回到合并前的状态。</td>
+<td>1.已经推送的提交: 当你需要撤销一个已经推送到远程仓库的提交时，应该使用 revert，因为它不会修改已有的提交历史，避免了团队协作中的混乱。2.只想撤销某个特定提交: revert 可以精确地撤销某个提交的更改，而不会影响其他提交。</td>
+</tr>
+</tbody></table>
 <p>推荐：</p>
 <p><a href="https://x.zhixing.co/devops/the-differences-and-usages-of-git-merge-rebase/">Git merge &amp; rebase 区别和用法</a></p>
 ]]></content>
@@ -553,6 +506,277 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo 图片加载方案</title>
+    <url>/2024/12/11/hexo-%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h1 id="安装-hexo-asset-image-插件"><a href="#安装-hexo-asset-image-插件" class="headerlink" title="安装 hexo-asset-image 插件"></a>安装 hexo-asset-image 插件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>打开node_modules\hexo-asset-image\index.js文件59行附近：<br>修改代码为如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//src = srcArray.join(&#x27;/&#x27;);这个是源码,从这下面开始修改替换</span></span><br><span class="line"><span class="keyword">var</span> baseUrl = data.<span class="property">permalink</span>;</span><br><span class="line"><span class="comment">// 判断当前页面是否为文章</span></span><br><span class="line"><span class="keyword">if</span> (data.<span class="property">layout</span> === <span class="string">&#x27;post&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 匹配最后两个斜杠间的内容和最后的斜杠，并替换为单个斜杠，目的是去掉文档存放的文件夹名</span></span><br><span class="line">    baseUrl = data.<span class="property">permalink</span>.<span class="title function_">replace</span>(<span class="regexp">/\/[^\/]+\/$/</span>, <span class="string">&#x27;/&#x27;</span>); </span><br><span class="line">&#125;</span><br><span class="line">$(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>, baseUrl +src);</span><br><span class="line"><span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;update link as:--&gt;&quot;</span>+baseUrl+src);</span><br></pre></td></tr></table></figure>
+
+<h2 id="页签页md文档中插入图片"><a href="#页签页md文档中插入图片" class="headerlink" title="页签页md文档中插入图片"></a>页签页md文档中插入图片</h2><p>上面的方法可以在普通文章使用，但是页签页内容插入图片会多出: .html后缀</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://xxx/musicPage/index.html</span><br></pre></td></tr></table></figure>
+<p>打开_config.yml ，修改如下：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-trailing-index"><a href="#1-trailing-index" class="headerlink" title="1. trailing_index"></a>1. trailing_index</h3><p>这个选项控制是否在 URL 末尾自动添加 index。例如：</p>
+<p>如果 trailing_index: true，那么像 <a href="https://example.com/posts/">https://example.com/posts/</a> 这样的 URL 会变成 <a href="https://example.com/posts/index.html%E3%80%82">https://example.com/posts/index.html。</a><br>如果 trailing_index: false，URL 末尾就不会自动添加 index，它会保持 <a href="https://example.com/posts/">https://example.com/posts/</a> 的形式。</p>
+<h3 id="2-trailing-html"><a href="#2-trailing-html" class="headerlink" title="2. trailing_html"></a>2. trailing_html</h3><p>这个选项控制是否在 URL 末尾添加 .html 后缀。例如：</p>
+<p>如果 trailing_html: true，像 <a href="https://example.com/posts/">https://example.com/posts/</a> 会变成 <a href="https://example.com/posts/index.html%E3%80%82">https://example.com/posts/index.html。</a><br>如果 trailing_html: false，URL 会去掉 .html 后缀，直接使用像 <a href="https://example.com/posts/">https://example.com/posts/</a> 这样的格式。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>这个方式的好处在于：</p>
+<ul>
+<li>支持vscode中正常预览</li>
+<li>无需修改Ctrl+V粘贴的路径</li>
+<li>本地构建的网站和正式部署的网站都能正常显示</li>
+</ul>
+<h1 id="html-脚本中添加图片"><a href="#html-脚本中添加图片" class="headerlink" title="html 脚本中添加图片"></a>html 脚本中添加图片</h1><p>我们直接复制粘贴的路径：<br>将路径</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">alt text</span>](<span class="link">index/image.png</span>)</span><br></pre></td></tr></table></figure>
+<p>粘贴到scr中</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;index/image.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;捡贝&quot;</span> <span class="attr">class</span>=<span class="string">&quot;project-image w-full h-64 object-cover&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们会发现 html 最终生成的路径中少了 index 这一层：</p>
+<p>src : index&#x2F;image.png</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">update link as:--&gt;https://xxxx/About/   image.png</span><br></pre></td></tr></table></figure>
+<p>我们需要在hexo-asset-image\index.js文件中处理：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(srcArray.<span class="property">length</span> &gt; <span class="number">1</span> &amp;&amp; srcArray[<span class="number">0</span>]!=<span class="string">&quot;index&quot;</span>)<span class="comment">//添加判断防止使用html 加载图片时会抹去index层级</span></span><br><span class="line">   srcArray.<span class="title function_">shift</span>();</span><br></pre></td></tr></table></figure>
+<p>这段代码原本是要移出src中第一层目录，应为md格式会自动补充根目录，会出现重复目录，但是html 格式不涉及自动补充根目录，所以不需要这一步，因此要添加判断。</p>
+<p>node_modules\hexo-asset-image\index.js需要修改部分的完整的代码</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;img&#x27;</span>).<span class="title function_">each</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="keyword">if</span> ($(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>))&#123;</span><br><span class="line">       <span class="comment">// For windows style path, we replace &#x27;\&#x27; to &#x27;/&#x27;.</span></span><br><span class="line">       <span class="keyword">var</span> src = $(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>).<span class="title function_">replace</span>(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">       <span class="comment">//console.info&amp;&amp;console.info(&quot;.... &quot;+src);</span></span><br><span class="line">       <span class="keyword">if</span>(!(<span class="regexp">/http[s]*.*|\/\/.*/</span>.<span class="title function_">test</span>(src)</span><br><span class="line">         || <span class="regexp">/^\s+\//</span>.<span class="title function_">test</span>(src)</span><br><span class="line">         || <span class="regexp">/^\s*\/uploads|images\//</span>.<span class="title function_">test</span>(src))) &#123;</span><br><span class="line">         <span class="comment">// For &quot;about&quot; page, the first part of &quot;src&quot; can&#x27;t be removed.</span></span><br><span class="line">         <span class="comment">// In addition, to support multi-level local directory.</span></span><br><span class="line">         <span class="keyword">var</span> linkArray = link.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>).<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">elem</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">         &#125;);</span><br><span class="line">         <span class="keyword">var</span> srcArray = src.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>).<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">elem</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span> &amp;&amp; elem != <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">         &#125;);</span><br><span class="line">         <span class="comment">// if(srcArray.length &gt; 1 &amp;&amp; srcArray[0]!=&quot;index&quot;)//添加判断防止使用html 加载图片时会抹去index层级</span></span><br><span class="line">         <span class="comment">// srcArray.shift();</span></span><br><span class="line">         src = srcArray.<span class="title function_">join</span>(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">         <span class="comment">// console.info&amp;&amp;console.info(&quot;____&quot; +src);</span></span><br><span class="line">         </span><br><span class="line">         <span class="keyword">var</span> baseUrl = data.<span class="property">permalink</span>;</span><br><span class="line">         <span class="comment">// 判断当前页面是否为文章</span></span><br><span class="line">         <span class="keyword">if</span> (data.<span class="property">layout</span> === <span class="string">&#x27;post&#x27;</span>) &#123;</span><br><span class="line">           baseUrl = data.<span class="property">permalink</span>.<span class="title function_">replace</span>(<span class="regexp">/\/[^\/]+\/$/</span>, <span class="string">&#x27;/&#x27;</span>); <span class="comment">// 匹配最后两个斜杠间的内容和最后的斜杠，并替换为单个斜杠</span></span><br><span class="line">         &#125;</span><br><span class="line">         $(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>, baseUrl +src);</span><br><span class="line">         <span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;update link as:--&gt;&quot;</span>+baseUrl+ <span class="string">&quot;   &quot;</span>  +src);</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;no src attr, skipped...&quot;</span>);</span><br><span class="line">       <span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>($(<span class="variable language_">this</span>));</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo 疑难杂症</title>
+    <url>/2024/12/28/hexo%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</url>
+    <content><![CDATA[<h2 id="butterfly通过样式隐藏页脚"><a href="#butterfly通过样式隐藏页脚" class="headerlink" title="butterfly通过样式隐藏页脚"></a>butterfly通过样式隐藏页脚</h2><p>如果配置文件没有提供选项，可以通过 CSS 隐藏页脚区域。<br>打开或创建 source&#x2F;css&#x2F;_layout&#x2F;footer.styl 文件。</p>
+<p>添加以下内容：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">复制代码</span><br><span class="line"><span class="selector-id">#footer</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo-页面跳转时，界面未完全加载"><a href="#hexo-页面跳转时，界面未完全加载" class="headerlink" title="hexo 页面跳转时，界面未完全加载"></a>hexo 页面跳转时，界面未完全加载</h2><p>页面刷新时正常的，但是从其他页面跳转过来时，js代码加载的内容都没加载出来</p>
+<p>我的做法是采用延时执行js的函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123; <span class="title class_">Render</span>(); &#125;, <span class="number">100</span>); <span class="comment">// 延迟渲染，确保布局已完成</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//这个方法不行</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;<span class="title class_">Render</span>();&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo-butterfly-主题的布局修改"><a href="#hexo-butterfly-主题的布局修改" class="headerlink" title="hexo butterfly 主题的布局修改"></a>hexo butterfly 主题的布局修改</h2><h3 id="隐藏侧边栏：Front-matter中添加"><a href="#隐藏侧边栏：Front-matter中添加" class="headerlink" title="隐藏侧边栏：Front-matter中添加"></a>隐藏侧边栏：Front-matter中添加</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">aside: false</span><br></pre></td></tr></table></figure>
+
+<p>如果要今后添加的的page或者post都隐藏侧边栏可以在模版Front-matter中添加上面的代码就行。但是已有的界面是需要自己手动添加从而实现隐藏效果。<br>scaffolds\page.md<br>scaffolds\post.md</p>
+<p>若是要完全隐藏或者在特殊的page隐藏可以在butterfly.config中修改配置实现：这里好像不能添加自定义的page，不然将会省事很多。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">aside:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">hide:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show the button to hide the aside in bottom right button</span></span><br><span class="line">  <span class="attr">button:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">mobile:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Position: left / right</span></span><br><span class="line">  <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">archive:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">tag:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">category:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="拓宽页面内容div"><a href="#拓宽页面内容div" class="headerlink" title="拓宽页面内容div"></a>拓宽页面内容div</h3><ul>
+<li>方法一：直接在md&#x2F;html&#x2F;js文件中添加js代码<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//内容扩宽</span></span><br><span class="line"><span class="keyword">const</span> page = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;page&quot;</span>);</span><br><span class="line">page.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line"><span class="comment">// page.style.setProperty(&quot;padding&quot;, &quot;160px&quot;, &quot;important&quot;);</span></span><br><span class="line">page.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;86px&quot;</span>; <span class="comment">// 撑满屏幕 不加单位视为百分百</span></span><br><span class="line"><span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;content-inner&quot;</span>);</span><br><span class="line">content.<span class="property">style</span>.<span class="property">maxWidth</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">margin</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br></pre></td></tr></table></figure></li>
+<li>方法二：直接在themes\butterfly\source\js\main.js文件中添加js代码<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//内容扩宽</span></span><br><span class="line"><span class="keyword">const</span> page = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;page&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (page &amp;&amp; saveStatus == <span class="string">&#x27;hide&#x27;</span>) &#123;</span><br><span class="line">page.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">page.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;86px&quot;</span>; <span class="comment">// 撑满屏幕 不加单位视为百分百</span></span><br><span class="line"><span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;content-inner&quot;</span>);</span><br><span class="line">content.<span class="property">style</span>.<span class="property">maxWidth</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">margin</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>强调：<br>样式中尺寸有两种表现：百分百、具体像素值（12px）。<br>自带的标签可能会有默认样式信息，例如<code>&lt;Img&gt;</code>,若是要修改，需要使用 !important 提高当前样式的优先级</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;$&#123;project.image&#125;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;project-cover&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.project-cover</span> &#123;</span></span><br><span class="line"><span class="language-css">     <span class="attribute">max-width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 图片宽度不会超出容器宽度 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">max-height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 图片高度不会超出容器高度 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">object-fit</span>: contain;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 保持图片比例，完全显示图片 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 防止图片默认的 inline 行为 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">margin</span>: <span class="number">0</span> <span class="meta">!important</span>;<span class="comment">/* 防止img默认的样式覆盖，提高当前样式的优先级*/</span></span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 设置外边距为零 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">border</span>: none;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 移除边框 */</span></span></span><br><span class="line"><span class="language-css">   &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或者这样：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">page.<span class="property">style</span>.<span class="title function_">setProperty</span>(<span class="string">&quot;padding&quot;</span>, <span class="string">&quot;160px&quot;</span>, <span class="string">&quot;important&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="div中的图片居中"><a href="#div中的图片居中" class="headerlink" title="div中的图片居中"></a>div中的图片居中</h2><p>display: flex;<br>flex-direction: column;<br>align-items: center;</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project-card</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#505050</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 设置为弹性布局 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="comment">/* 子元素纵向排列 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="comment">/* 子元素水平居中 */</span></span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">4px</span> <span class="number">8px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="格子布局"><a href="#格子布局" class="headerlink" title="格子布局"></a>格子布局</h2><p><strong>总结对比</strong> </p>
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>列数</th>
+<th>列宽度计算</th>
+<th>剩余空间行为</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>repeat(4, 1fr)</td>
+<td>固定为 4 列</td>
+<td>按容器宽度动态调整</td>
+<td>每列均分剩余空间</td>
+</tr>
+<tr>
+<td>repeat(auto-fit, 250px)</td>
+<td>动态调整</td>
+<td>固定为 250px</td>
+<td>剩余空间为空白（列不会超出内容）</td>
+</tr>
+<tr>
+<td>repeat(auto-fit, minmax(250px, 1fr))</td>
+<td>动态调整</td>
+<td>最小 250px，最大均分剩余空间</td>
+<td>剩余空间被列均分,空列也会被均分掉</td>
+</tr>
+<tr>
+<td>repeat(auto-fill, minmax(250px, 1fr))</td>
+<td>动态调整</td>
+<td>最小 250px，最大均分剩余空间</td>
+<td>剩余空间被列均分，但空列会保留</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.projects</span> &#123;</span><br><span class="line">     <span class="attribute">display</span>: grid;</span><br><span class="line">     <span class="comment">/* 指定4列，每列等分容器宽度 */</span></span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr); </span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fit, <span class="number">250px</span>);</span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fit, <span class="built_in">minmax</span>(<span class="number">250px</span>, <span class="number">1</span>fr));</span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fill, <span class="built_in">minmax</span>(<span class="number">250px</span>, <span class="number">1</span>fr));</span><br><span class="line">     <span class="comment">/* grid-auto-rows: 150px; */</span></span><br><span class="line">     <span class="comment">/* 每行高度固定为 150px */</span></span><br><span class="line">     <span class="attribute">gap</span>: <span class="number">20px</span>;</span><br><span class="line">     <span class="comment">/* 格子间距 20px*/</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+<br>
+
+
+<h2 id="auto-fit-与-auto-fill-的主要区别"><a href="#auto-fit-与-auto-fill-的主要区别" class="headerlink" title="auto-fit 与 auto-fill 的主要区别"></a><code>auto-fit</code> 与 <code>auto-fill</code> 的主要区别</h2><ul>
+<li><p><strong><code>auto-fit</code></strong> : 将列压缩以适应容器宽度，仅保留有内容的列，列之间的多余空间会重新分配。</p>
+</li>
+<li><p><strong><code>auto-fill</code></strong> : 尽可能填满容器，即使某些列是“空的”，也会在容器内保留这些占位列。</p>
+</li>
+</ul>
+<h2 id="repeat-auto-fit-minmax-250px-1fr"><a href="#repeat-auto-fit-minmax-250px-1fr" class="headerlink" title="repeat(auto-fit, minmax(250px, 1fr)) "></a><code>repeat(auto-fit, minmax(250px, 1fr))</code> </h2><ul>
+<li>重点是“<strong>压缩列数</strong> ”：如果列宽足够，未使用的列会被移除，只有实际需要的列保留。</li>
+<li>剩余空间会被现有列均分。</li>
+<li>只生成实际需要的列，不创建空列。</li>
+<li>列总数 &#x3D; <strong>实际内容列数</strong> 。</li>
+</ul>
+<br>
+
+<h2 id="repeat-auto-fill-minmax-250px-1fr"><a href="#repeat-auto-fill-minmax-250px-1fr" class="headerlink" title="repeat(auto-fill, minmax(250px, 1fr)) "></a><code>repeat(auto-fill, minmax(250px, 1fr))</code> </h2><ul>
+<li>重点是“<strong>填满容器</strong> ”：尝试创建更多列，即使其中部分列没有内容（生成“空列”作为占位）。</li>
+<li>剩余空间会均分到所有列（包括空列）。</li>
+<li>列总数 &#x3D; <strong>容器能容纳的最大列数</strong> 。</li>
+</ul>
+<br>
+
+<p><strong>详细比较表</strong> </p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>auto-fit</th>
+<th>auto-fill</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>列数</td>
+<td>根据实际内容调整列数</td>
+<td>根据容器宽度填满列数</td>
+</tr>
+<tr>
+<td>剩余空间分配</td>
+<td>均分到现有列</td>
+<td>均分到所有列（包括空列）</td>
+</tr>
+<tr>
+<td>未使用的列</td>
+<td>移除</td>
+<td>保留为占位列</td>
+</tr>
+<tr>
+<td>空列是否创建</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>优势</td>
+<td>精简布局，适合动态内容数量，仅有实际内容需要显示时 ,移除无用列，避免产生空白列</td>
+<td>容器填满，适合固定布局，需要固定网格布局（占位列）时 ,空列提供一致的布局效果</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>butterfly</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>unity tmp中文显示</title>
+    <url>/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<h1 id="一、创建tmp中文字体资源"><a href="#一、创建tmp中文字体资源" class="headerlink" title="一、创建tmp中文字体资源"></a>一、创建tmp中文字体资源</h1><p>1.<strong>选择Window&#x2F;TextMeshPro&#x2F;Font Asset Creator</strong></p>
+<p>2.<strong>Font Asset Creator设置界面如图</strong><br><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image-1.png" alt="alt text"><br>Source Font File：拖入需要使用的字体</p>
+<ul>
+<li>Sampling Point Size：设置用于生成字体纹理的字体大小（以磅为单位）</li>
+<li>Auto Sizeing：自动设置大小</li>
+<li>Custom Size：自定义大小，在文本框中输入所需的大小</li>
+</ul>
+<p>Padding：字间距，填充越大，过渡越平滑，从而允许更高质量的渲染和更大的效果，如粗轮廓。</p>
+<p>Packing Method：指定如何使字符适合字体纹理。</p>
+<ul>
+<li>Optimum：查找仍然适合纹理中所有字符的最大可能自动字体大小。</li>
+<li>Fast：更快地计算字符打包，但可能使用比优化模式更小的字体大小。</li>
+</ul>
+<p>Atlas Resolution：设置字体纹理的大小宽度和高度，以像素为单位</p>
+<p>Character Set：选择预定义的字符集。</p>
+<ul>
+<li>ASCII：包括 ASCII 字符集中的可见字符。</li>
+<li>Extended ASCII：包括扩展 ASCII 字符集中的可见字符。</li>
+<li>ASCII Lowercase：仅包含 ASCII 字符集中可见的小写字符。</li>
+<li>ASCII Uppercase：仅包含 ASCII 字符集中可见的大写字符</li>
+<li>Numbers+Sysbols：仅包括来自 ASCII 字符集的可见数字和符号。</li>
+<li>Custom Range：输入一系列十进制值或值范围，以指定要包括的字符。</li>
+<li>Unicode Range(Hex)：输入一系列 unicode 十六进制值或值范围，以指定要包含的字符。</li>
+<li>Custom Characters：输入字符序列以指定要包含的字符。</li>
+<li>Characters from File：指定的文本资源</li>
+</ul>
+<p>Render Mode：指定输出字体图集时要使用的渲染模式。</p>
+<ul>
+<li>SMOOTH_HINTED：将图集渲染为抗锯齿位图，并将字符像素与纹理像素对齐以获得更清晰的结果。</li>
+<li>SMOOTH：将图集渲染为抗锯齿位图。</li>
+<li>RASTER_HINTED：将图集渲染为非抗锯齿位图，并将字符像素与纹理像素对齐以获得更清晰的结果。</li>
+<li>RASTER：将图集渲染为非抗锯齿位图。</li>
+<li>SDF：使用较慢但更准确的 SDF 生成模式渲染图集，并且没有过采样。</li>
+<li>SDF8：使用较慢但更准确的 SDF 生成模式和 8 倍过采样渲染图集。</li>
+<li>SDF16：使用更慢但更准确的 SDF 生成模式和 16 倍过采样渲染图集。</li>
+<li>SDF32：使用较慢但更准确的 SDF 生成模式和 32 倍过采样渲染图集。将此设置用于具有复杂或小字符的字体。</li>
+<li>SDFAA_HINTED：使用更快但不太准确的 SDF 生成模式渲染图集，并将字符像素与纹理像素对齐以获得更清晰的结果，它生成的字体图集足以满足大多数情况。</li>
+<li>SDFAA：使用更快但不太准确的 SDF 生成模式渲染图集，它生成的字体图集足以满足大多数情况。</li>
+</ul>
+<p>Get Kerning Pairs：启用此选项可从字体复制字距调整数据。</p>
+<p>Generate Font Atlas：我们把包含中文字体的文件拖入Characters from File中，然后点击此按钮开始生成</p>
+<p>3.生成后，如上面效果图<br>注意：字体越多，生成的时间越长…Packing Method还是选Fast吧，Optimum太慢了</p>
+<p>4.点击Save按钮保存</p>
+<p>5.现在就可以正常使用这个字体了</p>
+<h1 id="二、tmp创建字体报错"><a href="#二、tmp创建字体报错" class="headerlink" title="二、tmp创建字体报错:"></a>二、tmp创建字体报错:</h1><p><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image.png" alt="alt text"></p>
+<p>问题原因:</p>
+<ul>
+<li>字体贴图空间不足</li>
+</ul>
+<p>字体贴图的分辨率（Font Atlas Resolution）不够大，无法容纳所有字符。</p>
+<p>生成 3000 字符所需的贴图分辨率和时间较低，一般<code>1024x1024</code> 或<code>2048x2048</code> 即可完成。</p>
+<p>生成 7000 字符可能需要<code>4096x4096</code> 或更高分辨率，耗时更长。</p>
+<ul>
+<li>字符范围太大</li>
+</ul>
+<p>您可能尝试一次性添加过多的字符，例如一个完整的 Unicode 中文字符集。</p>
+<ul>
+<li>字体文件不支持这些字符</li>
+</ul>
+<p>使用的字体文件可能并未包含这些特定的字符。</p>
+<ul>
+<li>渲染模式设置不当</li>
+</ul>
+<p>当前的 Render Mode 设置可能导致字体生成失败。</p>
+<hr>
+<ul>
+<li><strong>选择 3000 汉字：</strong><ul>
+<li>如果项目是游戏、日常应用或现代场景，3000 字足够使用。</li>
+<li>性能优先的项目，如 WebGL、移动端、嵌入式系统。</li>
+</ul>
+</li>
+<li><strong>选择 7000 汉字：</strong><ul>
+<li>如果项目需要显示古文、法律文书或覆盖专业领域的特殊字符。</li>
+<li>针对高性能设备或专业场景，如 PC 端应用、大型屏幕展示。</li>
+</ul>
+</li>
+</ul>
+<p>汉字集下载：</p>
+<p><a href="https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set">https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set</a></p>
+]]></content>
+      <categories>
+        <category>unity</category>
+      </categories>
+      <tags>
+        <tag>tmp</tag>
+        <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo添加标签样式</title>
     <url>/2024/12/15/hexo%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE%E6%A0%B7%E5%BC%8F/</url>
     <content><![CDATA[<p>在 <strong>Hexo Butterfly</strong>  主题中，由于 Markdown 文件中的代码会经过 Hexo 的解析后转换为 HTML，而 HTML 的样式需要依赖主题中的 CSS 文件，直接嵌入的 TailwindCSS 或自定义 CSS 可能无法生效。如果你希望在 Hexo 中生效样式，可以尝试以下方法：</p>
@@ -764,186 +988,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo 图片加载方案</title>
-    <url>/2024/12/11/hexo-%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<h1 id="安装-hexo-asset-image-插件"><a href="#安装-hexo-asset-image-插件" class="headerlink" title="安装 hexo-asset-image 插件"></a>安装 hexo-asset-image 插件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-
-<p>打开node_modules\hexo-asset-image\index.js文件59行附近：<br>修改代码为如下</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//src = srcArray.join(&#x27;/&#x27;);这个是源码,从这下面开始修改替换</span></span><br><span class="line"><span class="keyword">var</span> baseUrl = data.<span class="property">permalink</span>;</span><br><span class="line"><span class="comment">// 判断当前页面是否为文章</span></span><br><span class="line"><span class="keyword">if</span> (data.<span class="property">layout</span> === <span class="string">&#x27;post&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 匹配最后两个斜杠间的内容和最后的斜杠，并替换为单个斜杠，目的是去掉文档存放的文件夹名</span></span><br><span class="line">    baseUrl = data.<span class="property">permalink</span>.<span class="title function_">replace</span>(<span class="regexp">/\/[^\/]+\/$/</span>, <span class="string">&#x27;/&#x27;</span>); </span><br><span class="line">&#125;</span><br><span class="line">$(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>, baseUrl +src);</span><br><span class="line"><span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;update link as:--&gt;&quot;</span>+baseUrl+src);</span><br></pre></td></tr></table></figure>
-
-<h2 id="页签页md文档中插入图片"><a href="#页签页md文档中插入图片" class="headerlink" title="页签页md文档中插入图片"></a>页签页md文档中插入图片</h2><p>上面的方法可以在普通文章使用，但是页签页内容插入图片会多出: .html后缀</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://xxx/musicPage/index.html</span><br></pre></td></tr></table></figure>
-<p>打开_config.yml ，修改如下：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="1-trailing-index"><a href="#1-trailing-index" class="headerlink" title="1. trailing_index"></a>1. trailing_index</h3><p>这个选项控制是否在 URL 末尾自动添加 index。例如：</p>
-<p>如果 trailing_index: true，那么像 <a href="https://example.com/posts/">https://example.com/posts/</a> 这样的 URL 会变成 <a href="https://example.com/posts/index.html%E3%80%82">https://example.com/posts/index.html。</a><br>如果 trailing_index: false，URL 末尾就不会自动添加 index，它会保持 <a href="https://example.com/posts/">https://example.com/posts/</a> 的形式。</p>
-<h3 id="2-trailing-html"><a href="#2-trailing-html" class="headerlink" title="2. trailing_html"></a>2. trailing_html</h3><p>这个选项控制是否在 URL 末尾添加 .html 后缀。例如：</p>
-<p>如果 trailing_html: true，像 <a href="https://example.com/posts/">https://example.com/posts/</a> 会变成 <a href="https://example.com/posts/index.html%E3%80%82">https://example.com/posts/index.html。</a><br>如果 trailing_html: false，URL 会去掉 .html 后缀，直接使用像 <a href="https://example.com/posts/">https://example.com/posts/</a> 这样的格式。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>这个方式的好处在于：</p>
-<ul>
-<li>支持vscode中正常预览</li>
-<li>无需修改Ctrl+V粘贴的路径</li>
-<li>本地构建的网站和正式部署的网站都能正常显示</li>
-</ul>
-<h1 id="html-脚本中添加图片"><a href="#html-脚本中添加图片" class="headerlink" title="html 脚本中添加图片"></a>html 脚本中添加图片</h1><p>我们直接复制粘贴的路径：<br>将路径</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">alt text</span>](<span class="link">index/image.png</span>)</span><br></pre></td></tr></table></figure>
-<p>粘贴到scr中</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;index/image.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;捡贝&quot;</span> <span class="attr">class</span>=<span class="string">&quot;project-image w-full h-64 object-cover&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>我们会发现 html 最终生成的路径中少了 index 这一层：</p>
-<p>src : index&#x2F;image.png</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">update link as:--&gt;https://xxxx/About/   image.png</span><br></pre></td></tr></table></figure>
-<p>我们需要在hexo-asset-image\index.js文件中处理：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(srcArray.<span class="property">length</span> &gt; <span class="number">1</span> &amp;&amp; srcArray[<span class="number">0</span>]!=<span class="string">&quot;index&quot;</span>)<span class="comment">//添加判断防止使用html 加载图片时会抹去index层级</span></span><br><span class="line">   srcArray.<span class="title function_">shift</span>();</span><br></pre></td></tr></table></figure>
-<p>这段代码原本是要移出src中第一层目录，应为md格式会自动补充根目录，会出现重复目录，但是html 格式不涉及自动补充根目录，所以不需要这一步，因此要添加判断。</p>
-<p>node_modules\hexo-asset-image\index.js需要修改部分的完整的代码</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;img&#x27;</span>).<span class="title function_">each</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="keyword">if</span> ($(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>))&#123;</span><br><span class="line">       <span class="comment">// For windows style path, we replace &#x27;\&#x27; to &#x27;/&#x27;.</span></span><br><span class="line">       <span class="keyword">var</span> src = $(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>).<span class="title function_">replace</span>(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">       <span class="comment">//console.info&amp;&amp;console.info(&quot;.... &quot;+src);</span></span><br><span class="line">       <span class="keyword">if</span>(!(<span class="regexp">/http[s]*.*|\/\/.*/</span>.<span class="title function_">test</span>(src)</span><br><span class="line">         || <span class="regexp">/^\s+\//</span>.<span class="title function_">test</span>(src)</span><br><span class="line">         || <span class="regexp">/^\s*\/uploads|images\//</span>.<span class="title function_">test</span>(src))) &#123;</span><br><span class="line">         <span class="comment">// For &quot;about&quot; page, the first part of &quot;src&quot; can&#x27;t be removed.</span></span><br><span class="line">         <span class="comment">// In addition, to support multi-level local directory.</span></span><br><span class="line">         <span class="keyword">var</span> linkArray = link.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>).<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">elem</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">         &#125;);</span><br><span class="line">         <span class="keyword">var</span> srcArray = src.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>).<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">elem</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span> &amp;&amp; elem != <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">         &#125;);</span><br><span class="line">         <span class="comment">// if(srcArray.length &gt; 1 &amp;&amp; srcArray[0]!=&quot;index&quot;)//添加判断防止使用html 加载图片时会抹去index层级</span></span><br><span class="line">         <span class="comment">// srcArray.shift();</span></span><br><span class="line">         src = srcArray.<span class="title function_">join</span>(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">         <span class="comment">// console.info&amp;&amp;console.info(&quot;____&quot; +src);</span></span><br><span class="line">         </span><br><span class="line">         <span class="keyword">var</span> baseUrl = data.<span class="property">permalink</span>;</span><br><span class="line">         <span class="comment">// 判断当前页面是否为文章</span></span><br><span class="line">         <span class="keyword">if</span> (data.<span class="property">layout</span> === <span class="string">&#x27;post&#x27;</span>) &#123;</span><br><span class="line">           baseUrl = data.<span class="property">permalink</span>.<span class="title function_">replace</span>(<span class="regexp">/\/[^\/]+\/$/</span>, <span class="string">&#x27;/&#x27;</span>); <span class="comment">// 匹配最后两个斜杠间的内容和最后的斜杠，并替换为单个斜杠</span></span><br><span class="line">         &#125;</span><br><span class="line">         $(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>, baseUrl +src);</span><br><span class="line">         <span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;update link as:--&gt;&quot;</span>+baseUrl+ <span class="string">&quot;   &quot;</span>  +src);</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;no src attr, skipped...&quot;</span>);</span><br><span class="line">       <span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>($(<span class="variable language_">this</span>));</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo 疑难杂症</title>
-    <url>/2024/12/28/hexo%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</url>
-    <content><![CDATA[<h2 id="butterfly通过样式隐藏页脚"><a href="#butterfly通过样式隐藏页脚" class="headerlink" title="butterfly通过样式隐藏页脚"></a>butterfly通过样式隐藏页脚</h2><p>如果配置文件没有提供选项，可以通过 CSS 隐藏页脚区域。<br>打开或创建 source&#x2F;css&#x2F;_layout&#x2F;footer.styl 文件。</p>
-<p>添加以下内容：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">复制代码</span><br><span class="line"><span class="selector-id">#footer</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="hexo-页面跳转时，界面未完全加载"><a href="#hexo-页面跳转时，界面未完全加载" class="headerlink" title="hexo 页面跳转时，界面未完全加载"></a>hexo 页面跳转时，界面未完全加载</h2><p>页面刷新时正常的，但是从其他页面跳转过来时，js代码加载的内容都没加载出来</p>
-<p>我的做法是采用延时执行js的函数：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123; <span class="title class_">Render</span>(); &#125;, <span class="number">100</span>); <span class="comment">// 延迟渲染，确保布局已完成</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//这个方法不行</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;<span class="title class_">Render</span>();&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="hexo-butterfly-主题的布局修改"><a href="#hexo-butterfly-主题的布局修改" class="headerlink" title="hexo butterfly 主题的布局修改"></a>hexo butterfly 主题的布局修改</h2><h3 id="隐藏侧边栏：Front-matter中添加"><a href="#隐藏侧边栏：Front-matter中添加" class="headerlink" title="隐藏侧边栏：Front-matter中添加"></a>隐藏侧边栏：Front-matter中添加</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">aside: false</span><br></pre></td></tr></table></figure>
-
-<p>如果要今后添加的的page或者post都隐藏侧边栏可以在模版Front-matter中添加上面的代码就行。但是已有的界面是需要自己手动添加从而实现隐藏效果。<br>scaffolds\page.md<br>scaffolds\post.md</p>
-<p>若是要完全隐藏或者在特殊的page隐藏可以在butterfly.config中修改配置实现：这里好像不能添加自定义的page，不然将会省事很多。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">aside:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">hide:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show the button to hide the aside in bottom right button</span></span><br><span class="line">  <span class="attr">button:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">mobile:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Position: left / right</span></span><br><span class="line">  <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">archive:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">tag:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">category:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="拓宽页面内容div"><a href="#拓宽页面内容div" class="headerlink" title="拓宽页面内容div"></a>拓宽页面内容div</h3><ul>
-<li>方法一：直接在md&#x2F;html&#x2F;js文件中添加js代码<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//内容扩宽</span></span><br><span class="line"><span class="keyword">const</span> page = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;page&quot;</span>);</span><br><span class="line">page.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line"><span class="comment">// page.style.setProperty(&quot;padding&quot;, &quot;160px&quot;, &quot;important&quot;);</span></span><br><span class="line">page.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;86px&quot;</span>; <span class="comment">// 撑满屏幕 不加单位视为百分百</span></span><br><span class="line"><span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;content-inner&quot;</span>);</span><br><span class="line">content.<span class="property">style</span>.<span class="property">maxWidth</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">margin</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br></pre></td></tr></table></figure></li>
-<li>方法二：直接在themes\butterfly\source\js\main.js文件中添加js代码<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//内容扩宽</span></span><br><span class="line"><span class="keyword">const</span> page = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;page&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (page &amp;&amp; saveStatus == <span class="string">&#x27;hide&#x27;</span>) &#123;</span><br><span class="line">page.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">page.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;86px&quot;</span>; <span class="comment">// 撑满屏幕 不加单位视为百分百</span></span><br><span class="line"><span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;content-inner&quot;</span>);</span><br><span class="line">content.<span class="property">style</span>.<span class="property">maxWidth</span> = <span class="string">&quot;100%&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">margin</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">content.<span class="property">style</span>.<span class="property">padding</span> = <span class="string">&quot;0&quot;</span>; <span class="comment">// 撑满屏幕</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>强调：<br>样式中尺寸有两种表现：百分百、具体像素值（12px）。<br>自带的标签可能会有默认样式信息，例如<code>&lt;Img&gt;</code>,若是要修改，需要使用 !important 提高当前样式的优先级</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;$&#123;project.image&#125;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;project-cover&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.project-cover</span> &#123;</span></span><br><span class="line"><span class="language-css">     <span class="attribute">max-width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 图片宽度不会超出容器宽度 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">max-height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 图片高度不会超出容器高度 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">object-fit</span>: contain;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 保持图片比例，完全显示图片 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 防止图片默认的 inline 行为 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">margin</span>: <span class="number">0</span> <span class="meta">!important</span>;<span class="comment">/* 防止img默认的样式覆盖，提高当前样式的优先级*/</span></span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 设置外边距为零 */</span></span></span><br><span class="line"><span class="language-css">     <span class="attribute">border</span>: none;</span></span><br><span class="line"><span class="language-css">     <span class="comment">/* 移除边框 */</span></span></span><br><span class="line"><span class="language-css">   &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或者这样：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">page.<span class="property">style</span>.<span class="title function_">setProperty</span>(<span class="string">&quot;padding&quot;</span>, <span class="string">&quot;160px&quot;</span>, <span class="string">&quot;important&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="div中的图片居中"><a href="#div中的图片居中" class="headerlink" title="div中的图片居中"></a>div中的图片居中</h2><p>display: flex;<br>flex-direction: column;<br>align-items: center;</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.project-card</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#505050</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 设置为弹性布局 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="comment">/* 子元素纵向排列 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="comment">/* 子元素水平居中 */</span></span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">4px</span> <span class="number">8px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="格子布局"><a href="#格子布局" class="headerlink" title="格子布局"></a>格子布局</h2><p><strong>总结对比</strong> </p>
-<table>
-<thead>
-<tr>
-<th>用法</th>
-<th>列数</th>
-<th>列宽度计算</th>
-<th>剩余空间行为</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>repeat(4, 1fr)</td>
-<td>固定为 4 列</td>
-<td>按容器宽度动态调整</td>
-<td>每列均分剩余空间</td>
-</tr>
-<tr>
-<td>repeat(auto-fit, 250px)</td>
-<td>动态调整</td>
-<td>固定为 250px</td>
-<td>剩余空间为空白（列不会超出内容）</td>
-</tr>
-<tr>
-<td>repeat(auto-fit, minmax(250px, 1fr))</td>
-<td>动态调整</td>
-<td>最小 250px，最大均分剩余空间</td>
-<td>剩余空间被列均分,空列也会被均分掉</td>
-</tr>
-<tr>
-<td>repeat(auto-fill, minmax(250px, 1fr))</td>
-<td>动态调整</td>
-<td>最小 250px，最大均分剩余空间</td>
-<td>剩余空间被列均分，但空列会保留</td>
-</tr>
-</tbody></table>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.projects</span> &#123;</span><br><span class="line">     <span class="attribute">display</span>: grid;</span><br><span class="line">     <span class="comment">/* 指定4列，每列等分容器宽度 */</span></span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr); </span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fit, <span class="number">250px</span>);</span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fit, <span class="built_in">minmax</span>(<span class="number">250px</span>, <span class="number">1</span>fr));</span><br><span class="line">     <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fill, <span class="built_in">minmax</span>(<span class="number">250px</span>, <span class="number">1</span>fr));</span><br><span class="line">     <span class="comment">/* grid-auto-rows: 150px; */</span></span><br><span class="line">     <span class="comment">/* 每行高度固定为 150px */</span></span><br><span class="line">     <span class="attribute">gap</span>: <span class="number">20px</span>;</span><br><span class="line">     <span class="comment">/* 格子间距 20px*/</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
-<br>
-
-
-<h2 id="auto-fit-与-auto-fill-的主要区别"><a href="#auto-fit-与-auto-fill-的主要区别" class="headerlink" title="auto-fit 与 auto-fill 的主要区别"></a><code>auto-fit</code> 与 <code>auto-fill</code> 的主要区别</h2><ul>
-<li><p><strong><code>auto-fit</code></strong> : 将列压缩以适应容器宽度，仅保留有内容的列，列之间的多余空间会重新分配。</p>
-</li>
-<li><p><strong><code>auto-fill</code></strong> : 尽可能填满容器，即使某些列是“空的”，也会在容器内保留这些占位列。</p>
-</li>
-</ul>
-<h2 id="repeat-auto-fit-minmax-250px-1fr"><a href="#repeat-auto-fit-minmax-250px-1fr" class="headerlink" title="repeat(auto-fit, minmax(250px, 1fr)) "></a><code>repeat(auto-fit, minmax(250px, 1fr))</code> </h2><ul>
-<li>重点是“<strong>压缩列数</strong> ”：如果列宽足够，未使用的列会被移除，只有实际需要的列保留。</li>
-<li>剩余空间会被现有列均分。</li>
-<li>只生成实际需要的列，不创建空列。</li>
-<li>列总数 &#x3D; <strong>实际内容列数</strong> 。</li>
-</ul>
-<br>
-
-<h2 id="repeat-auto-fill-minmax-250px-1fr"><a href="#repeat-auto-fill-minmax-250px-1fr" class="headerlink" title="repeat(auto-fill, minmax(250px, 1fr)) "></a><code>repeat(auto-fill, minmax(250px, 1fr))</code> </h2><ul>
-<li>重点是“<strong>填满容器</strong> ”：尝试创建更多列，即使其中部分列没有内容（生成“空列”作为占位）。</li>
-<li>剩余空间会均分到所有列（包括空列）。</li>
-<li>列总数 &#x3D; <strong>容器能容纳的最大列数</strong> 。</li>
-</ul>
-<br>
-
-<p><strong>详细比较表</strong> </p>
-<table>
-<thead>
-<tr>
-<th>特性</th>
-<th>auto-fit</th>
-<th>auto-fill</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>列数</td>
-<td>根据实际内容调整列数</td>
-<td>根据容器宽度填满列数</td>
-</tr>
-<tr>
-<td>剩余空间分配</td>
-<td>均分到现有列</td>
-<td>均分到所有列（包括空列）</td>
-</tr>
-<tr>
-<td>未使用的列</td>
-<td>移除</td>
-<td>保留为占位列</td>
-</tr>
-<tr>
-<td>空列是否创建</td>
-<td>否</td>
-<td>是</td>
-</tr>
-<tr>
-<td>优势</td>
-<td>精简布局，适合动态内容数量，仅有实际内容需要显示时 ,移除无用列，避免产生空白列</td>
-<td>容器填满，适合固定布局，需要固定网格布局（占位列）时 ,空列提供一致的布局效果</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>butterfly</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>unity webGL 移动端 输入框无法弹出虚拟键盘</title>
     <url>/2024/12/13/unity-webGL-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E8%BE%93%E5%85%A5%E6%A1%86%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98/</url>
     <content><![CDATA[<ol>
@@ -966,97 +1010,6 @@
       <tags>
         <tag>unity</tag>
         <tag>webGL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>unity tmp中文显示</title>
-    <url>/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<h1 id="一、创建tmp中文字体资源"><a href="#一、创建tmp中文字体资源" class="headerlink" title="一、创建tmp中文字体资源"></a>一、创建tmp中文字体资源</h1><p>1.<strong>选择Window&#x2F;TextMeshPro&#x2F;Font Asset Creator</strong></p>
-<p>2.<strong>Font Asset Creator设置界面如图</strong><br><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image-1.png" alt="alt text"><br>Source Font File：拖入需要使用的字体</p>
-<ul>
-<li>Sampling Point Size：设置用于生成字体纹理的字体大小（以磅为单位）</li>
-<li>Auto Sizeing：自动设置大小</li>
-<li>Custom Size：自定义大小，在文本框中输入所需的大小</li>
-</ul>
-<p>Padding：字间距，填充越大，过渡越平滑，从而允许更高质量的渲染和更大的效果，如粗轮廓。</p>
-<p>Packing Method：指定如何使字符适合字体纹理。</p>
-<ul>
-<li>Optimum：查找仍然适合纹理中所有字符的最大可能自动字体大小。</li>
-<li>Fast：更快地计算字符打包，但可能使用比优化模式更小的字体大小。</li>
-</ul>
-<p>Atlas Resolution：设置字体纹理的大小宽度和高度，以像素为单位</p>
-<p>Character Set：选择预定义的字符集。</p>
-<ul>
-<li>ASCII：包括 ASCII 字符集中的可见字符。</li>
-<li>Extended ASCII：包括扩展 ASCII 字符集中的可见字符。</li>
-<li>ASCII Lowercase：仅包含 ASCII 字符集中可见的小写字符。</li>
-<li>ASCII Uppercase：仅包含 ASCII 字符集中可见的大写字符</li>
-<li>Numbers+Sysbols：仅包括来自 ASCII 字符集的可见数字和符号。</li>
-<li>Custom Range：输入一系列十进制值或值范围，以指定要包括的字符。</li>
-<li>Unicode Range(Hex)：输入一系列 unicode 十六进制值或值范围，以指定要包含的字符。</li>
-<li>Custom Characters：输入字符序列以指定要包含的字符。</li>
-<li>Characters from File：指定的文本资源</li>
-</ul>
-<p>Render Mode：指定输出字体图集时要使用的渲染模式。</p>
-<ul>
-<li>SMOOTH_HINTED：将图集渲染为抗锯齿位图，并将字符像素与纹理像素对齐以获得更清晰的结果。</li>
-<li>SMOOTH：将图集渲染为抗锯齿位图。</li>
-<li>RASTER_HINTED：将图集渲染为非抗锯齿位图，并将字符像素与纹理像素对齐以获得更清晰的结果。</li>
-<li>RASTER：将图集渲染为非抗锯齿位图。</li>
-<li>SDF：使用较慢但更准确的 SDF 生成模式渲染图集，并且没有过采样。</li>
-<li>SDF8：使用较慢但更准确的 SDF 生成模式和 8 倍过采样渲染图集。</li>
-<li>SDF16：使用更慢但更准确的 SDF 生成模式和 16 倍过采样渲染图集。</li>
-<li>SDF32：使用较慢但更准确的 SDF 生成模式和 32 倍过采样渲染图集。将此设置用于具有复杂或小字符的字体。</li>
-<li>SDFAA_HINTED：使用更快但不太准确的 SDF 生成模式渲染图集，并将字符像素与纹理像素对齐以获得更清晰的结果，它生成的字体图集足以满足大多数情况。</li>
-<li>SDFAA：使用更快但不太准确的 SDF 生成模式渲染图集，它生成的字体图集足以满足大多数情况。</li>
-</ul>
-<p>Get Kerning Pairs：启用此选项可从字体复制字距调整数据。</p>
-<p>Generate Font Atlas：我们把包含中文字体的文件拖入Characters from File中，然后点击此按钮开始生成</p>
-<p>3.生成后，如上面效果图<br>注意：字体越多，生成的时间越长…Packing Method还是选Fast吧，Optimum太慢了</p>
-<p>4.点击Save按钮保存</p>
-<p>5.现在就可以正常使用这个字体了</p>
-<h1 id="二、tmp创建字体报错"><a href="#二、tmp创建字体报错" class="headerlink" title="二、tmp创建字体报错:"></a>二、tmp创建字体报错:</h1><p><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image.png" alt="alt text"></p>
-<p>问题原因:</p>
-<ul>
-<li>字体贴图空间不足</li>
-</ul>
-<p>字体贴图的分辨率（Font Atlas Resolution）不够大，无法容纳所有字符。</p>
-<p>生成 3000 字符所需的贴图分辨率和时间较低，一般<code>1024x1024</code> 或<code>2048x2048</code> 即可完成。</p>
-<p>生成 7000 字符可能需要<code>4096x4096</code> 或更高分辨率，耗时更长。</p>
-<ul>
-<li>字符范围太大</li>
-</ul>
-<p>您可能尝试一次性添加过多的字符，例如一个完整的 Unicode 中文字符集。</p>
-<ul>
-<li>字体文件不支持这些字符</li>
-</ul>
-<p>使用的字体文件可能并未包含这些特定的字符。</p>
-<ul>
-<li>渲染模式设置不当</li>
-</ul>
-<p>当前的 Render Mode 设置可能导致字体生成失败。</p>
-<hr>
-<ul>
-<li><strong>选择 3000 汉字：</strong><ul>
-<li>如果项目是游戏、日常应用或现代场景，3000 字足够使用。</li>
-<li>性能优先的项目，如 WebGL、移动端、嵌入式系统。</li>
-</ul>
-</li>
-<li><strong>选择 7000 汉字：</strong><ul>
-<li>如果项目需要显示古文、法律文书或覆盖专业领域的特殊字符。</li>
-<li>针对高性能设备或专业场景，如 PC 端应用、大型屏幕展示。</li>
-</ul>
-</li>
-</ul>
-<p>汉字集下载：</p>
-<p><a href="https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set">https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set</a></p>
-]]></content>
-      <categories>
-        <category>unity</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>tmp</tag>
       </tags>
   </entry>
   <entry>
