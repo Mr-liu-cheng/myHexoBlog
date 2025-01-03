@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>butterfly 禁用头像旋转</title>
+    <url>/2024/12/16/butterfly-%E7%A6%81%E7%94%A8%E5%A4%B4%E5%83%8F%E6%97%8B%E8%BD%AC/</url>
+    <content><![CDATA[<p>当鼠标移到侧边栏头像上时，头像会播放旋转动效，要想禁用可以找到<br>themes\butterfly\source\css_layout\aside.styl文件并按照如下对transform: unset修改即可完成动效屏蔽。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.avatar-img</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden</span><br><span class="line">  margin: <span class="number">0</span> auto</span><br><span class="line">  width: <span class="number">110px</span></span><br><span class="line">  height: <span class="number">110px</span></span><br><span class="line">  border-radius: <span class="number">70px</span></span><br><span class="line"></span><br><span class="line">  img</span><br><span class="line">    width: <span class="number">100%</span></span><br><span class="line">    height: <span class="number">100%</span></span><br><span class="line">    transition: filter <span class="number">375ms</span> ease-in .<span class="number">2s</span>, transform .<span class="number">3s</span></span><br><span class="line">    object-fit: cover</span><br><span class="line"></span><br><span class="line">    &amp;:hover</span><br><span class="line">      transform: unset</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>butterfly</category>
+      </categories>
+      <tags>
+        <tag>butterfly</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git修改历史提交</title>
     <url>/2024/12/09/git%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</url>
     <content><![CDATA[<h1 id="git-reset命令"><a href="#git-reset命令" class="headerlink" title="git reset命令"></a>git reset命令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --soft 29f9bbd77da69902335cad77a12eac7b022b9f63</span><br></pre></td></tr></table></figure>
@@ -213,135 +225,11 @@
   <entry>
     <title>git学习</title>
     <url>/2024/12/11/git%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><img src="https://mr-liu-cheng.github.io/2024/12/11/git%E5%AD%A6%E4%B9%A0/image.png" alt="alt text"></p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git无法访问外网</title>
-    <url>/2024/12/31/git%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%A4%96%E7%BD%91/</url>
-    <content><![CDATA[<h2 id="事情经过"><a href="#事情经过" class="headerlink" title="事情经过"></a>事情经过</h2><p>使用vscode git 提交代码和 hexo d时</p>
-<p>莫名其妙出现 github ssh 22端口无法访问的情况：</p>
-<p>尝试过切换成443端口<br>使用https访问远程，但是github客户端可以访问</p>
-<p>怀疑是网络问题，没添加代理：</p>
-<p>给vscode添加代理<br>给git添加代理</p>
-<p>怀疑clash for windows 没开系统代理或者规则错误：</p>
-<p>开启 system proxy<br>启用 global 规则</p>
-<p>使用vscode、 cmd 、powershell和git ping Google.com 和 ping github.com都无效，只能ping 国内网站。</p>
-<p>使用git bash clone 远程仓库一般都是没问题的，但是还是失败了，</p>
-<p>致使明白翻墙工具的系统代理没开成功，遂比较另一台电脑，执行ping Google.com可以，对比翻墙工具的设置，</p>
-<p>找到罪魁祸首是：tun mode</p>
-<hr>
-<h2 id="Clash-for-Windows-的-TUN-模式是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明："><a href="#Clash-for-Windows-的-TUN-模式是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明：" class="headerlink" title="Clash for Windows 的 TUN 模式是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明："></a>Clash for Windows 的 TUN 模式是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明：</h2><p><strong>什么是 TUN 模式？</strong><br>TUN 模式是基于操作系统的虚拟网络接口（TUN&#x2F;TAP）的工作方式，用于拦截和重定向网络流量。通过 TUN 模式，Clash 可以透明地代理应用程序的流量，而无需每个应用程序单独设置代理。</p>
-<ul>
-<li><p><strong>TUN 的工作原理</strong> ：</p>
-<ul>
-<li><p>它创建一个虚拟网卡，接收系统的所有网络流量。</p>
-</li>
-<li><p>根据 Clash 的代理规则，对网络请求进行分流或直接代理。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>与系统代理的区别</strong> ：</p>
-<ul>
-<li><p>系统代理需要应用程序支持 HTTP&#x2F;HTTPS 或 SOCKS 协议，并手动配置代理。</p>
-</li>
-<li><p>TUN 模式可以自动拦截所有网络请求，适用于不支持代理配置的程序（如部分游戏或终端工具）。</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p><strong>TUN 模式对系统代理的影响</strong> <strong>为什么影响系统代理？</strong>  </p>
-<ol>
-<li><strong>默认拦截所有流量</strong> ：</li>
-</ol>
-<ul>
-<li>TUN 模式接管了系统的大部分网络流量，可能会导致一些程序不再使用系统代理。</li>
-</ul>
-<ol start="2">
-<li><strong>规则优先级问题</strong> ：</li>
-</ol>
-<ul>
-<li>如果 Clash 的规则设置不正确，可能导致部分流量未能正确代理或被错误路由。</li>
-</ul>
-<ol start="3">
-<li><strong>与其他代理冲突</strong> ：</li>
-</ol>
-<ul>
-<li><p>如果系统已经配置了其他代理设置，TUN 模式可能会导致冲突，从而影响代理功能。<br><strong>常见问题</strong>  </p>
-</li>
-<li><p><strong>系统代理无效</strong> ：TUN 模式可能覆盖了系统代理设置。</p>
-</li>
-<li><p><strong>部分应用程序无法联网</strong> ：TUN 模式可能未正确配置分流规则，导致流量被错误处理。</p>
-</li>
-</ul>
-<hr>
-<p><strong>解决方法</strong> <strong>启用 TUN 模式的正确方式</strong> </p>
-<ol>
-<li><p>打开 Clash for Windows。</p>
-</li>
-<li><p>在设置中启用 TUN 模式：</p>
-</li>
-</ol>
-<ul>
-<li><strong>General &gt; TUN Mode</strong>  勾选开启。</li>
-</ul>
-<ol start="3">
-<li>确保 DNS 设置启用：</li>
-</ol>
-<ul>
-<li>在 <strong>DNS Settings</strong>  中启用 “Enable”。<br><strong>调整代理规则</strong></li>
-</ul>
-<ol>
-<li>确保规则优先级正确：</li>
-</ol>
-<ul>
-<li><p>例如： </p>
-<ul>
-<li><p>将 <code>Direct</code> 设置为默认策略。</p>
-</li>
-<li><p>对需要代理的流量（如 GitHub）添加规则，强制走代理。</p>
-</li>
-</ul>
-</li>
-<li><p>检查规则文件是否准确无误（可以通过日志查看流量是否正确路由）。</p>
-</li>
-</ul>
-<ol start="2">
-<li>测试网络连接：</li>
-</ol>
-<ul>
-<li>通过命令行测试：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -I https://github.com</span><br></pre></td></tr></table></figure>
-<p><strong>关闭 TUN 模式（如果不需要）</strong>  </p>
-<ul>
-<li>如果系统代理已经满足需求，可以关闭 TUN 模式：<ol>
-<li><p>打开 Clash 设置。</p>
-</li>
-<li><p>取消勾选 <strong>TUN Mode</strong> 。</p>
-</li>
-<li><p>确保 <strong>System Proxy</strong>  启用。</p>
-</li>
-</ol>
-</li>
-</ul>
-<hr>
-<p><strong>TUN 模式的适用场景</strong> </p>
-<ul>
-<li><p>用于拦截不支持手动代理配置的程序流量。</p>
-</li>
-<li><p>适用于需要全局透明代理的环境，如部分终端工具或游戏。</p>
-</li>
-</ul>
-<hr>
-<p>如果您遇到具体问题，例如 TUN 模式导致的网络异常，可以提供更详细的信息，我会帮助您进一步排查和优化配置。</p>
+    <content><![CDATA[<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p><img src="https://mr-liu-cheng.github.io/2024/12/11/git%E5%AD%A6%E4%B9%A0/image.png" alt="alt text"></p>
+<p><img src="https://mr-liu-cheng.github.io/2024/12/11/git%E5%AD%A6%E4%B9%A0/image-1.png" alt="alt text"><br><img src="https://mr-liu-cheng.github.io/2024/12/11/git%E5%AD%A6%E4%B9%A0/image-2.png" alt="alt text"></p>
+<h2 id="git文件的三种状态"><a href="#git文件的三种状态" class="headerlink" title="git文件的三种状态"></a>git文件的三种状态</h2><p>已修改(modified)<br>已经修改了工作区的某些文件。</p>
+<p>已暂存(staged)<br>已经执行了add操作，但还没有提交，只是暂存在提交清单里。</p>
+<p>已提交(commited)<br>已经提交到本地仓库里，但还没push到远端仓库。<br><img src="https://mr-liu-cheng.github.io/2024/12/11/git%E5%AD%A6%E4%B9%A0/image-3.png" alt="alt text"><br><a href="https://cycle263.github.io/blogs/team/git/advanced.html">参考资料</a></p>
 ]]></content>
       <categories>
         <category>git</category>
@@ -393,18 +281,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>butterfly 禁用头像旋转</title>
-    <url>/2024/12/16/butterfly-%E7%A6%81%E7%94%A8%E5%A4%B4%E5%83%8F%E6%97%8B%E8%BD%AC/</url>
-    <content><![CDATA[<p>当鼠标移到侧边栏头像上时，头像会播放旋转动效，要想禁用可以找到<br>themes\butterfly\source\css_layout\aside.styl文件并按照如下对transform: unset修改即可完成动效屏蔽。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.avatar-img</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden</span><br><span class="line">  margin: <span class="number">0</span> auto</span><br><span class="line">  width: <span class="number">110px</span></span><br><span class="line">  height: <span class="number">110px</span></span><br><span class="line">  border-radius: <span class="number">70px</span></span><br><span class="line"></span><br><span class="line">  img</span><br><span class="line">    width: <span class="number">100%</span></span><br><span class="line">    height: <span class="number">100%</span></span><br><span class="line">    transition: filter <span class="number">375ms</span> ease-in .<span class="number">2s</span>, transform .<span class="number">3s</span></span><br><span class="line">    object-fit: cover</span><br><span class="line"></span><br><span class="line">    &amp;:hover</span><br><span class="line">      transform: unset</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>butterfly</category>
-      </categories>
-      <tags>
-        <tag>butterfly</tag>
       </tags>
   </entry>
   <entry>
@@ -555,21 +431,11 @@
     <title>hexo添加标签样式</title>
     <url>/2024/12/15/hexo%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE%E6%A0%B7%E5%BC%8F/</url>
     <content><![CDATA[<p>在 <strong>Hexo Butterfly</strong>  主题中，由于 Markdown 文件中的代码会经过 Hexo 的解析后转换为 HTML，而 HTML 的样式需要依赖主题中的 CSS 文件，直接嵌入的 TailwindCSS 或自定义 CSS 可能无法生效。如果你希望在 Hexo 中生效样式，可以尝试以下方法：</p>
-<hr>
-<p><strong>解决方法 1：使用行内样式 (style 属性)</strong> 在 Hexo Markdown 中，直接使用 HTML 的 <code>style</code> 属性为每个标签设置样式。这种方法不依赖外部 CSS 文件，可以确保样式生效。</p>
-<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Next<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Plasmo<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Typescript<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Supabase<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>TailwindCSS<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="解决方法-1：使用行内样式-style-属性"><a href="#解决方法-1：使用行内样式-style-属性" class="headerlink" title="解决方法 1：使用行内样式 (style 属性)"></a>解决方法 1：使用行内样式 (style 属性)</h2><p>在 Hexo Markdown 中，直接使用 HTML 的 <code>style</code> 属性为每个标签设置样式。这种方法不依赖外部 CSS 文件，可以确保样式生效。<br>示例： </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span>Next<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span>Plasmo<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span>Typescript<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span>Supabase<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span>TailwindCSS<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h4><ul>
-<li><p>浅蓝色背景：<code>background-color: #e0f7fa;</code></p>
-</li>
-<li><p>圆角：<code>border-radius: 999px;</code></p>
-</li>
-<li><p>字体颜色：<code>color: #006064;</code></p>
-</li>
-</ul>
-<hr>
-<p><strong>解决方法 2：在主题配置中添加自定义 CSS</strong> </p>
-<h4 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h4><ol>
+<h2 id="解决方法-2：在主题配置中添加自定义-CSS"><a href="#解决方法-2：在主题配置中添加自定义-CSS" class="headerlink" title="解决方法 2：在主题配置中添加自定义 CSS"></a>解决方法 2：在主题配置中添加自定义 CSS</h2><p>步骤：</p>
+<ol>
 <li><p><strong>找到 Butterfly 主题的 CSS 文件：</strong><br>通常在 <code>source/css/_custom.css</code> 或 <code>source/_data/styles.styl</code> 中可以添加自定义样式。</p>
 </li>
 <li><p><strong>添加样式：</strong></p>
@@ -579,46 +445,14 @@
 <ol start="3">
 <li><strong>在 Markdown 文件中使用：</strong></li>
 </ol>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Next&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Plasmo&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Typescript&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Supabase&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;TailwindCSS&lt;/span&gt;</span></span><br><span class="line"><span class="code">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag&quot;</span>&gt;</span>Next<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag&quot;</span>&gt;</span>Plasmo<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag&quot;</span>&gt;</span>Typescript<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag&quot;</span>&gt;</span>Supabase<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag&quot;</span>&gt;</span>TailwindCSS<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="效果：-1"><a href="#效果：-1" class="headerlink" title="效果："></a>效果：</h4><p>这样，所有添加了 <code>tag</code> 类的标签都会应用自定义的样式。</p>
-<hr>
-<p>**在 <strong>Hexo Butterfly</strong>  主题中，由于 Markdown 文件中的代码会经过 Hexo 的解析后转换为 HTML，而 HTML 的样式需要依赖主题中的 CSS 文件，直接嵌入的 TailwindCSS 或自定义 CSS 可能无法生效。如果你希望在 Hexo 中生效样式，可以尝试以下方法：</p>
-<hr>
-<p><strong>解决方法 1：使用行内样式 (style 属性)</strong> 在 Hexo Markdown 中，直接使用 HTML 的 <code>style</code> 属性为每个标签设置样式。这种方法不依赖外部 CSS 文件，可以确保样式生效。</p>
-<h4 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Next<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Plasmo<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Typescript<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Supabase<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>TailwindCSS<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="解决方法-3：使用-Hexo-的-标签"><a href="#解决方法-3：使用-Hexo-的-标签" class="headerlink" title="解决方法 3：使用 Hexo 的 &lt;style&gt; 标签"></a>解决方法 3：使用 Hexo 的 <code>&lt;style&gt;</code> 标签</h2><p>如果不想全局修改，只想在某一篇文章中生效样式，可以直接在 Markdown 文件中添加 <code>&lt;style&gt;</code> 标签。<br>示例： </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.skill-tags</span> <span class="selector-class">.tag</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background-color</span>: <span class="number">#e0f7fa</span>; <span class="comment">/* 浅蓝色背景 */</span></span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#006064</span>; <span class="comment">/* 深蓝色文字 */</span></span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">0.875rem</span>; <span class="comment">/* 文字大小 */</span></span></span><br><span class="line"><span class="language-css">    <span class="attribute">padding</span>: <span class="number">4px</span> <span class="number">12px</span>; <span class="comment">/* 内边距 */</span></span></span><br><span class="line"><span class="language-css">    <span class="attribute">border-radius</span>: <span class="number">999px</span>; <span class="comment">/* 圆角背景 */</span></span></span><br><span class="line"><span class="language-css">    <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag&quot;</span>&gt;</span>Next<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag&quot;</span>&gt;</span>Plasmo<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag&quot;</span>&gt;</span>Typescript<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag&quot;</span>&gt;</span>Supabase<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag&quot;</span>&gt;</span>TailwindCSS<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="效果：-2"><a href="#效果：-2" class="headerlink" title="效果："></a>效果：</h4><ul>
-<li><p>浅蓝色背景：<code>background-color: #e0f7fa;</code></p>
-</li>
-<li><p>圆角：<code>border-radius: 999px;</code></p>
-</li>
-<li><p>字体颜色：<code>color: #006064;</code></p>
-</li>
-</ul>
-<hr>
-<p><strong>解决方法 2：在主题配置中添加自定义 CSS</strong> </p>
-<h4 id="步骤：-1"><a href="#步骤：-1" class="headerlink" title="步骤："></a>步骤：</h4><ol>
-<li><p><strong>找到 Butterfly 主题的 CSS 文件：</strong><br>通常在 <code>source/css/_custom.css</code> 或 <code>source/_data/styles.styl</code> 中可以添加自定义样式。</p>
-</li>
-<li><p><strong>添加样式：</strong></p>
-</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.skill-tags</span> <span class="selector-class">.tag</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e0f7fa</span>; <span class="comment">/* 浅蓝色背景 */</span></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#006064</span>; <span class="comment">/* 深蓝色文字 */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0.875rem</span>; <span class="comment">/* 文字大小 */</span></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">4px</span> <span class="number">12px</span>; <span class="comment">/* 内边距 */</span></span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">999px</span>; <span class="comment">/* 圆角背景 */</span></span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><strong>在 Markdown 文件中使用：</strong></li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Next&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Plasmo&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Typescript&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Supabase&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;TailwindCSS&lt;/span&gt;</span></span><br><span class="line"><span class="code">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="效果：-3"><a href="#效果：-3" class="headerlink" title="效果："></a>效果：</h4><p>这样，所有添加了 <code>tag</code> 类的标签都会应用自定义的样式。</p>
-<hr>
-<p>解决方法 3：使用 Hexo 的 <code>&lt;style&gt;</code> 标签** 如果不想全局修改，只想在某一篇文章中生效样式，可以直接在 Markdown 文件中添加 <code>&lt;style&gt;</code> 标签。</p>
-<h4 id="示例：-2"><a href="#示例：-2" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line">.skill-tags .tag &#123;</span><br><span class="line"><span class="code">    background-color: #e0f7fa; /* 浅蓝色背景 */</span></span><br><span class="line"><span class="code">    color: #006064; /* 深蓝色文字 */</span></span><br><span class="line"><span class="code">    font-size: 0.875rem; /* 文字大小 */</span></span><br><span class="line"><span class="code">    padding: 4px 12px; /* 内边距 */</span></span><br><span class="line"><span class="code">    border-radius: 999px; /* 圆角背景 */</span></span><br><span class="line"><span class="code">    display: inline-block;</span></span><br><span class="line"><span class="code">    text-align: center;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="language-xml"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span></span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Next&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Plasmo&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Typescript&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Supabase&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;TailwindCSS&lt;/span&gt;</span></span><br><span class="line"><span class="code">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p><code>&lt;style&gt;</code> 标签必须写在文章的 HTML 部分中，不能直接用在纯 Markdown 语法中。</p>
-<hr>
-<p><strong>解决方法 4：通过 Butterfly 的自定义组件功能</strong> Butterfly 主题支持自定义 <code>shortcode</code> 或 <strong>Nunjucks 模板</strong> ，可以在配置中添加一个通用组件。</p>
-<h4 id="步骤：-2"><a href="#步骤：-2" class="headerlink" title="步骤："></a>步骤：</h4><ol>
+<p>注意：<br><code>&lt;style&gt;</code> 标签必须写在文章的 HTML 部分中，不能直接用在纯 Markdown 语法中。</p>
+<h2 id="解决方法-4：通过-Butterfly-的自定义组件功能"><a href="#解决方法-4：通过-Butterfly-的自定义组件功能" class="headerlink" title="解决方法 4：通过 Butterfly 的自定义组件功能"></a>解决方法 4：通过 Butterfly 的自定义组件功能</h2><p> Butterfly 主题支持自定义 <code>shortcode</code> 或 <strong>Nunjucks 模板</strong> ，可以在配置中添加一个通用组件。<br>步骤：</p>
+<ol>
 <li><p><strong>在 Butterfly 的 <code>source/_data</code> 中创建 <code>custom.swig</code> 文件（如果不存在）。</strong></p>
 </li>
 <li><p><strong>定义一个标签模板：</strong></p>
@@ -630,130 +464,26 @@
 </ol>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% custom skills=[&quot;Next&quot;, &quot;Plasmo&quot;, &quot;Typescript&quot;, &quot;Supabase&quot;, &quot;TailwindCSS&quot;] %&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="效果：-4"><a href="#效果：-4" class="headerlink" title="效果："></a>效果：</h4><p>通过自定义模板管理，减少重复写 HTML 代码。</p>
+<p><strong>总结</strong> </p>
 <hr>
-<p><strong>总结</strong><br>如果样式完全无法生效，建议先检查以下内容：</p>
+<p>如果样式完全无法生效，建议先检查以下内容：</p>
 <ol>
 <li><p>Markdown 文件是否启用了 HTML 渲染（Hexo 默认支持）。</p>
 </li>
 <li><p>自定义样式是否被主题的全局样式覆盖，可以用浏览器调试工具检查。</p>
 </li>
-<li><p>如果是 TailwindCSS，确保它已集成到 Butterfly 主题中。<br>优先推荐 <strong>方法 2（主题配置中添加 CSS）</strong>  或 **在 <strong>Hexo Butterfly</strong>  主题中，由于 Markdown 文件中的代码会经过 Hexo 的解析后转换为 HTML，而 HTML 的样式需要依赖主题中的 CSS 文件，直接嵌入的 TailwindCSS 或自定义 CSS 可能无法生效。如果你希望在 Hexo 中生效样式，可以尝试以下方法：</p>
+<li><p>如果是 TailwindCSS，确保它已集成到 Butterfly 主题中。优先推荐 <strong>方法 2</strong>（主题配置中添加 CSS）或 <strong>方法 3</strong>（文章中嵌入 <code>&lt;style&gt;</code> 标签），这些方法既灵活又能避免重复代码。</p>
 </li>
 </ol>
-<hr>
-<p><strong>解决方法 1：使用行内样式 (style 属性)</strong> 在 Hexo Markdown 中，直接使用 HTML 的 <code>style</code> 属性为每个标签设置样式。这种方法不依赖外部 CSS 文件，可以确保样式生效。</p>
-<h4 id="示例：-3"><a href="#示例：-3" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Next<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Plasmo<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Typescript<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Supabase<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>TailwindCSS<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<h4 id="效果：-5"><a href="#效果：-5" class="headerlink" title="效果："></a>效果：</h4><ul>
-<li><p>浅蓝色背景：<code>background-color: #e0f7fa;</code></p>
-</li>
-<li><p>圆角：<code>border-radius: 999px;</code></p>
-</li>
-<li><p>字体颜色：<code>color: #006064;</code></p>
-</li>
-</ul>
-<hr>
-<p><strong>解决方法 2：在主题配置中添加自定义 CSS</strong> </p>
-<h4 id="步骤：-3"><a href="#步骤：-3" class="headerlink" title="步骤："></a>步骤：</h4><ol>
-<li><p><strong>找到 Butterfly 主题的 CSS 文件：</strong><br>通常在 <code>source/css/_custom.css</code> 或 <code>source/_data/styles.styl</code> 中可以添加自定义样式。</p>
-</li>
-<li><p><strong>添加样式：</strong></p>
-</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.skill-tags</span> <span class="selector-class">.tag</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e0f7fa</span>; <span class="comment">/* 浅蓝色背景 */</span></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#006064</span>; <span class="comment">/* 深蓝色文字 */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0.875rem</span>; <span class="comment">/* 文字大小 */</span></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">4px</span> <span class="number">12px</span>; <span class="comment">/* 内边距 */</span></span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">999px</span>; <span class="comment">/* 圆角背景 */</span></span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><strong>在 Markdown 文件中使用：</strong></li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Next&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Plasmo&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Typescript&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Supabase&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;TailwindCSS&lt;/span&gt;</span></span><br><span class="line"><span class="code">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="效果：-6"><a href="#效果：-6" class="headerlink" title="效果："></a>效果：</h4><p>这样，所有添加了 <code>tag</code> 类的标签都会应用自定义的样式。</p>
-<hr>
-<p>**在 <strong>Hexo Butterfly</strong>  主题中，由于 Markdown 文件中的代码会经过 Hexo 的解析后转换为 HTML，而 HTML 的样式需要依赖主题中的 CSS 文件，直接嵌入的 TailwindCSS 或自定义 CSS 可能无法生效。如果你希望在 Hexo 中生效样式，可以尝试以下方法：</p>
-<hr>
-<p><strong>解决方法 1：使用行内样式 (style 属性)</strong> 在 Hexo Markdown 中，直接使用 HTML 的 <code>style</code> 属性为每个标签设置样式。这种方法不依赖外部 CSS 文件，可以确保样式生效。</p>
-<h4 id="示例：-4"><a href="#示例：-4" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Next<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Plasmo<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Typescript<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>Supabase<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;</span>&gt;</span></span>TailwindCSS<span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<h4 id="效果：-7"><a href="#效果：-7" class="headerlink" title="效果："></a>效果：</h4><ul>
-<li><p>浅蓝色背景：<code>background-color: #e0f7fa;</code></p>
-</li>
-<li><p>圆角：<code>border-radius: 999px;</code></p>
-</li>
-<li><p>字体颜色：<code>color: #006064;</code></p>
-</li>
-</ul>
-<hr>
-<p><strong>解决方法 2：在主题配置中添加自定义 CSS</strong> </p>
-<h4 id="步骤：-4"><a href="#步骤：-4" class="headerlink" title="步骤："></a>步骤：</h4><ol>
-<li><p><strong>找到 Butterfly 主题的 CSS 文件：</strong><br>通常在 <code>source/css/_custom.css</code> 或 <code>source/_data/styles.styl</code> 中可以添加自定义样式。</p>
-</li>
-<li><p><strong>添加样式：</strong></p>
-</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.skill-tags</span> <span class="selector-class">.tag</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e0f7fa</span>; <span class="comment">/* 浅蓝色背景 */</span></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#006064</span>; <span class="comment">/* 深蓝色文字 */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0.875rem</span>; <span class="comment">/* 文字大小 */</span></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">4px</span> <span class="number">12px</span>; <span class="comment">/* 内边距 */</span></span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">999px</span>; <span class="comment">/* 圆角背景 */</span></span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><strong>在 Markdown 文件中使用：</strong></li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Next&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Plasmo&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Typescript&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Supabase&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;TailwindCSS&lt;/span&gt;</span></span><br><span class="line"><span class="code">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="效果：-8"><a href="#效果：-8" class="headerlink" title="效果："></a>效果：</h4><p>这样，所有添加了 <code>tag</code> 类的标签都会应用自定义的样式。</p>
-<hr>
-<p>解决方法 3：使用 Hexo 的 <code>&lt;style&gt;</code> 标签** 如果不想全局修改，只想在某一篇文章中生效样式，可以直接在 Markdown 文件中添加 <code>&lt;style&gt;</code> 标签。</p>
-<h4 id="示例：-5"><a href="#示例：-5" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line">.skill-tags .tag &#123;</span><br><span class="line"><span class="code">    background-color: #e0f7fa; /* 浅蓝色背景 */</span></span><br><span class="line"><span class="code">    color: #006064; /* 深蓝色文字 */</span></span><br><span class="line"><span class="code">    font-size: 0.875rem; /* 文字大小 */</span></span><br><span class="line"><span class="code">    padding: 4px 12px; /* 内边距 */</span></span><br><span class="line"><span class="code">    border-radius: 999px; /* 圆角背景 */</span></span><br><span class="line"><span class="code">    display: inline-block;</span></span><br><span class="line"><span class="code">    text-align: center;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="language-xml"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;skill-tags&quot;</span>&gt;</span></span></span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Next&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Plasmo&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Typescript&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;Supabase&lt;/span&gt;</span></span><br><span class="line"><span class="code">    &lt;span class=&quot;tag&quot;&gt;TailwindCSS&lt;/span&gt;</span></span><br><span class="line"><span class="code">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h4><p><code>&lt;style&gt;</code> 标签必须写在文章的 HTML 部分中，不能直接用在纯 Markdown 语法中。</p>
-<hr>
-<p><strong>解决方法 4：通过 Butterfly 的自定义组件功能</strong> Butterfly 主题支持自定义 <code>shortcode</code> 或 <strong>Nunjucks 模板</strong> ，可以在配置中添加一个通用组件。</p>
-<h4 id="步骤：-5"><a href="#步骤：-5" class="headerlink" title="步骤："></a>步骤：</h4><ol>
-<li><p><strong>在 Butterfly 的 <code>source/_data</code> 中创建 <code>custom.swig</code> 文件（如果不存在）。</strong></p>
-</li>
-<li><p><strong>定义一个标签模板：</strong></p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% for skill in skills %&#125;</span><br><span class="line">    &lt;span class=&quot;tag&quot; style=&quot;background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;&quot;&gt;&#123;&#123; skill &#125;&#125;&lt;/span&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><strong>在 Markdown 文件中使用：</strong></li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% custom skills=[&quot;Next&quot;, &quot;Plasmo&quot;, &quot;Typescript&quot;, &quot;Supabase&quot;, &quot;TailwindCSS&quot;] %&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="效果：-9"><a href="#效果：-9" class="headerlink" title="效果："></a>效果：</h4><p>通过自定义模板管理，减少重复写 HTML 代码。</p>
-<hr>
-<p><strong>总结</strong><br>如果样式完全无法生效，建议先检查以下内容：</p>
-<ol>
-<li><p>Markdown 文件是否启用了 HTML 渲染（Hexo 默认支持）。</p>
-</li>
-<li><p>自定义样式是否被主题的全局样式覆盖，可以用浏览器调试工具检查。</p>
-</li>
-<li><p>如果是 TailwindCSS，确保它已集成到 Butterfly 主题中。<br>优先推荐 <strong>方法 2（主题配置中添加 CSS）</strong>  或 方法 3（文章中嵌入 <code>&lt;style&gt;</code> 标签）** ，这些方法既灵活又能避免重复代码。</p>
-</li>
-</ol>
-<hr>
-<hr>
+<blockquote>
+<p>样式效果</p>
+</blockquote>
 <div class="skill-tags">
     <span style="background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;">效果一</span>
     <span style="background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;">Plasmo</span>
     <span style="background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;">Typescript</span>
     <span style="background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;">Supabase</span>
     <span style="background-color: #e0f7fa; color: #006064; padding: 4px 12px; border-radius: 999px; display: inline-block; text-align: center;">TailwindCSS</span>
-  </div>
-  <style>
-.skill-tags .tag {
-  background-color: #e0f7fa; /* 浅蓝色背景 */
-  color: #006064; /* 深蓝色文字 */
-  font-size: 0.875rem; /* 文字大小 */
-  padding: 4px 12px; /* 内边距 */
-  border-radius: 999px; /* 圆角背景 */
-  display: inline-block;
-  text-align: center;
-}
-</style>
-
-<div class="skill-tags">
-  <span class="tag">效果二</span>
-  <span class="tag">Plasmo</span>
-  <span class="tag">Typescript</span>
-  <span class="tag">Supabase</span>
-  <span class="tag">TailwindCSS</span>
 </div>]]></content>
       <categories>
         <category>hexo</category>
@@ -838,7 +568,9 @@
 <li><p><strong><code>auto-fill</code></strong> : 尽可能填满容器，即使某些列是“空的”，也会在容器内保留这些占位列。</p>
 </li>
 </ul>
-<h2 id="repeat-auto-fit-minmax-250px-1fr"><a href="#repeat-auto-fit-minmax-250px-1fr" class="headerlink" title="repeat(auto-fit, minmax(250px, 1fr)) "></a><code>repeat(auto-fit, minmax(250px, 1fr))</code> </h2><ul>
+<p><code>repeat(auto-fit, minmax(250px, 1fr))</code> </p>
+<hr>
+<ul>
 <li>重点是“<strong>压缩列数</strong> ”：如果列宽足够，未使用的列会被移除，只有实际需要的列保留。</li>
 <li>剩余空间会被现有列均分。</li>
 <li>只生成实际需要的列，不创建空列。</li>
@@ -846,7 +578,9 @@
 </ul>
 <br>
 
-<h2 id="repeat-auto-fill-minmax-250px-1fr"><a href="#repeat-auto-fill-minmax-250px-1fr" class="headerlink" title="repeat(auto-fill, minmax(250px, 1fr)) "></a><code>repeat(auto-fill, minmax(250px, 1fr))</code> </h2><ul>
+<p><code>repeat(auto-fill, minmax(250px, 1fr))</code> </p>
+<hr>
+<ul>
 <li>重点是“<strong>填满容器</strong> ”：尝试创建更多列，即使其中部分列没有内容（生成“空列”作为占位）。</li>
 <li>剩余空间会均分到所有列（包括空列）。</li>
 <li>列总数 &#x3D; <strong>容器能容纳的最大列数</strong> 。</li>
@@ -893,14 +627,142 @@
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>butterfly</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git无法访问外网</title>
+    <url>/2024/12/31/git%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%A4%96%E7%BD%91/</url>
+    <content><![CDATA[<h2 id="事情经过"><a href="#事情经过" class="headerlink" title="事情经过"></a>事情经过</h2><p>使用vscode git 提交代码和 hexo d时</p>
+<p>莫名其妙出现 github ssh 22端口无法访问的情况：</p>
+<p>尝试过切换成443端口<br>使用https访问远程，但是github客户端可以访问</p>
+<p>怀疑是网络问题，没添加代理：</p>
+<p>给vscode添加代理<br>给git添加代理</p>
+<p>怀疑clash for windows 没开系统代理或者规则错误：</p>
+<p>开启 system proxy<br>启用 global 规则</p>
+<p>使用vscode、 cmd 、powershell和git ping Google.com 和 ping github.com都无效，只能ping 国内网站。</p>
+<p>使用git bash clone 远程仓库一般都是没问题的，但是还是失败了，</p>
+<p>致使明白翻墙工具的系统代理没开成功，遂比较另一台电脑，执行ping Google.com可以，对比翻墙工具的设置，</p>
+<p>找到罪魁祸首是：tun mode</p>
+<hr>
+<h2 id="Clash-for-Windows-的-TUN-模式"><a href="#Clash-for-Windows-的-TUN-模式" class="headerlink" title="Clash for Windows 的 TUN 模式"></a>Clash for Windows 的 TUN 模式</h2><p>是一种用于透明代理的高级功能，可以影响网络流量的路由方式。以下是详细说明：</p>
+<p><strong>什么是 TUN 模式？</strong><br>TUN 模式是基于操作系统的虚拟网络接口（TUN&#x2F;TAP）的工作方式，用于拦截和重定向网络流量。通过 TUN 模式，Clash 可以透明地代理应用程序的流量，而无需每个应用程序单独设置代理。</p>
+<ul>
+<li><p><strong>TUN 的工作原理</strong> ：</p>
+<ul>
+<li><p>它创建一个虚拟网卡，接收系统的所有网络流量。</p>
+</li>
+<li><p>根据 Clash 的代理规则，对网络请求进行分流或直接代理。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>与系统代理的区别</strong> ：</p>
+<ul>
+<li><p>系统代理需要应用程序支持 HTTP&#x2F;HTTPS 或 SOCKS 协议，并手动配置代理。</p>
+</li>
+<li><p>TUN 模式可以自动拦截所有网络请求，适用于不支持代理配置的程序（如部分游戏或终端工具）。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="TUN-模式对系统代理的影响-为什么影响系统代理？"><a href="#TUN-模式对系统代理的影响-为什么影响系统代理？" class="headerlink" title="TUN 模式对系统代理的影响 为什么影响系统代理？"></a><strong>TUN 模式对系统代理的影响</strong> <strong>为什么影响系统代理？</strong></h3><ol>
+<li><strong>默认拦截所有流量</strong> ：</li>
+</ol>
+<ul>
+<li>TUN 模式接管了系统的大部分网络流量，可能会导致一些程序不再使用系统代理。</li>
+</ul>
+<ol start="2">
+<li><strong>规则优先级问题</strong> ：</li>
+</ol>
+<ul>
+<li>如果 Clash 的规则设置不正确，可能导致部分流量未能正确代理或被错误路由。</li>
+</ul>
+<ol start="3">
+<li><strong>与其他代理冲突</strong> ：</li>
+</ol>
+<ul>
+<li><p>如果系统已经配置了其他代理设置，TUN 模式可能会导致冲突，从而影响代理功能。<br><strong>常见问题</strong>  </p>
+</li>
+<li><p><strong>系统代理无效</strong> ：TUN 模式可能覆盖了系统代理设置。</p>
+</li>
+<li><p><strong>部分应用程序无法联网</strong> ：TUN 模式可能未正确配置分流规则，导致流量被错误处理。</p>
+</li>
+</ul>
+<h3 id="解决方法-启用-TUN-模式的正确方式"><a href="#解决方法-启用-TUN-模式的正确方式" class="headerlink" title="解决方法 启用 TUN 模式的正确方式"></a><strong>解决方法</strong> <strong>启用 TUN 模式的正确方式</strong></h3><ol>
+<li><p>打开 Clash for Windows。</p>
+</li>
+<li><p>在设置中启用 TUN 模式：  <strong>General &gt; TUN Mode</strong>  勾选开启。</p>
+</li>
+<li><p>确保 DNS 设置启用：   在 <strong>DNS Settings</strong>  中启用 “Enable”。</p>
+</li>
+</ol>
+<p><strong>调整代理规则</strong>  </p>
+<ol>
+<li><p>确保规则优先级正确：</p>
+<p>  例如： </p>
+<ul>
+<li>将 <code>Direct</code> 设置为默认策略。</li>
+<li>对需要代理的流量（如 GitHub）添加规则，强制走代理。</li>
+</ul>
+</li>
+<li><p>检查规则文件是否准确无误（可以通过日志查看流量是否正确路由）。</p>
+</li>
+<li><p>测试网络连接：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ping https://github.com</span><br></pre></td></tr></table></figure>
+<p><strong>关闭 TUN 模式（如果不需要）</strong></p>
+</li>
+</ol>
+<ul>
+<li>如果系统代理已经满足需求，可以关闭 TUN 模式：<ol>
+<li>打开 Clash 设置。</li>
+<li>取消勾选 <strong>TUN Mode</strong> 。</li>
+<li>确保 <strong>System Proxy</strong>  启用。</li>
+</ol>
+</li>
+</ul>
+<p><strong>TUN 模式的适用场景</strong> </p>
+<ul>
+<li>用于拦截不支持手动代理配置的程序流量。</li>
+<li>适用于需要全局透明代理的环境，如部分终端工具或游戏。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>unity webGL 移动端 输入框无法弹出虚拟键盘</title>
+    <url>/2024/12/13/unity-webGL-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E8%BE%93%E5%85%A5%E6%A1%86%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98/</url>
+    <content><![CDATA[<ol>
+<li><p>去这个网站下载工程：</p>
+<p><a href="https://github.com/kou-yeung/WebGLInput">https://github.com/kou-yeung/WebGLInput</a></p>
+</li>
+<li><p>将下载工程中的WebGLSupport文件夹拷贝到自己的工程中</p>
+<p><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-webGL-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E8%BE%93%E5%85%A5%E6%A1%86%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98/20241213_141006_image.png"></p>
+</li>
+<li><p>将WebGLInput.cs组件添加到InputField组件挂载的对象上</p>
+</li>
+<li><p>勾选show html element 不然输入后不显示。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>unity</category>
+        <category>webGL</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>webGL</tag>
       </tags>
   </entry>
   <entry>
     <title>unity tmp中文显示</title>
     <url>/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<h1 id="一、创建tmp中文字体资源"><a href="#一、创建tmp中文字体资源" class="headerlink" title="一、创建tmp中文字体资源"></a>一、创建tmp中文字体资源</h1><p>1.<strong>选择Window&#x2F;TextMeshPro&#x2F;Font Asset Creator</strong></p>
+    <content><![CDATA[<h1 id="创建tmp中文字体资源"><a href="#创建tmp中文字体资源" class="headerlink" title="创建tmp中文字体资源"></a>创建tmp中文字体资源</h1><p>1.<strong>选择Window&#x2F;TextMeshPro&#x2F;Font Asset Creator</strong></p>
 <p>2.<strong>Font Asset Creator设置界面如图</strong><br><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image-1.png" alt="alt text"><br>Source Font File：拖入需要使用的字体</p>
 <ul>
 <li>Sampling Point Size：设置用于生成字体纹理的字体大小（以磅为单位）</li>
@@ -944,7 +806,7 @@
 <p>3.生成后，如上面效果图<br>注意：字体越多，生成的时间越长…Packing Method还是选Fast吧，Optimum太慢了</p>
 <p>4.点击Save按钮保存</p>
 <p>5.现在就可以正常使用这个字体了</p>
-<h1 id="二、tmp创建字体报错"><a href="#二、tmp创建字体报错" class="headerlink" title="二、tmp创建字体报错:"></a>二、tmp创建字体报错:</h1><p><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image.png" alt="alt text"></p>
+<h1 id="tmp创建字体报错"><a href="#tmp创建字体报错" class="headerlink" title="tmp创建字体报错:"></a>tmp创建字体报错:</h1><p><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-tmp%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA/image.png" alt="alt text"></p>
 <p>问题原因:</p>
 <ul>
 <li>字体贴图空间不足</li>
@@ -984,33 +846,8 @@
         <category>unity</category>
       </categories>
       <tags>
+        <tag>unity</tag>
         <tag>tmp</tag>
-        <tag>unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>unity webGL 移动端 输入框无法弹出虚拟键盘</title>
-    <url>/2024/12/13/unity-webGL-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E8%BE%93%E5%85%A5%E6%A1%86%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98/</url>
-    <content><![CDATA[<ol>
-<li>去这个网站下载工程：</li>
-</ol>
-<p><a href="https://github.com/kou-yeung/WebGLInput">https://github.com/kou-yeung/WebGLInput</a></p>
-<ol start="2">
-<li>将下载工程中的WebGLSupport文件夹拷贝到自己的工程中</li>
-</ol>
-<p><img src="https://mr-liu-cheng.github.io/2024/12/13/unity-webGL-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E8%BE%93%E5%85%A5%E6%A1%86%E6%97%A0%E6%B3%95%E5%BC%B9%E5%87%BA%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98/20241213_141006_image.png"></p>
-<ol>
-<li>将WebGLInput.cs组件添加到InputField组件挂载的对象上</li>
-<li>勾选show html element 不然输入后不显示。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>unity</category>
-        <category>webGL</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>webGL</tag>
       </tags>
   </entry>
   <entry>
